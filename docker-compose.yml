@@ -1,0 +1,41 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: globitel-qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    restart: unless-stopped
+
+  app:
+    build: .
+    container_name: globitel-app
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - hf_cache:/root/.cache/huggingface
+    depends_on:
+      - qdrant
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: globitel-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  qdrant_data:
+    name: globitel_qdrant_data
+  hf_cache:
+    name: globitel_hf_cache
+  ollama_data:
+    name: globitel_ollama_data

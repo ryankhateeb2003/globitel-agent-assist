@@ -1,0 +1,9 @@
+qdrant-client
+sentence-transformers
+beautifulsoup4
+python-docx
+pymupdf
+tiktoken
+groq
+fastapi
+uvicorn

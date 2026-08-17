@@ -1,0 +1,246 @@
+===== RAW (before) =====
+ Skip to main content
+توصيل مجاني
+Main navigation
+شخيص
+األعمال
+عن أورنج
+Englishالعربية
+ إكسرتاOrange
+Max it مكافآت
+ Accessibility
+switch
+الوضع المظلم
+A
+-
+A
+A
++
+Font size
+Englishالعربية
+حساب
+الرئيسية
+إنرتنت
+إنرتنت
+الكل
+عروض أورنج فايرب
+5G إنرتنت مزنلي
+ نِت وين ماكان4Gً
+عروض إنرتنت مدفوعة مسبقا
+خطوط الزوار
+إنرتنت األقمار الصناعية
+ADSL عروض الـ
+عروض الضمان
+خدمات االنرتنت
+OSN
+TOD
+أنغامي
+التحكم في األلعاب
+المزيد من الخدمات
+Apps Menu
+Orange Money
+Max it تطبيق
+خطوط الخلوي
+عروض الخلوي
+جميع الخطوط
+خطوط معاك
+خطوط حماة الوطن ماكس
+خطوط الزوار
+خدمات الخلوي
+المكالمات الدولية
+ •
+ •
+ •
+ •
+ •
+ •
+ •
+ •
+ ◦
+ ▪
+ ▪
+ ▪
+ ▪
+ ▪
+ ▪
+ ▪
+ ▪
+ ▪
+ ◦
+ ▪
+ ▪
+ ▪
+ ▪
+ ▪
+ ◦
+ ◦
+ •
+ ◦
+ ▪
+ ▪
+ ▪
+ ▪
+ ◦
+ ▪
+
+التجوال الدولي
+e-Sh7anli
+خدمات أخرى
+Apps Menu
+Orange Money
+Max it تطبيق
+األجهزة واالكسسوارات
+األجهزة واالكسسوارات
+الكل
+الهواتف الذكية
+إكسسوارات
+األجهزة القابلة لإلرتداء
+)(الساعات، سماعات الرأس والمزيد
+الرتفيه المزنلي
+)...(التليفزيون، السماعات، األلعاب
+أجهزة الالبتوب والتابلت
+الحياة الذكية
+)...(كامريات، مكنسة كهربائية
+أجهزة الشبكة
+األجهزة الخلوية
+Apple
+Samsung
+Xiaomi
+أجهزة أخرى
+Apps Menu
+Orange Money
+Max it تطبيق
+Max it
+Max it
+Max it عروض
+خطي
+Max it متجر
+Orange Money
+Max it مكافآت
+Apps Menu
+Orange Money
+Max it تطبيق
+Orange Money
+Orange Money
+Orange Money محفظة
+خدماتنا
+التسجيل الذاتي
+خصوماتنا
+رسوم وحدود المعامالتً
+األسئلة األكرث تكرارا
+Apps Menu
+Orange Money
+ ▪
+ ▪
+ ▪
+ ◦
+ ◦
+ •
+ ◦
+ ▪
+ ▪
+ ▪
+ ▪
+ ▪
+ ▪
+ ▪
+ ▪
+ ◦
+ ▪
+ ▪
+ ▪
+ ▪
+ ◦
+ ◦
+ •
+ ◦
+ ▪
+ ▪
+ ▪
+ ▪
+ ▪
+ ◦
+ ◦
+ •
+ ◦
+ ▪
+ ▪
+ ▪
+ ▪
+ ▪
+ ▪
+ ◦
+
+Max it تطبيق
+ًالمساعدة
+األسئلة األكرث تكرارا
+جميع األسئلة
+خطوط الخلوي
+ADSL الفايرب والـ
+المتجر اإللكرتوني
+Orange Money
+الدولي والتجوال
+طرق الدفع
+المزيد من المواضيع
+اتصل بنا
+Messenger
+اتصل بنا
+Instagram
+Whatsapp
+المعارض والتغطية
+البحث عن المعارض
+تغطية اإلنرتنت
+Apps Menu
+Orange Money
+Max it تطبيق
+Englishالعربية
+Englishالعربية
+Englishالعربية
+switch
+الوضع المظلم
+A
+-
+A
+A
++
+Font size
+حساب
+الدفع السريع / إعادة التعبئة
+Main navigation
+شخيص
+األعمال
+عن أورنج
+الرئيسية
+ ◦
+ •
+ ◦
+ ▪
+ ▪
+ ▪
+ ▪
+ ▪
+ ▪
+ ▪
+ ▪
+ ◦
+ ▪
+ ▪
+ ▪
+ ▪
+ ◦
+ ▪
+ ▪
+ ◦
+ ◦
+ •
+ •
+ •
+ ◦
+ ◦
+ ◦
+
+
+===== CLEAN (after) =====
+[REJECTED] PDF text appears corrupted/reordered (bidi failure): corpus\ar\mobile-lines.pdf. Similarity to matching HTML (mobile-lines.html) is 0.24, below the 0.5 threshold. Rejecting rather than ingesting garbled Arabic text.
+
+RAW_CHARS=11298  CLEAN_CHARS=0  STATUS=rejected

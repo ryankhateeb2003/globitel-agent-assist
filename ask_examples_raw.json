@@ -1,0 +1,318 @@
+[
+  {
+    "language": "en",
+    "question": "How can I use internet while roaming?",
+    "answer": "Turn on data roaming on your mobile and make sure that the access point name (APN) is set to net.orange.jo.",
+    "detected_language": "en",
+    "sources": [
+      "corpus/ar/international-roaming.html",
+      "corpus/en/international-roaming.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 537,
+      "completion_tokens": 28,
+      "total_tokens": 565
+    }
+  },
+  {
+    "language": "en",
+    "question": "What does it mean for me?",
+    "answer": "You will get much faster speeds, which are more suitable for sharing Internet access in your household. Unlike standard broadband, your speed is not determined by the distance from the local telephone exchange.",
+    "detected_language": "en",
+    "sources": [
+      "corpus/ar/international-roaming.html",
+      "corpus/ar/orange-money.docx",
+      "corpus/en/fiber-adsl.html",
+      "corpus/en/orange-money.docx",
+      "corpus/en/orange-money.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 408,
+      "completion_tokens": 38,
+      "total_tokens": 446
+    }
+  },
+  {
+    "language": "en",
+    "question": "Can I cancel an International Money transfer?",
+    "answer": "I don't have this information in the documentation. Please check with a supervisor or the relevant system.",
+    "detected_language": "en",
+    "sources": [
+      "corpus/en/orange-money.docx",
+      "corpus/en/orange-money.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 422,
+      "completion_tokens": 21,
+      "total_tokens": 443
+    }
+  },
+  {
+    "language": "en",
+    "question": "What is QR Payment?",
+    "answer": "QR Payment is a secure digital payment method provided by Orange Money that allows most smartphone cameras to read barcodes.",
+    "detected_language": "en",
+    "sources": [
+      "corpus/en/orange-money.docx",
+      "corpus/en/orange-money.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 459,
+      "completion_tokens": 23,
+      "total_tokens": 482
+    }
+  },
+  {
+    "language": "en",
+    "question": "Can I close my wallet? How?",
+    "answer": "Yes, you can close your wallet by visiting any of our Orange shops. Before doing so, you need to cash out the wallet balance and then fill out the termination form.",
+    "detected_language": "en",
+    "sources": [
+      "corpus/en/orange-money.docx",
+      "corpus/en/orange-money.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 440,
+      "completion_tokens": 36,
+      "total_tokens": 476
+    }
+  },
+  {
+    "language": "en",
+    "question": "1) How can I subscribe to Europe and North America Passenger Bundles?",
+    "answer": "To subscribe to Europe and North America Passenger Bundles, please dial *965#.",
+    "detected_language": "en",
+    "sources": [
+      "corpus/en/international-roaming.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 724,
+      "completion_tokens": 19,
+      "total_tokens": 743
+    }
+  },
+  {
+    "language": "en",
+    "question": "How can I disable the roaming data bill control feature?",
+    "answer": "You can disable the roaming data bill control feature via the Max it application or by dialing *979#.",
+    "detected_language": "en",
+    "sources": [
+      "corpus/ar/international-roaming.html",
+      "corpus/en/international-roaming.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 527,
+      "completion_tokens": 24,
+      "total_tokens": 551
+    }
+  },
+  {
+    "language": "en",
+    "question": "Can I still use my physical Orange Money Visa Card after adding it to Google Pay?",
+    "answer": "Yes, your physical Orange Money Visa Card will continue to work as usual. Google Pay is just an additional, convenient way to pay.",
+    "detected_language": "en",
+    "sources": [
+      "corpus/ar/orange-money.docx",
+      "corpus/en/orange-money.docx",
+      "corpus/en/orange-money.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 578,
+      "completion_tokens": 28,
+      "total_tokens": 606
+    }
+  },
+  {
+    "language": "en",
+    "question": "Are there any setup fees for new installation or migration to Orange Internet & Orange Internet+ offers?",
+    "answer": "Yes, there is a setup and migration fee of 10 JD excluding tax for new installations or migrations to Orange Internet and Orange Internet+ offers.",
+    "detected_language": "en",
+    "sources": [
+      "corpus/ar/fiber-adsl.html",
+      "corpus/en/fiber-adsl.html",
+      "corpus/en/orange-money.docx",
+      "corpus/en/orange-money.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 466,
+      "completion_tokens": 31,
+      "total_tokens": 497
+    }
+  },
+  {
+    "language": "en",
+    "question": "Is my personal information safe?",
+    "answer": "Yes, your personal and payment data are securely handled as per the related regulations.",
+    "detected_language": "en",
+    "sources": [
+      "corpus/ar/international-roaming.html",
+      "corpus/ar/orange-money.docx",
+      "corpus/ar/orange-money.html",
+      "corpus/en/orange-money.docx",
+      "corpus/en/orange-money.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 459,
+      "completion_tokens": 17,
+      "total_tokens": 476
+    }
+  },
+  {
+    "language": "ar",
+    "question": "هل خدمه الدفع باستخدام رمز الاستجابه السريع مجاني؟",
+    "answer": "نعم، خدمة الدفع باستخدام رمز الاستجابة السريع مجانية.",
+    "detected_language": "ar",
+    "sources": [
+      "corpus/ar/orange-money.docx",
+      "corpus/ar/orange-money.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 585,
+      "completion_tokens": 13,
+      "total_tokens": 598
+    }
+  },
+  {
+    "language": "ar",
+    "question": "ما هو الجديد في خدمه الاتصال الصوتي الرقمي مع الفايبر؟",
+    "answer": "بمجرد تركيب خط الفايبر، سيتم تفعيل خدمة الاتصال الصوتي الرقمي فوراً من خلال توصيل جهاز الهاتف الأرضي بفايبر بوكس بشكل مباشر، دون الحاجة إلى أي تمديدات أسلاك نحاسية داخلية.",
+    "detected_language": "ar",
+    "sources": [
+      "corpus/ar/fiber-adsl.html",
+      "corpus/en/fiber-adsl.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 583,
+      "completion_tokens": 51,
+      "total_tokens": 634
+    }
+  },
+  {
+    "language": "ar",
+    "question": "ما هي مميزات خدمه Orange فايبر؟",
+    "answer": "تتميز خدمة Orange فايبر بسرعة إنترنت فائقة ثابتة تصل إلى 1000 ميجابت في الثانية، مع سعة تحميل غير محدودة. كما توفر حماية عالية للأمان وتجربة متميزة عند استخدام كافة أنواع التطبيقات.",
+    "detected_language": "ar",
+    "sources": [
+      "corpus/ar/fiber-adsl.html",
+      "corpus/en/fiber-adsl.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 616,
+      "completion_tokens": 53,
+      "total_tokens": 669
+    }
+  },
+  {
+    "language": "ar",
+    "question": "كيف استطيع الاشتراك بخدمه التجوال الدولي؟",
+    "answer": "الخدمة فعالة تلقائياً لجميع اشتراكات الدفع المسبق. أما لمشتركي الاشتراكات الشهرية، فيرجى زيارة أقرب معرض أورنج لإيداع دفعة作为 شرط مسبق لتفعيل الخدمة.",
+    "detected_language": "ar",
+    "sources": [
+      "corpus/ar/international-roaming.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 605,
+      "completion_tokens": 47,
+      "total_tokens": 652
+    }
+  },
+  {
+    "language": "ar",
+    "question": "ما هي خطوات اضافه اسم مستعار جديد؟",
+    "answer": "أولاً، قم بتحديث تطبيق محفظه Orange Money ثم ادخل على المحفظة واضغط على \"كليك\" من القائمه الجانبيه. يمكنك اضافه اسم مستعار بصيغه ابجدي/رقمي او بريد اليكتروني ثم اضغط على حفظ. يمكنك اضافه 5 اسماء مستعاره على الاكثر وتحديد اسم رئيسي، مع امكانيه التحكم بتعطيل او الغاء الاسماء المستعاره.",
+    "detected_language": "ar",
+    "sources": [
+      "corpus/ar/orange-money.docx",
+      "corpus/ar/orange-money.html",
+      "corpus/en/orange-money.docx",
+      "corpus/en/orange-money.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 1147,
+      "completion_tokens": 95,
+      "total_tokens": 1242
+    }
+  },
+  {
+    "language": "ar",
+    "question": "بقدر احول المصاري لحساب بنك؟",
+    "answer": "نعم، بتقدر ترسل المصاري لحساب بنكي إذا كان هاد الخيار متوفر ببلد المستقبل.",
+    "detected_language": "ar",
+    "sources": [
+      "corpus/ar/orange-money.docx",
+      "corpus/ar/orange-money.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 825,
+      "completion_tokens": 27,
+      "total_tokens": 852
+    }
+  },
+  {
+    "language": "ar",
+    "question": "هل يمكنني اضافه Google Pay على الساعه الذكيه؟ كيف؟",
+    "answer": "نعم، يمكنك إضافة Google Pay على الساعة الذكية. قبل البدء، تأكد من توفر تطبيق Google Wallet على هاتفك ودعم ساعتك للميزة، وأنها مضافة مسبقاً هناك. ثم افتح التطبيق على الساعة، اضغط على \"ابدأ\"، فعّل قفل الشاشة إذا لزم الأمر، واتبع التعليمات لتأكيد الإضافة.",
+    "detected_language": "ar",
+    "sources": [
+      "corpus/ar/orange-money.docx",
+      "corpus/ar/orange-money.html",
+      "corpus/en/orange-money.docx",
+      "corpus/en/orange-money.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 1155,
+      "completion_tokens": 72,
+      "total_tokens": 1227
+    }
+  },
+  {
+    "language": "ar",
+    "question": "هل ساحتاج جهاز مودم جديد؟",
+    "answer": "نعم، الأجهزة متوفرة مجاناً مع كل عروض Orange فايبر.",
+    "detected_language": "ar",
+    "sources": [
+      "corpus/ar/fiber-adsl.html",
+      "corpus/en/fiber-adsl.html",
+      "corpus/en/international-roaming.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 463,
+      "completion_tokens": 16,
+      "total_tokens": 479
+    }
+  },
+  {
+    "language": "ar",
+    "question": "ماذا يحدث اذا ادخلت الرقم السري بشكل خاطئ عده مرات؟",
+    "answer": "سيتم حظر حركات البطاقة التي تتطلب رقم سري (والتي تزيد عن 100 دينار) بعد 3 محاولات خاطئة.",
+    "detected_language": "ar",
+    "sources": [
+      "corpus/ar/orange-money.docx",
+      "corpus/ar/orange-money.html",
+      "corpus/en/orange-money.docx",
+      "corpus/en/orange-money.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 806,
+      "completion_tokens": 31,
+      "total_tokens": 837
+    }
+  },
+  {
+    "language": "ar",
+    "question": "هل سيتوقف الاقتطاع اذا قمت بتنشيط محفظتي؟",
+    "answer": "أجل سيٌتوقف الاقتطاع عند تنشيط المحفظة",
+    "detected_language": "ar",
+    "sources": [
+      "corpus/ar/orange-money.docx",
+      "corpus/ar/orange-money.html",
+      "corpus/en/orange-money.docx",
+      "corpus/en/orange-money.html"
+    ],
+    "token_usage": {
+      "prompt_tokens": 529,
+      "completion_tokens": 16,
+      "total_tokens": 545
+    }
+  }
+]

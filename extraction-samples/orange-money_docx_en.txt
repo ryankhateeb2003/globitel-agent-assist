@@ -1,0 +1,196 @@
+===== RAW (before) =====
+Orange Money Help
+Skip to main content
+Free Delivery
+Main navigation
+Personal
+Business
+Corporate
+English العربية
+Orange Extra
+Max it Rewards
+Accessibility
+switch
+Dark mode
+A-
+A
+A+
+Font size
+English العربية
+Account
+Home
+Internet
+Internet Offers
+All
+Fiber Offers
+5G Home Internet
+4G Flybox Home Internet
+Prepaid Orange Internet
+Visitors Lines
+Satellite Offers
+ADSL Offers
+Daman Offers
+Internet Services
+OSN
+TOD
+Anghami
+Gaming Control
+More Services
+Apps Menu
+Max it App
+Orange Money
+Mobile Lines
+Mobile Offers
+All mobile offers
+Ma'ak Lines
+Humat Al- Watan max
+Visitors Lines
+Mobile Services
+International
+Roaming
+e-Sh7anli
+More Services
+Apps Menu
+Max it App
+Orange Money
+Devices & Accessories
+Devices & Accessories
+All Devices
+Smartphones
+Accessories
+Wearables
+(Watches, Headsets & More)
+Home Entertainment
+(TVs, Speakers, Gaming...)
+Tablets & Laptops
+SmartLife
+Network Devices
+Mobile Brands
+Apple
+Samsung
+Xiaomi
+Discover Devices
+Apps Menu
+Max it App
+Orange Money
+Max it
+Max it
+All Max it Offers
+My Line
+MarketPlace
+Orange Money
+Rewards
+Apps Menu
+Max it App
+Orange Money
+Orange Money
+Orange Money
+ِAbout Orange Money
+Our Services
+Self Registration
+Our Discounts
+Transaction Fees and Limits
+FAQs
+Apps Menu
+Max it App
+Orange Money
+Help
+Frequently Asked Questions
+All FAQs
+Mobile Lines
+Fiber and ADSL
+eShop
+Orange Money
+International and Roaming
+Payment Methods
+More Topics
+Contact Us
+Contact us
+Messenger
+Instagram
+Whatsapp
+Shops & Coverage
+Find Shops
+Internet Coverage
+Apps Menu
+Max it App
+Orange Money
+English العربية
+English العربية
+English العربية
+switch
+Dark mode
+A-
+A
+A+
+Font size
+Account
+Quick Pay / Refill
+Main navigation
+Personal
+Business
+Corporate
+Home
+Internet
+Internet Offers
+All
+Fiber Offers
+5G Home Internet
+4G Flybox Home Internet
+Prepaid Orange Internet
+Visitors Lines
+Satellite Offers
+ADSL Offers
+Daman Offers
+Internet Services
+OSN
+TOD
+Anghami
+Gaming Control
+More Services
+Apps Menu
+Max it App
+Orange Money
+Mobile Lines
+Mobile Offers
+All mobile offers
+Ma'ak Lines
+Humat Al- Watan max
+Visi
+
+===== CLEAN (after) =====
+Orange Extra
+Max it Rewards
+Smartphones
+How can I open an Orange Money wallet?
+It is now possible to open an Orange Money wallet free of charge while at home through self-registration and have your wallet activated automatically so that you can receive your salary, pay for your basic needs such as bread, medicine, and groceries, refill your Orange Prepaid lines, pay your Orange Postpaid bills and send and receive money easily.
+Through your mobile (self-registration): You can open your account by following the below steps:
+Download the app from the Google Play Store, Apple Store, or HUAWEI AppGallery directly to your mobile phone
+Create your profile using the self-registration on the mobile app
+Add your phone number and your personal information
+Take a picture of your ID (Front & Back)
+After that you will receive a SMS that Orange Money Wallet is created successfully
+Visit any of authorized Points of Sale or partners (full registration process) you need to fill the opening wallet form and provide the required documents
+Who can open an Orange Money wallet?
+Anyone or any corporate with an active Jordanian mobile phone number can open an Orange Money wallet
+Do I need a bank account to use Orange Money?
+Bank account is not required; all you need is an active Jordanian mobile phone number and valid ID, passport, document or corporate ID
+Opening Orange Money wallet fees?
+Opening an Orange Money wallet is free of charge
+What can I do with my wallet?
+Refill Orange prepaid accounts
+Pay Orange Postpaid bills
+Merchant Payment
+Access all eFAWATEERcom services “more than 200 billers”
+Send local and international money transfers
+Cash In / out through Orange shops, authorized points of sale, partners and Housing Bank ATM’s & all local ATMS’s
+Shop online and use your companion card while traveling
+Pay through the QR code
+Purchase Electronic Vouchers
+Where can I Cash in to my wallet?
+Orange Money users can Cash In through:
+Orange shops
+Authorized Points of Sales
+Orange Money partners
+
+RAW_CHARS=33901  CLEAN_CHARS=27789  STATUS=ok

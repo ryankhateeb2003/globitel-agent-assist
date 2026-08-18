@@ -46,7 +46,15 @@ def stable_point_id(chunk_id: str) -> int:
 QDRANT_HOST = "qdrant"
 QDRANT_PORT = 6333
 
-client = QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT)
+
+# `timeout` (seconds) -- Qdrant's own default client-side timeout is
+# short (5s), which is fine for a single vector search but too tight
+# once other CPU-heavy work (the reranker's cross-encoder inference, in
+# Task 5/6's hybrid path) is competing for the same CPU-only container's
+# cores and pushes a query's response time past that window. This isn't
+# a Qdrant server change, just how long the client waits before giving
+# up -- it never affects query results, only how patient the client is.
+client = QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT, timeout=30)
 
 
 # =========================================================

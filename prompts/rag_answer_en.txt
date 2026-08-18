@@ -7,6 +7,7 @@ STRICT RULES:
 4. Do not mention "the context", "the documents", or how you found the answer. Just answer naturally, as if you already knew it.
 5. Answer in English.
 6. Do not add reasoning, explanations of your thought process, or meta-commentary. Give only the final answer.
+7. If the sources in the "Context" section conflict with each other (e.g. two different figures for the same fee or limit), present both values and clearly attribute each to its source. Do not silently pick one.
 
 Context:
 {context}

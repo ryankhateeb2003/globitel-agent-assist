@@ -148,10 +148,14 @@ def transliterate_arabizi(client, model: str, text: str) -> str:
 
 _CLASSIFY_PROMPT_TEMPLATE = """You are a guardrail classifier for an Orange Jordan telecom contact-center assistant. The assistant only answers from documentation covering: mobile phone lines and plans, fiber/ADSL internet, the Orange Money mobile wallet, international roaming, bill payment, and service short codes.
 
-Given the customer's question and the topics found by a document search, decide THREE things:
+Given the customer's question, the topics found by a document search, and a preview of the best-matching document content actually found, decide THREE things:
 
 1. in_domain: is this question plausibly about Orange Jordan's telecom or wallet services -- even if the documentation might not cover this exact detail? Answer false ONLY for questions clearly unrelated to telecom/wallet services (general knowledge, other companies, casual chat, coding help, etc).
-2. needs_account_data: does answering require looking up THIS SPECIFIC customer's personal account (their current balance, their bill amount, why THEY specifically were charged, their personal usage) rather than general policy or how-to information anyone could be told?
+2. needs_account_data: does answering truly require looking up THIS SPECIFIC customer's live personal data (their current balance right now, their actual bill amount, why THEY specifically were charged, their personal transaction history) that no general document could ever contain?
+   - Do NOT flag this just because the question is phrased with "my"/"I" (e.g. "how do I check my remaining limit?", "how do I top up my wallet?") -- a personal pronoun does not by itself mean personal data is needed.
+   - Look at the retrieved content preview below: if it already contains a general, reusable answer (instructions, a method, a code to dial, a policy that is the same for every customer), the question does NOT need account data, even if it was phrased personally -- decide false and let the generic answer be used.
+   - Only decide true when no generic instruction could possibly answer it -- the question is fundamentally about a live, individual number or event (a specific balance, a specific charge, a specific transaction), not "how" or "where" to find/do something.
+   - Worked examples: "How do I check my remaining roaming limit?" with a retrieved chunk that says "check via Max it app or dial *979#" -> false (that's a reusable instruction). "Why was I charged 5 JOD last month?" -> true (no document can contain the answer to one customer's specific past charge).
 3. is_ambiguous: as phrased, could this question reasonably refer to more than one distinct service/topic, such that you could not confidently answer without asking which one? Use the retrieved topics as a hint of what's nearby in the documentation.
 
 Respond with ONLY a JSON object and nothing else -- no markdown fences, no explanation:
@@ -159,22 +163,47 @@ Respond with ONLY a JSON object and nothing else -- no markdown fences, no expla
 
 Question: {question}
 Retrieved document topics: {topics}
+Best-matching content preview:
+{content_preview}
 """
 
 _LANGUAGE_NAMES = {"ar": "Arabic", "en": "English"}
 
+# How many top results' text to show the classifier, and how much of
+# each -- enough for the model to judge "is this a generic, reusable
+# answer" without ballooning the prompt (this call is on the latency
+# path of every request).
+_PREVIEW_CHUNK_COUNT = 2
+_PREVIEW_CHARS_PER_CHUNK = 300
 
-def classify_intent(client, model: str, question: str, language: str, retrieved_topics: list[str]) -> dict:
+
+def _build_content_preview(results: list[dict]) -> str:
+    if not results:
+        return "(no results found)"
+    previews = []
+    for r in results[:_PREVIEW_CHUNK_COUNT]:
+        text = r.get("text", "")[:_PREVIEW_CHARS_PER_CHUNK]
+        previews.append(f"- {text}")
+    return "\n".join(previews)
+
+
+def classify_intent(client, model: str, question: str, language: str, results: list[dict]) -> dict:
     """
     Single Groq call bundling the domain / account-data / ambiguity
     checks together -- deliberately one call, not three, since this is a
     live-call product where every extra network round trip is latency a
     contact-center agent is waiting through (same reasoning Task 4 used
     for streaming).
+
+    Takes the full retrieved `results` (not just topic names) so the
+    needs_account_data check can weigh actual document content, not just
+    the question's phrasing -- see the prompt's worked examples for why.
     """
+    topics = sorted({r["topic"] for r in results if r.get("topic")})
     prompt = _CLASSIFY_PROMPT_TEMPLATE.format(
         question=question,
-        topics=", ".join(retrieved_topics) if retrieved_topics else "(none found)",
+        topics=", ".join(topics) if topics else "(none found)",
+        content_preview=_build_content_preview(results),
         language_name=_LANGUAGE_NAMES.get(language, "English"),
     )
     response = client.chat.completions.create(
@@ -256,8 +285,7 @@ def decide_action(
     normal per-language one for that last check -- see its definition for
     why the same confidence number needs a lower bar for these queries.
     """
-    topics = sorted({r["topic"] for r in results if r.get("topic")})
-    verdict = classify_intent(client, model, question, language, topics)
+    verdict = classify_intent(client, model, question, language, results)
 
     if not verdict["in_domain"]:
         return {"action": "out_of_domain"}

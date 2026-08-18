@@ -9,6 +9,7 @@ model produces vectors of a different dimension (384 vs 1024) -- Qdrant
 collections require a fixed vector size, so they cannot be mixed.
 """
 
+import hashlib
 import json
 import time
 from pathlib import Path
@@ -16,6 +17,22 @@ from pathlib import Path
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams, PointStruct
 from sentence_transformers import SentenceTransformer
+
+
+def stable_point_id(chunk_id: str) -> int:
+    """
+    Deterministic chunk_id -> Qdrant point ID.
+
+    Python's built-in hash() is salted per-process (PYTHONHASHSEED is not
+    pinned anywhere in this project), so the same chunk_id produced a
+    different point_id every time this module was imported in a fresh
+    process -- re-running embed_and_store() after a restart wouldn't
+    overwrite existing points, it would insert duplicates alongside them,
+    silently breaking both idempotency and the update path. sha256 is
+    stable across processes and machines, so the same chunk_id always maps
+    to the same point_id.
+    """
+    return int(hashlib.sha256(chunk_id.encode("utf-8")).hexdigest()[:12], 16)
 
 
 # =========================================================
@@ -160,7 +177,7 @@ def embed_and_store(model_key: str, chunks_path: str | Path = "chunks.jsonl", ba
         for record, vector in zip(batch, vectors):
             # Qdrant point IDs must be int or UUID -- we hash the string
             # chunk_id into a stable positive integer.
-            point_id = abs(hash(record["chunk_id"])) % (10 ** 12)
+            point_id = stable_point_id(record["chunk_id"])
 
             points.append(
                 PointStruct(
@@ -303,7 +320,7 @@ def update_document(file_path: str, model_keys: list[str] | None = None) -> dict
 
             points = []
             for record, vector in zip(records, vectors):
-                point_id = abs(hash(record["chunk_id"])) % (10 ** 12)
+                point_id = stable_point_id(record["chunk_id"])
                 points.append(
                     PointStruct(
                         id=point_id,

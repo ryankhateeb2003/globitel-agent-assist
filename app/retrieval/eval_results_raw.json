@@ -1,0 +1,680 @@
+{
+  "vector": {
+    "en": [
+      {
+        "question": "1) How can I subscribe to Arabia Passenger Bundles?",
+        "topic": "international-roaming",
+        "has_exact_value": true,
+        "correct_chunk_id": "49d8a9e384a6bcb9_020",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 6690.97,
+        "top1_chunk_id": "49d8a9e384a6bcb9_020",
+        "top1_preview": "1) How can I subscribe to Arabia Passenger Bundles? Through Orange Max it mobile application Dial *9"
+      },
+      {
+        "question": "What are Orange ADSL features ?",
+        "topic": "fiber-adsl",
+        "has_exact_value": true,
+        "correct_chunk_id": "642712e093584c6e_021",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 1926.2,
+        "top1_chunk_id": "642712e093584c6e_021",
+        "top1_preview": "What are Orange ADSL features ? High speed Fixed & high quality Wireless use for all the family Unli"
+      },
+      {
+        "question": "How do I transfer money from my wallet to another mobile wallet?",
+        "topic": "orange-money",
+        "has_exact_value": true,
+        "correct_chunk_id": "c4790bface4196b1_009",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 10518.99,
+        "top1_chunk_id": "9d2740d3e2920616_009",
+        "top1_preview": "How do I transfer money from my wallet to another mobile wallet? Through Orange Money application: Y"
+      },
+      {
+        "question": "Do I need a bank account to use Orange Money?",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "c4790bface4196b1_003",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 20556.09,
+        "top1_chunk_id": "c4790bface4196b1_003",
+        "top1_preview": "Do I need a bank account to use Orange Money? Bank account is not required; all you need is an activ"
+      },
+      {
+        "question": "Data carry over feature?",
+        "topic": "mobile-lines",
+        "has_exact_value": false,
+        "correct_chunk_id": "892563201ac794b3_001",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 5729.38,
+        "top1_chunk_id": "892563201ac794b3_001",
+        "top1_preview": "Data carry over feature? Enjoy carrying over the remaining internet bundle from this month’s bundle "
+      },
+      {
+        "question": "What is the available speeds for the ADSL offers?",
+        "topic": "fiber-adsl",
+        "has_exact_value": false,
+        "correct_chunk_id": "642712e093584c6e_030",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 1965.68,
+        "top1_chunk_id": "642712e093584c6e_030",
+        "top1_preview": "What is the available speeds for the ADSL offers? The available speed starts from 1 Mbps to 80Mpbs f"
+      },
+      {
+        "question": "How Can I create new Alias?",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "9d2740d3e2920616_041",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 12486.37,
+        "top1_chunk_id": "9d2740d3e2920616_041",
+        "top1_preview": "How Can I create new Alias? First, please update Orange Money wallet application through the App Sto"
+      },
+      {
+        "question": "Can I use a security system alarm with the Digital Voice service?",
+        "topic": "fiber-adsl",
+        "has_exact_value": false,
+        "correct_chunk_id": "642712e093584c6e_019",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 3416.77,
+        "top1_chunk_id": "642712e093584c6e_019",
+        "top1_preview": "Can I use a security system alarm with the Digital Voice service? It works with a normal auto dialer"
+      },
+      {
+        "question": "Can I use my wallet if my phone number is disconnected?",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "9d2740d3e2920616_023",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 2266.65,
+        "top1_chunk_id": "c4790bface4196b1_023",
+        "top1_preview": "Can I use my wallet if my phone number is disconnected? Yes you can use it, however, if you want to "
+      },
+      {
+        "question": "How to use the CliQ service?",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "9d2740d3e2920616_042",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 1150.92,
+        "top1_chunk_id": "c4790bface4196b1_042",
+        "top1_preview": "How to use the CliQ service? Choose (Money Transfer) Enter the receiver CliQ Alias name of the (the "
+      }
+    ],
+    "ar": [
+      {
+        "question": "ما هي رسوم استخدام هذه الخدمه؟",
+        "topic": "orange-money",
+        "has_exact_value": true,
+        "correct_chunk_id": "35d0f13e82e9675f_085",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 558.5,
+        "top1_chunk_id": "35d0f13e82e9675f_085",
+        "top1_preview": "ما هي رسوم استخدام هذه الخدمه؟"
+      },
+      {
+        "question": "هل توجد اي رسوم ل Orange Money لاضافه بطاقتي الى Google Pay؟",
+        "topic": "orange-money",
+        "has_exact_value": true,
+        "correct_chunk_id": "97c3ba92a38eb494_078",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 2985.66,
+        "top1_chunk_id": "35d0f13e82e9675f_078",
+        "top1_preview": "هل توجد اي رسوم ل Orange Money لاضافه بطاقتي الى Google Pay؟ لا، هذه الخاصيه مجانيه"
+      },
+      {
+        "question": "ما هي ميزه التحكم في فاتوره بيانات التجوال (حمايه من ارتفاع الفواتير)؟",
+        "topic": "international-roaming",
+        "has_exact_value": true,
+        "correct_chunk_id": "16af3a779c48f7a1_001",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 2001.7,
+        "top1_chunk_id": "16af3a779c48f7a1_001",
+        "top1_preview": "ما هي ميزه التحكم في فاتوره بيانات التجوال (حمايه من ارتفاع الفواتير)؟ حمايه من ارتفاع الفواتير: خدم"
+      },
+      {
+        "question": "كيف بقدر اسحب مصاري؟",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "35d0f13e82e9675f_008",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 2166.21,
+        "top1_chunk_id": "97c3ba92a38eb494_008",
+        "top1_preview": "كيف بقدر اسحب مصاري؟ من خلال معارض Orange نقاط البيع المعتمده ببطاقه او بدون من خلال شبكه الصراف الا"
+      },
+      {
+        "question": "اين يمكنني استخدام Google Pay؟",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "97c3ba92a38eb494_069",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 1384.34,
+        "top1_chunk_id": "c4790bface4196b1_071",
+        "top1_preview": "Where can I use Google Pay? You can use Google Pay: In stores with contactless payment machines In a"
+      },
+      {
+        "question": "ماذا علي ان افعل للوصول الى الفاتوره التفصيليه على الانترنت؟",
+        "topic": "bills-payment",
+        "has_exact_value": false,
+        "correct_chunk_id": "fc4e8ce20cf935f4_009",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 1938.27,
+        "top1_chunk_id": "fc4e8ce20cf935f4_009",
+        "top1_preview": "ماذا علي ان افعل للوصول الى الفاتوره التفصيليه على الانترنت؟ يمكنك الوصول الى تفاصيل الفاتوره من خلا"
+      },
+      {
+        "question": "كيف يمكنني التاكد من انه تم اجراء دفعه ؟",
+        "topic": "bills-payment",
+        "has_exact_value": false,
+        "correct_chunk_id": "fc4e8ce20cf935f4_008",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 1989.89,
+        "top1_chunk_id": "16af3a779c48f7a1_031",
+        "top1_preview": "كيف يمكنني التحقق من حاله حزمتي؟"
+      },
+      {
+        "question": "هل يمكنني استخدام تنبيه نظام الامان مع خدمه الاتصال الصوتي الرقمي؟",
+        "topic": "fiber-adsl",
+        "has_exact_value": false,
+        "correct_chunk_id": "fa74d8c747ecd06e_016",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 944.88,
+        "top1_chunk_id": "fa74d8c747ecd06e_016",
+        "top1_preview": "هل يمكنني استخدام تنبيه نظام الامان مع خدمه الاتصال الصوتي الرقمي؟ التنبيه يعمل مع الرد التلقائي الع"
+      },
+      {
+        "question": "ما هي ميزه ترحيل حزم الانترنت؟",
+        "topic": "mobile-lines",
+        "has_exact_value": false,
+        "correct_chunk_id": "998b108075cc4af8_001",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 2198.55,
+        "top1_chunk_id": "998b108075cc4af8_001",
+        "top1_preview": "ما هي ميزه ترحيل حزم الانترنت؟ بتقدر تستفيد من ترحيل المتبقي من حزمه الانترنت الاساسيه للشهر التالي "
+      },
+      {
+        "question": "شو بقدر اعمل بمحفظتي؟",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "97c3ba92a38eb494_005",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 2226.74,
+        "top1_chunk_id": "97c3ba92a38eb494_005",
+        "top1_preview": "شو بقدر اعمل بمحفظتي؟ اعاده شحن حساباتOrange المدفوعه مسبقا دفع فواتير Orange الدفع للمشتريات الوصول"
+      }
+    ]
+  },
+  "keyword": {
+    "en": [
+      {
+        "question": "1) How can I subscribe to Arabia Passenger Bundles?",
+        "topic": "international-roaming",
+        "has_exact_value": true,
+        "correct_chunk_id": "49d8a9e384a6bcb9_020",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 12.78,
+        "top1_chunk_id": "49d8a9e384a6bcb9_020",
+        "top1_preview": "1) How can I subscribe to Arabia Passenger Bundles? Through Orange Max it mobile application Dial *9"
+      },
+      {
+        "question": "What are Orange ADSL features ?",
+        "topic": "fiber-adsl",
+        "has_exact_value": true,
+        "correct_chunk_id": "642712e093584c6e_021",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 4.54,
+        "top1_chunk_id": "642712e093584c6e_021",
+        "top1_preview": "What are Orange ADSL features ? High speed Fixed & high quality Wireless use for all the family Unli"
+      },
+      {
+        "question": "How do I transfer money from my wallet to another mobile wallet?",
+        "topic": "orange-money",
+        "has_exact_value": true,
+        "correct_chunk_id": "c4790bface4196b1_009",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 64.18,
+        "top1_chunk_id": "c4790bface4196b1_009",
+        "top1_preview": "How do I transfer money from my wallet to another mobile wallet? Through Orange Money application: Y"
+      },
+      {
+        "question": "Do I need a bank account to use Orange Money?",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "c4790bface4196b1_003",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 37.06,
+        "top1_chunk_id": "c4790bface4196b1_003",
+        "top1_preview": "Do I need a bank account to use Orange Money? Bank account is not required; all you need is an activ"
+      },
+      {
+        "question": "Data carry over feature?",
+        "topic": "mobile-lines",
+        "has_exact_value": false,
+        "correct_chunk_id": "892563201ac794b3_001",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 15.71,
+        "top1_chunk_id": "892563201ac794b3_001",
+        "top1_preview": "Data carry over feature? Enjoy carrying over the remaining internet bundle from this month’s bundle "
+      },
+      {
+        "question": "What is the available speeds for the ADSL offers?",
+        "topic": "fiber-adsl",
+        "has_exact_value": false,
+        "correct_chunk_id": "642712e093584c6e_030",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 13.12,
+        "top1_chunk_id": "642712e093584c6e_030",
+        "top1_preview": "What is the available speeds for the ADSL offers? The available speed starts from 1 Mbps to 80Mpbs f"
+      },
+      {
+        "question": "How Can I create new Alias?",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "9d2740d3e2920616_041",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 27.64,
+        "top1_chunk_id": "c4790bface4196b1_041",
+        "top1_preview": "How Can I create new Alias? First, please update Orange Money wallet application through the App Sto"
+      },
+      {
+        "question": "Can I use a security system alarm with the Digital Voice service?",
+        "topic": "fiber-adsl",
+        "has_exact_value": false,
+        "correct_chunk_id": "642712e093584c6e_019",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 36.9,
+        "top1_chunk_id": "642712e093584c6e_019",
+        "top1_preview": "Can I use a security system alarm with the Digital Voice service? It works with a normal auto dialer"
+      },
+      {
+        "question": "Can I use my wallet if my phone number is disconnected?",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "9d2740d3e2920616_023",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 8.58,
+        "top1_chunk_id": "c4790bface4196b1_023",
+        "top1_preview": "Can I use my wallet if my phone number is disconnected? Yes you can use it, however, if you want to "
+      },
+      {
+        "question": "How to use the CliQ service?",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "9d2740d3e2920616_042",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 2.31,
+        "top1_chunk_id": "c4790bface4196b1_042",
+        "top1_preview": "How to use the CliQ service? Choose (Money Transfer) Enter the receiver CliQ Alias name of the (the "
+      }
+    ],
+    "ar": [
+      {
+        "question": "ما هي رسوم استخدام هذه الخدمه؟",
+        "topic": "orange-money",
+        "has_exact_value": true,
+        "correct_chunk_id": "35d0f13e82e9675f_085",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 2.71,
+        "top1_chunk_id": "97c3ba92a38eb494_085",
+        "top1_preview": "ما هي رسوم استخدام هذه الخدمه؟"
+      },
+      {
+        "question": "هل توجد اي رسوم ل Orange Money لاضافه بطاقتي الى Google Pay؟",
+        "topic": "orange-money",
+        "has_exact_value": true,
+        "correct_chunk_id": "97c3ba92a38eb494_078",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 4.9,
+        "top1_chunk_id": "97c3ba92a38eb494_078",
+        "top1_preview": "هل توجد اي رسوم ل Orange Money لاضافه بطاقتي الى Google Pay؟ لا، هذه الخاصيه مجانيه"
+      },
+      {
+        "question": "ما هي ميزه التحكم في فاتوره بيانات التجوال (حمايه من ارتفاع الفواتير)؟",
+        "topic": "international-roaming",
+        "has_exact_value": true,
+        "correct_chunk_id": "16af3a779c48f7a1_001",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 10.36,
+        "top1_chunk_id": "16af3a779c48f7a1_001",
+        "top1_preview": "ما هي ميزه التحكم في فاتوره بيانات التجوال (حمايه من ارتفاع الفواتير)؟ حمايه من ارتفاع الفواتير: خدم"
+      },
+      {
+        "question": "كيف بقدر اسحب مصاري؟",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "35d0f13e82e9675f_008",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 2.28,
+        "top1_chunk_id": "97c3ba92a38eb494_008",
+        "top1_preview": "كيف بقدر اسحب مصاري؟ من خلال معارض Orange نقاط البيع المعتمده ببطاقه او بدون من خلال شبكه الصراف الا"
+      },
+      {
+        "question": "اين يمكنني استخدام Google Pay؟",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "97c3ba92a38eb494_069",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 1.42,
+        "top1_chunk_id": "97c3ba92a38eb494_069",
+        "top1_preview": "اين يمكنني استخدام Google Pay؟ يمكنك استخدام Google Pay في: المتاجر التي تحتوي على اجهزه دفع لاتلامس"
+      },
+      {
+        "question": "ماذا علي ان افعل للوصول الى الفاتوره التفصيليه على الانترنت؟",
+        "topic": "bills-payment",
+        "has_exact_value": false,
+        "correct_chunk_id": "fc4e8ce20cf935f4_009",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 3.28,
+        "top1_chunk_id": "fc4e8ce20cf935f4_009",
+        "top1_preview": "ماذا علي ان افعل للوصول الى الفاتوره التفصيليه على الانترنت؟ يمكنك الوصول الى تفاصيل الفاتوره من خلا"
+      },
+      {
+        "question": "كيف يمكنني التاكد من انه تم اجراء دفعه ؟",
+        "topic": "bills-payment",
+        "has_exact_value": false,
+        "correct_chunk_id": "fc4e8ce20cf935f4_008",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 2.08,
+        "top1_chunk_id": "fc4e8ce20cf935f4_008",
+        "top1_preview": "كيف يمكنني التاكد من انه تم اجراء دفعه ؟ بعد تاكيد عمليه الدفع ، سيتم ارسال رساله تاكيد من قبل Orang"
+      },
+      {
+        "question": "هل يمكنني استخدام تنبيه نظام الامان مع خدمه الاتصال الصوتي الرقمي؟",
+        "topic": "fiber-adsl",
+        "has_exact_value": false,
+        "correct_chunk_id": "fa74d8c747ecd06e_016",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 2.41,
+        "top1_chunk_id": "fa74d8c747ecd06e_016",
+        "top1_preview": "هل يمكنني استخدام تنبيه نظام الامان مع خدمه الاتصال الصوتي الرقمي؟ التنبيه يعمل مع الرد التلقائي الع"
+      },
+      {
+        "question": "ما هي ميزه ترحيل حزم الانترنت؟",
+        "topic": "mobile-lines",
+        "has_exact_value": false,
+        "correct_chunk_id": "998b108075cc4af8_001",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 4.24,
+        "top1_chunk_id": "998b108075cc4af8_001",
+        "top1_preview": "ما هي ميزه ترحيل حزم الانترنت؟ بتقدر تستفيد من ترحيل المتبقي من حزمه الانترنت الاساسيه للشهر التالي "
+      },
+      {
+        "question": "شو بقدر اعمل بمحفظتي؟",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "97c3ba92a38eb494_005",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 14.74,
+        "top1_chunk_id": "97c3ba92a38eb494_005",
+        "top1_preview": "شو بقدر اعمل بمحفظتي؟ اعاده شحن حساباتOrange المدفوعه مسبقا دفع فواتير Orange الدفع للمشتريات الوصول"
+      }
+    ]
+  },
+  "hybrid": {
+    "en": [
+      {
+        "question": "1) How can I subscribe to Arabia Passenger Bundles?",
+        "topic": "international-roaming",
+        "has_exact_value": true,
+        "correct_chunk_id": "49d8a9e384a6bcb9_020",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 53544.9,
+        "top1_chunk_id": "49d8a9e384a6bcb9_020",
+        "top1_preview": "1) How can I subscribe to Arabia Passenger Bundles? Through Orange Max it mobile application Dial *9"
+      },
+      {
+        "question": "What are Orange ADSL features ?",
+        "topic": "fiber-adsl",
+        "has_exact_value": true,
+        "correct_chunk_id": "642712e093584c6e_021",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 52299.99,
+        "top1_chunk_id": "642712e093584c6e_021",
+        "top1_preview": "What are Orange ADSL features ? High speed Fixed & high quality Wireless use for all the family Unli"
+      },
+      {
+        "question": "How do I transfer money from my wallet to another mobile wallet?",
+        "topic": "orange-money",
+        "has_exact_value": true,
+        "correct_chunk_id": "c4790bface4196b1_009",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 38807.29,
+        "top1_chunk_id": "9d2740d3e2920616_009",
+        "top1_preview": "How do I transfer money from my wallet to another mobile wallet? Through Orange Money application: Y"
+      },
+      {
+        "question": "Do I need a bank account to use Orange Money?",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "c4790bface4196b1_003",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 37558.91,
+        "top1_chunk_id": "97c3ba92a38eb494_003",
+        "top1_preview": "هل تحتاج لحساب بنك عشان استخدم Orange Money؟ لا ما رح تحتاج لحساب بنكي؛ كل اللي بتحتاجه هو رقم خلوي "
+      },
+      {
+        "question": "Data carry over feature?",
+        "topic": "mobile-lines",
+        "has_exact_value": false,
+        "correct_chunk_id": "892563201ac794b3_001",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 43789.0,
+        "top1_chunk_id": "892563201ac794b3_001",
+        "top1_preview": "Data carry over feature? Enjoy carrying over the remaining internet bundle from this month’s bundle "
+      },
+      {
+        "question": "What is the available speeds for the ADSL offers?",
+        "topic": "fiber-adsl",
+        "has_exact_value": false,
+        "correct_chunk_id": "642712e093584c6e_030",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 17593.68,
+        "top1_chunk_id": "642712e093584c6e_030",
+        "top1_preview": "What is the available speeds for the ADSL offers? The available speed starts from 1 Mbps to 80Mpbs f"
+      },
+      {
+        "question": "How Can I create new Alias?",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "9d2740d3e2920616_041",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 30427.55,
+        "top1_chunk_id": "9d2740d3e2920616_041",
+        "top1_preview": "How Can I create new Alias? First, please update Orange Money wallet application through the App Sto"
+      },
+      {
+        "question": "Can I use a security system alarm with the Digital Voice service?",
+        "topic": "fiber-adsl",
+        "has_exact_value": false,
+        "correct_chunk_id": "642712e093584c6e_019",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 11485.01,
+        "top1_chunk_id": "642712e093584c6e_019",
+        "top1_preview": "Can I use a security system alarm with the Digital Voice service? It works with a normal auto dialer"
+      },
+      {
+        "question": "Can I use my wallet if my phone number is disconnected?",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "9d2740d3e2920616_023",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 12346.51,
+        "top1_chunk_id": "c4790bface4196b1_023",
+        "top1_preview": "Can I use my wallet if my phone number is disconnected? Yes you can use it, however, if you want to "
+      },
+      {
+        "question": "How to use the CliQ service?",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "9d2740d3e2920616_042",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 9265.79,
+        "top1_chunk_id": "c4790bface4196b1_042",
+        "top1_preview": "How to use the CliQ service? Choose (Money Transfer) Enter the receiver CliQ Alias name of the (the "
+      }
+    ],
+    "ar": [
+      {
+        "question": "ما هي رسوم استخدام هذه الخدمه؟",
+        "topic": "orange-money",
+        "has_exact_value": true,
+        "correct_chunk_id": "35d0f13e82e9675f_085",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 9240.8,
+        "top1_chunk_id": "97c3ba92a38eb494_085",
+        "top1_preview": "ما هي رسوم استخدام هذه الخدمه؟"
+      },
+      {
+        "question": "هل توجد اي رسوم ل Orange Money لاضافه بطاقتي الى Google Pay؟",
+        "topic": "orange-money",
+        "has_exact_value": true,
+        "correct_chunk_id": "97c3ba92a38eb494_078",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 17667.11,
+        "top1_chunk_id": "35d0f13e82e9675f_078",
+        "top1_preview": "هل توجد اي رسوم ل Orange Money لاضافه بطاقتي الى Google Pay؟ لا، هذه الخاصيه مجانيه"
+      },
+      {
+        "question": "ما هي ميزه التحكم في فاتوره بيانات التجوال (حمايه من ارتفاع الفواتير)؟",
+        "topic": "international-roaming",
+        "has_exact_value": true,
+        "correct_chunk_id": "16af3a779c48f7a1_001",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 14004.22,
+        "top1_chunk_id": "16af3a779c48f7a1_001",
+        "top1_preview": "ما هي ميزه التحكم في فاتوره بيانات التجوال (حمايه من ارتفاع الفواتير)؟ حمايه من ارتفاع الفواتير: خدم"
+      },
+      {
+        "question": "كيف بقدر اسحب مصاري؟",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "35d0f13e82e9675f_008",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 12635.37,
+        "top1_chunk_id": "97c3ba92a38eb494_048",
+        "top1_preview": "كيف بقدر استقبل المصاري على محفظتي؟ بتقدر تستقبل المصاري دوليا من خلال محفظه Orange Money ، ما عليك "
+      },
+      {
+        "question": "اين يمكنني استخدام Google Pay؟",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "97c3ba92a38eb494_069",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 14049.42,
+        "top1_chunk_id": "9d2740d3e2920616_071",
+        "top1_preview": "Where can I use Google Pay? You can use Google Pay: In stores with contactless payment machines In a"
+      },
+      {
+        "question": "ماذا علي ان افعل للوصول الى الفاتوره التفصيليه على الانترنت؟",
+        "topic": "bills-payment",
+        "has_exact_value": false,
+        "correct_chunk_id": "fc4e8ce20cf935f4_009",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 23308.06,
+        "top1_chunk_id": "fc4e8ce20cf935f4_009",
+        "top1_preview": "ماذا علي ان افعل للوصول الى الفاتوره التفصيليه على الانترنت؟ يمكنك الوصول الى تفاصيل الفاتوره من خلا"
+      },
+      {
+        "question": "كيف يمكنني التاكد من انه تم اجراء دفعه ؟",
+        "topic": "bills-payment",
+        "has_exact_value": false,
+        "correct_chunk_id": "fc4e8ce20cf935f4_008",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 10678.62,
+        "top1_chunk_id": "fc4e8ce20cf935f4_008",
+        "top1_preview": "كيف يمكنني التاكد من انه تم اجراء دفعه ؟ بعد تاكيد عمليه الدفع ، سيتم ارسال رساله تاكيد من قبل Orang"
+      },
+      {
+        "question": "هل يمكنني استخدام تنبيه نظام الامان مع خدمه الاتصال الصوتي الرقمي؟",
+        "topic": "fiber-adsl",
+        "has_exact_value": false,
+        "correct_chunk_id": "fa74d8c747ecd06e_016",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 42595.88,
+        "top1_chunk_id": "fa74d8c747ecd06e_016",
+        "top1_preview": "هل يمكنني استخدام تنبيه نظام الامان مع خدمه الاتصال الصوتي الرقمي؟ التنبيه يعمل مع الرد التلقائي الع"
+      },
+      {
+        "question": "ما هي ميزه ترحيل حزم الانترنت؟",
+        "topic": "mobile-lines",
+        "has_exact_value": false,
+        "correct_chunk_id": "998b108075cc4af8_001",
+        "top1_correct": true,
+        "top5_correct": true,
+        "elapsed_ms": 19095.92,
+        "top1_chunk_id": "998b108075cc4af8_001",
+        "top1_preview": "ما هي ميزه ترحيل حزم الانترنت؟ بتقدر تستفيد من ترحيل المتبقي من حزمه الانترنت الاساسيه للشهر التالي "
+      },
+      {
+        "question": "شو بقدر اعمل بمحفظتي؟",
+        "topic": "orange-money",
+        "has_exact_value": false,
+        "correct_chunk_id": "97c3ba92a38eb494_005",
+        "top1_correct": false,
+        "top5_correct": true,
+        "elapsed_ms": 20417.51,
+        "top1_chunk_id": "35d0f13e82e9675f_023",
+        "top1_preview": "هل بقدر استخدم محفظتي حتى لو كان رقمي مفصول؟ نعم بتقدر، بس لما بدك تعمل حركه بتحتاج لكلمه مرور لمره "
+      }
+    ]
+  }
+}

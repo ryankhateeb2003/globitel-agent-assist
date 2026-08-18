@@ -13,8 +13,9 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 from groq import Groq
 
-from app.rag.retrieval import retrieve_chunks, build_context
+from app.rag.retrieval import build_context
 from app.rag.language_detect import detect_language
+from app.retrieval.retrieval import search as retrieval_search
 
 app = FastAPI(title="Globitel Agent Assist API")
 
@@ -43,6 +44,11 @@ class AskRequest(BaseModel):
     question: str
     language: str | None = None  # optional hint: "ar" or "en"
     top_k: int | None = 5
+    # Task 5: which retrieval mode to use -- "vector" (Task 4, unchanged),
+    # "keyword" (BM25), or "hybrid" (vector + keyword, RRF-fused, reranked).
+    # Defaults to hybrid; exposed here (not hardcoded) so the 3 modes can
+    # be compared live through the same endpoint, same as hybrid-results.md.
+    mode: str | None = "hybrid"
 
 
 @app.post("/ask")
@@ -73,8 +79,10 @@ def ask(request: AskRequest):
 
     detected_language = request.language or detect_language(question)
     top_k = request.top_k or 5
+    mode = request.mode or "hybrid"
 
-    chunks = retrieve_chunks(question, top_k=top_k)
+    retrieval_outcome = retrieval_search(question, mode=mode, top_k=top_k)
+    chunks = retrieval_outcome["results"]
     context = build_context(chunks)
 
     template = load_prompt_template(detected_language)
@@ -108,6 +116,8 @@ def ask(request: AskRequest):
         sources = sorted(set(c["source_file"] for c in chunks))
         metadata = {
             "language": detected_language,
+            "retrieval_mode": mode,
+            "retrieval_latency_ms": retrieval_outcome["elapsed_ms"],
             "sources": sources,
             "retrieved_chunks": chunks,
             "token_usage": {

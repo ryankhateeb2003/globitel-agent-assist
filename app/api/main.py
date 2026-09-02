@@ -14,7 +14,7 @@ import json
 from pathlib import Path
 
 from fastapi import FastAPI
-from fastapi.responses import StreamingResponse
+from fastapi.responses import FileResponse, StreamingResponse
 from pydantic import BaseModel
 from groq import Groq
 
@@ -23,7 +23,8 @@ from app.rag.language_detect import detect_language
 from app.retrieval.retrieval import search as retrieval_search
 from app.guardrails.guardrails import (
     is_arabizi,
-    transliterate_arabizi,
+    translate_arabizi_bilingual,
+    merge_chunk_lists,
     decide_action,
     refusal_text,
 )
@@ -98,19 +99,35 @@ def ask(request: AskRequest):
     # "kif ba3mal top up") has zero Arabic-script characters, so
     # detect_language's character-ratio check always classifies it as
     # "en" -- see language_detect.py's own test cases for that gap.
-    # Override the language here, and transliterate a *copy* of the
-    # question for retrieval only: BM25 and the embeddings were built
-    # against Arabic-script content, so Arabizi would otherwise silently
-    # fail to match anything. The customer's original wording still
-    # reaches the answering model and the response metadata unchanged.
-    retrieval_question = question
+    # Override the language here, and search with BOTH an Arabic
+    # transliteration AND an English translation of the question --
+    # not just Arabic. Found via manual testing: some FAQ answers in this
+    # corpus exist in only one language (e.g. "Does an Electronic Voucher
+    # expire?" has no Arabic counterpart at all), so an Arabizi query
+    # translated to Arabic only can completely miss an English-only
+    # answer. Searching both and merging finds the chunk in whichever
+    # language it actually exists in. The customer's original wording
+    # still reaches the answering model and the response metadata
+    # unchanged either way.
     arabizi_override_applied = False
     if not request.language and is_arabizi(question):
         detected_language = "ar"
         arabizi_override_applied = True
-        retrieval_question = transliterate_arabizi(client, GROQ_MODEL, question)
+        translations = translate_arabizi_bilingual(client, GROQ_MODEL, question)
 
-    retrieval_outcome = retrieval_search(retrieval_question, mode=mode, top_k=top_k)
+        outcome_ar = retrieval_search(translations["arabic"], mode=mode, top_k=top_k)
+        outcome_en = retrieval_search(translations["english"], mode=mode, top_k=top_k)
+
+        merged_chunks = merge_chunk_lists(outcome_ar["results"], outcome_en["results"])[:top_k]
+        retrieval_outcome = {
+            "mode": mode,
+            "query": question,
+            "elapsed_ms": round(outcome_ar["elapsed_ms"] + outcome_en["elapsed_ms"], 2),
+            "results": merged_chunks,
+        }
+    else:
+        retrieval_outcome = retrieval_search(question, mode=mode, top_k=top_k)
+
     chunks = retrieval_outcome["results"]
 
     # Task 6: decide whether to refuse, ask a clarifying question, or
@@ -160,7 +177,19 @@ def ask(request: AskRequest):
         stream = client.chat.completions.create(
             model=GROQ_MODEL,
             messages=[{"role": "user", "content": filled_prompt}],
+            # "default" reasoning was tried as a fix for garbled Arabic
+            # words (see prompts/rag_answer_*.txt rule 8), and it did
+            # produce clean output -- but a live test measured ~110s per
+            # answer even with reasoning_format="hidden" (the model still
+            # does the full reasoning pass internally, just doesn't show
+            # it), which is unusable for a live-call product. Reverted to
+            # "none" -- rule 8's explicit language-purity instruction is
+            # the fix being kept for the garbling problem instead.
             reasoning_effort="none",
+            # Pinned low (not 0) so answers stay deterministic-ish for
+            # identical questions while still reading naturally, rather
+            # than at Groq's default (unset, effectively high-variance).
+            temperature=0.2,
             stream=True,
         )
 
@@ -202,3 +231,14 @@ def ask(request: AskRequest):
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+# Simple browser UI over /ask -- single static file, no build step, served
+# from the same origin as the API so the page's fetch() calls need no CORS
+# configuration. See app/static/index.html for the frontend itself.
+STATIC_DIR = Path("app/static")
+
+
+@app.get("/")
+def index():
+    return FileResponse(STATIC_DIR / "index.html")

@@ -75,7 +75,24 @@ def passes_relevance_threshold(results: list[dict], language: str, is_arabizi_qu
 # Arabizi detection + transliteration
 # ---------------------------------------------------------------------
 
-_ARABIC_CHAR_PATTERN = re.compile(r"[؀-ۿ]")
+# Matches actual Arabic LETTERS only -- deliberately narrower than the
+# full Arabic Unicode block (U+0600-U+06FF), which also contains
+# punctuation (، U+060C, ؛ U+061B, ؟ U+061F) and the Arabic-Indic digits
+# (٠-٩ U+0660-0669). The original version of this pattern used the full
+# block, so an Arabizi question typed with a Latin-letter body but an
+# Arabic question mark at the end (e.g. "shu ye3ni QR payment؟") matched
+# it on the "؟" alone and was wrongly treated as "already has real
+# Arabic script" -- is_arabizi() returned False and the question lost
+# its Arabizi handling (bilingual search, softened relevance threshold)
+# even though it was Arabizi in every way that mattered. Restricting the
+# match to the letter ranges below (main block U+0621-064A plus the
+# less common presentation-form letters used in loanwords/names) fixes
+# that without weakening the "is this actually Arabic-script text"
+# check itself -- punctuation and digits were never a signal of real
+# Arabic *script* being present anyway.
+_ARABIC_CHAR_PATTERN = re.compile(
+    r"[ء-غـ-يٮٯٱ-ۓەۮۯۺ-ۿ]"
+)
 _LATIN_CHAR_PATTERN = re.compile(r"[A-Za-z]")
 
 # Digits commonly used as letter substitutes in Arabizi texting (2 for
@@ -138,8 +155,93 @@ def transliterate_arabizi(client, model: str, text: str) -> str:
         model=model,
         messages=[{"role": "user", "content": prompt}],
         reasoning_effort="none",
+        # Pinned low so the same Arabizi input transliterates the same
+        # way every time -- previously unset (Groq's default is not 0),
+        # so identical questions could retrieve different chunks across
+        # runs purely because the transliteration text itself changed.
+        temperature=0,
     )
     return response.choices[0].message.content.strip()
+
+
+def translate_arabizi_bilingual(client, model: str, text: str) -> dict:
+    """
+    One Groq call: Arabizi -> BOTH a Modern Standard Arabic transliteration
+    AND an English translation. Separate function from
+    transliterate_arabizi() (not a signature change to it) so existing
+    callers (eval_dialect.py, eval_edge_cases.py, test_guardrails.py) are
+    untouched.
+
+    Why both languages: found via manual testing that some FAQ answers in
+    this corpus exist in ONLY one language (e.g. "Does an Electronic
+    Voucher expire?" has no Arabic counterpart at all). An Arabizi
+    question about it, transliterated to Arabic only, searches an Arabic
+    query against an English-only answer -- relying on cross-language
+    embedding matching through a second layer of translation noise on
+    top of the original Arabizi-to-Arabic step. Translating to English
+    too and searching with both lets retrieval find the chunk directly
+    in whichever language it actually exists in, the same way a customer
+    who typed the question in clean English or clean Arabic already can.
+    """
+    prompt = (
+        "The following text is Arabizi (Levantine Arabic written in Latin "
+        "letters and digits). Produce TWO things: a Modern Standard "
+        "Arabic transliteration, and an English translation of the same "
+        "meaning. Respond with ONLY a JSON object, no markdown fences, no "
+        "explanation:\n"
+        '{"arabic": "<Arabic transliteration>", "english": "<English translation>"}\n\n'
+        f"Text: {text}"
+    )
+    response = client.chat.completions.create(
+        model=model,
+        messages=[{"role": "user", "content": prompt}],
+        reasoning_effort="none",
+        temperature=0,  # same input -> same translation every time
+    )
+    raw = response.choices[0].message.content or ""
+
+    try:
+        parsed = json.loads(raw)
+    except json.JSONDecodeError:
+        match = re.search(r"\{.*\}", raw, re.DOTALL)
+        parsed = json.loads(match.group(0)) if match else {}
+
+    # Fall back to the Arabizi original for whichever side didn't parse,
+    # rather than crashing the request over a malformed classifier reply.
+    return {
+        "arabic": parsed.get("arabic") or text,
+        "english": parsed.get("english") or text,
+    }
+
+
+def merge_chunk_lists(*chunk_lists: list[dict]) -> list[dict]:
+    """
+    Deduplicates retrieved chunks (by chunk_id) across multiple retrieval
+    passes -- e.g. one run against an Arabic-transliterated query and one
+    against an English-translated query for the same Arabizi question --
+    keeping each chunk's best score across the passes it appeared in, and
+    returns them sorted best-first. Used instead of just concatenating
+    lists so a chunk found strongly by one language pass isn't buried
+    under weaker duplicates of itself from the other pass.
+    """
+    best_by_id: dict[str, dict] = {}
+
+    for chunks in chunk_lists:
+        for chunk in chunks:
+            cid = chunk.get("chunk_id")
+            if cid is None:
+                continue
+            score = chunk.get("rerank_score", chunk.get("score", 0))
+            existing = best_by_id.get(cid)
+            existing_score = existing.get("rerank_score", existing.get("score", 0)) if existing else None
+            if existing is None or score > existing_score:
+                best_by_id[cid] = chunk
+
+    return sorted(
+        best_by_id.values(),
+        key=lambda c: c.get("rerank_score", c.get("score", 0)),
+        reverse=True,
+    )
 
 
 # ---------------------------------------------------------------------
@@ -156,10 +258,16 @@ Given the customer's question, the topics found by a document search, and a prev
    - Look at the retrieved content preview below: if it already contains a general, reusable answer (instructions, a method, a code to dial, a policy that is the same for every customer), the question does NOT need account data, even if it was phrased personally -- decide false and let the generic answer be used.
    - Only decide true when no generic instruction could possibly answer it -- the question is fundamentally about a live, individual number or event (a specific balance, a specific charge, a specific transaction), not "how" or "where" to find/do something.
    - Worked examples: "How do I check my remaining roaming limit?" with a retrieved chunk that says "check via Max it app or dial *979#" -> false (that's a reusable instruction). "Why was I charged 5 JOD last month?" -> true (no document can contain the answer to one customer's specific past charge).
-3. is_ambiguous: as phrased, could this question reasonably refer to more than one distinct service/topic, such that you could not confidently answer without asking which one? Use the retrieved topics as a hint of what's nearby in the documentation.
+3. is_ambiguous: as phrased, could this question reasonably refer to more than one distinct service/topic, such that you could not confidently answer without asking which one?
+   - First check the content preview below: if its TOP item already directly and specifically answers the question (e.g. it is the same question, near-verbatim, or gives a complete, on-topic answer) AND no other item is comparably strong, this is NOT ambiguous -- decide false and let that answer be used. A single strong match beats the mere presence of other topics.
+   - Decide true in either of two situations: (a) the question itself is genuinely underspecified (a vague pronoun like "it"/"cancel it" with no clear referent, or a term that could equally mean two unrelated things), or (b) the preview shows several (more than two or three) genuinely distinct, comparably-relevant real answers -- e.g. multiple region/country/type variants of the same templated FAQ (different codes, different conditions) with no single one standing out as THE answer. Case (b) applies even though each individual item looks like a strong match -- the ambiguity is that there are too many equally strong matches, not that any one is weak.
+   - If the customer already narrowed it down (e.g. added "via international roaming" or "in Orange Money", or named the specific region/country) to a previously vague or multi-option question, treat that as resolved -- do not ask the same either/or question again, and do not flag case (b) once only one variant remains relevant. Re-decide based on the new, more specific wording.
+   - When you do decide true, clarifying_question MUST be built ONLY from the actual distinct questions/topics visible in the content preview below -- quote or closely paraphrase what is really there. Never invent plausible-sounding categories (a service, a feature, a scenario) that do not literally appear in the preview -- that is fabrication, not clarification, and it is worse than asking nothing. For case (b) specifically: list EVERY genuinely distinct real option visible in the preview (not just two, and not a silent partial subset) so the customer can pick the exact one that applies to them -- do not merge them into one long answer, and do not drop any that are shown to you.
+   - Worked example (case a): question "How do I cancel it?" with a preview containing "Can I cancel an International Money transfer?" (topic: orange-money) and a roaming chunk about disabling the bill-control feature (topic: international-roaming) -> true, clarifying_question asks specifically about "cancelling an international money transfer" vs "the roaming bill control feature" -- the two real things actually found, not generic invented categories like "a subscription" or "your account".
+   - Worked example (case b): question "How can I subscribe to Passenger Bundles?" (no region named) with a preview containing "How can I subscribe to Asia Passenger Bundles? Dial *967#", "...Africa Passenger Bundles? Dial *964#", "...Palestine Passenger Bundles? Dial *970#", and more region variants, all comparably relevant -> true, clarifying_question asks which region/destination (naming every region actually present in the preview), not a merged answer reciting every code in one breath.
 
 Respond with ONLY a JSON object and nothing else -- no markdown fences, no explanation:
-{{"in_domain": true or false, "needs_account_data": true or false, "is_ambiguous": true or false, "clarifying_question": "<one short clarifying question in {language_name}, or null if not ambiguous>"}}
+{{"in_domain": true or false, "needs_account_data": true or false, "is_ambiguous": true or false, "clarifying_question": "<one short clarifying question in {language_name}, grounded only in the content preview, or null if not ambiguous>"}}
 
 Question: {question}
 Retrieved document topics: {topics}
@@ -171,10 +279,18 @@ _LANGUAGE_NAMES = {"ar": "Arabic", "en": "English"}
 
 # How many top results' text to show the classifier, and how much of
 # each -- enough for the model to judge "is this a generic, reusable
-# answer" without ballooning the prompt (this call is on the latency
-# path of every request).
-_PREVIEW_CHUNK_COUNT = 2
-_PREVIEW_CHARS_PER_CHUNK = 300
+# answer" and, when genuinely ambiguous, to ground the clarifying
+# question in real content instead of inventing categories. Widened
+# from (2, 300) after manual testing found the model fabricating
+# clarifying-question options ("a subscription", "a recurring payment")
+# that did not exist anywhere in the corpus -- a narrower preview simply
+# didn't show it enough of what was actually retrieved to draw from.
+# Widened again from 4 to 5 (matching /ask's default top_k) after
+# testing a query with 5 near-tied real answers -- with the old count of
+# 4, the classifier never even saw the 5th one, so it couldn't have
+# listed it in a clarifying question no matter how the prompt was worded.
+_PREVIEW_CHUNK_COUNT = 5
+_PREVIEW_CHARS_PER_CHUNK = 220
 
 
 def _build_content_preview(results: list[dict]) -> str:
@@ -210,6 +326,11 @@ def classify_intent(client, model: str, question: str, language: str, results: l
         model=model,
         messages=[{"role": "user", "content": prompt}],
         reasoning_effort="none",
+        # Pinned so the same question + same retrieved chunks always
+        # yield the same guardrail decision -- previously unset, so a
+        # question sitting right at the ambiguous/needs-account-data
+        # boundary could flip its classification between identical runs.
+        temperature=0,
     )
     raw = response.choices[0].message.content or ""
 

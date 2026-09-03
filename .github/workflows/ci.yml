@@ -64,3 +64,35 @@ jobs:
             echo "One or more guardrail cases failed."
             exit 1
           fi
+
+  # Continuous Delivery, step 1: package the app + its exact dependencies
+  # into a Docker image and publish it, but ONLY once it's already
+  # proven to pass lint+test -- and only for a real merge into main, not
+  # for every PR (a PR still gets built here to prove it's buildable,
+  # just never pushed to the registry).
+  build-and-push:
+    name: Build and push Docker image
+    runs-on: ubuntu-latest
+    needs: test
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: ${{ github.event_name == 'push' }}
+          tags: |
+            ghcr.io/${{ github.repository }}:latest
+            ghcr.io/${{ github.repository }}:${{ github.sha }}

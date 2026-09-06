@@ -1,0 +1,3048 @@
+{
+  "by_language": {
+    "en": {
+      "n": 32,
+      "mrr": 0.8411458333333334,
+      "hit@1": 0.71875,
+      "hit@3": 0.9375,
+      "hit@5": 0.96875,
+      "hit@10": 1.0
+    },
+    "ar": {
+      "n": 32,
+      "mrr": 0.8385416666666666,
+      "hit@1": 0.71875,
+      "hit@3": 0.96875,
+      "hit@5": 0.96875,
+      "hit@10": 1.0
+    }
+  },
+  "by_type_language": {
+    "exact_value_en": {
+      "n": 8,
+      "mrr": 0.71875,
+      "hit@1": 0.5,
+      "hit@3": 0.875,
+      "hit@5": 1.0,
+      "hit@10": 1.0
+    },
+    "simple_factual_en": {
+      "n": 12,
+      "mrr": 0.9305555555555557,
+      "hit@1": 0.9166666666666666,
+      "hit@3": 0.9166666666666666,
+      "hit@5": 0.9166666666666666,
+      "hit@10": 1.0
+    },
+    "exact_value_ar": {
+      "n": 8,
+      "mrr": 0.7708333333333334,
+      "hit@1": 0.625,
+      "hit@3": 0.875,
+      "hit@5": 0.875,
+      "hit@10": 1.0
+    },
+    "simple_factual_ar": {
+      "n": 12,
+      "mrr": 0.9166666666666666,
+      "hit@1": 0.8333333333333334,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0
+    },
+    "multi_chunk_en": {
+      "n": 8,
+      "mrr": 0.75,
+      "hit@1": 0.5,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0
+    },
+    "multi_chunk_ar": {
+      "n": 8,
+      "mrr": 0.7916666666666666,
+      "hit@1": 0.625,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0
+    },
+    "dialect_arabizi_ar": {
+      "n": 4,
+      "mrr": 0.8333333333333333,
+      "hit@1": 0.75,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0
+    },
+    "informal_en": {
+      "n": 4,
+      "mrr": 1.0,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0
+    }
+  },
+  "per_item": [
+    {
+      "id": "en-exact-001",
+      "language": "en",
+      "type": "exact_value",
+      "original_question": "What is Orange Fiber Features?",
+      "normalized_question": "What are the features of Orange Fiber?",
+      "correct_chunk_ids": [
+        "642712e093584c6e_008"
+      ],
+      "retrieved_chunk_ids": [
+        "642712e093584c6e_008",
+        "642712e093584c6e_001",
+        "642712e093584c6e_021",
+        "642712e093584c6e_006",
+        "c4790bface4196b1_062",
+        "fa74d8c747ecd06e_005",
+        "9d2740d3e2920616_062",
+        "642712e093584c6e_033",
+        "fa74d8c747ecd06e_001",
+        "642712e093584c6e_009"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-exact-002",
+      "language": "en",
+      "type": "exact_value",
+      "original_question": "How I can save while roaming?",
+      "normalized_question": "How can I save money while roaming?",
+      "correct_chunk_ids": [
+        "49d8a9e384a6bcb9_017"
+      ],
+      "retrieved_chunk_ids": [
+        "49d8a9e384a6bcb9_017",
+        "49d8a9e384a6bcb9_013",
+        "49d8a9e384a6bcb9_008",
+        "49d8a9e384a6bcb9_018",
+        "49d8a9e384a6bcb9_015",
+        "49d8a9e384a6bcb9_001",
+        "49d8a9e384a6bcb9_014",
+        "49d8a9e384a6bcb9_009",
+        "49d8a9e384a6bcb9_038",
+        "16af3a779c48f7a1_039"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-exact-003",
+      "language": "en",
+      "type": "exact_value",
+      "original_question": "Easy steps to check your balance with Orange?",
+      "normalized_question": "What are the simple steps to check your balance with Orange?",
+      "correct_chunk_ids": [
+        "892563201ac794b3_004"
+      ],
+      "retrieved_chunk_ids": [
+        "9d2740d3e2920616_014",
+        "c4790bface4196b1_014",
+        "59b28e214a8b7017_006",
+        "892563201ac794b3_004",
+        "49d8a9e384a6bcb9_042",
+        "c4790bface4196b1_062",
+        "9d2740d3e2920616_062",
+        "c4790bface4196b1_010",
+        "9d2740d3e2920616_010",
+        "9d2740d3e2920616_091"
+      ],
+      "first_hit_rank": 4,
+      "mrr": 0.25,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-exact-004",
+      "language": "en",
+      "type": "exact_value",
+      "original_question": "what is the minimum amount that you can cash in into your wallet from your bank account?",
+      "normalized_question": "What is the minimum amount that can be transferred from a bank account to a wallet?",
+      "correct_chunk_ids": [
+        "9d2740d3e2920616_053"
+      ],
+      "retrieved_chunk_ids": [
+        "c4790bface4196b1_053",
+        "9d2740d3e2920616_053",
+        "c4790bface4196b1_007",
+        "9d2740d3e2920616_007",
+        "c4790bface4196b1_050",
+        "9d2740d3e2920616_050",
+        "c4790bface4196b1_027",
+        "9d2740d3e2920616_027",
+        "35d0f13e82e9675f_051",
+        "c4790bface4196b1_049"
+      ],
+      "first_hit_rank": 2,
+      "mrr": 0.5,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-exact-008",
+      "language": "en",
+      "type": "exact_value",
+      "original_question": "How do I transfer money from my wallet to another mobile wallet?",
+      "normalized_question": "How can I transfer funds from my digital wallet to another mobile wallet?",
+      "correct_chunk_ids": [
+        "c4790bface4196b1_009"
+      ],
+      "retrieved_chunk_ids": [
+        "9d2740d3e2920616_009",
+        "c4790bface4196b1_009",
+        "c4790bface4196b1_043",
+        "9d2740d3e2920616_043",
+        "c4790bface4196b1_042",
+        "9d2740d3e2920616_042",
+        "c4790bface4196b1_013",
+        "9d2740d3e2920616_013",
+        "c4790bface4196b1_050",
+        "c4790bface4196b1_084"
+      ],
+      "first_hit_rank": 2,
+      "mrr": 0.5,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-simple-009",
+      "language": "en",
+      "type": "simple_factual",
+      "original_question": "How long does it take for my bill to be processed?",
+      "normalized_question": "How long does it take for my bill to be processed?",
+      "correct_chunk_ids": [
+        "a43121861055a8fa_006"
+      ],
+      "retrieved_chunk_ids": [
+        "a43121861055a8fa_006",
+        "c4790bface4196b1_089",
+        "9d2740d3e2920616_089",
+        "9d2740d3e2920616_010",
+        "c4790bface4196b1_010",
+        "642712e093584c6e_004",
+        "642712e093584c6e_026",
+        "9d2740d3e2920616_088",
+        "c4790bface4196b1_088",
+        "fc4e8ce20cf935f4_006"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-simple-010",
+      "language": "en",
+      "type": "simple_factual",
+      "original_question": "Can I use a security system alarm with the Digital Voice service?",
+      "normalized_question": "Is it possible to use a security system alarm with the Digital Voice service?",
+      "correct_chunk_ids": [
+        "642712e093584c6e_019"
+      ],
+      "retrieved_chunk_ids": [
+        "642712e093584c6e_019",
+        "642712e093584c6e_020",
+        "642712e093584c6e_015",
+        "642712e093584c6e_012",
+        "642712e093584c6e_009",
+        "642712e093584c6e_013",
+        "642712e093584c6e_010",
+        "642712e093584c6e_011",
+        "642712e093584c6e_018",
+        "642712e093584c6e_017"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-simple-011",
+      "language": "en",
+      "type": "simple_factual",
+      "original_question": "How can I use internet while roaming?",
+      "normalized_question": "How can I use the internet while roaming?",
+      "correct_chunk_ids": [
+        "49d8a9e384a6bcb9_013"
+      ],
+      "retrieved_chunk_ids": [
+        "49d8a9e384a6bcb9_013",
+        "49d8a9e384a6bcb9_009",
+        "49d8a9e384a6bcb9_017",
+        "c4790bface4196b1_095",
+        "9d2740d3e2920616_095",
+        "49d8a9e384a6bcb9_015",
+        "49d8a9e384a6bcb9_011",
+        "49d8a9e384a6bcb9_012",
+        "49d8a9e384a6bcb9_008",
+        "49d8a9e384a6bcb9_003"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-simple-012",
+      "language": "en",
+      "type": "simple_factual",
+      "original_question": "Was this page helpful ?",
+      "normalized_question": "Was this page helpful?",
+      "correct_chunk_ids": [
+        "892563201ac794b3_005"
+      ],
+      "retrieved_chunk_ids": [
+        "892563201ac794b3_005",
+        "124a480cd7ccc2ee_000",
+        "9d2740d3e2920616_088",
+        "c4790bface4196b1_088",
+        "c4790bface4196b1_083",
+        "97c3ba92a38eb494_109",
+        "49d8a9e384a6bcb9_000",
+        "c4790bface4196b1_040",
+        "c4790bface4196b1_093",
+        "97c3ba92a38eb494_111"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-simple-013",
+      "language": "en",
+      "type": "simple_factual",
+      "original_question": "How can I collect the money to my wallet?",
+      "normalized_question": "How can I transfer funds to my wallet?",
+      "correct_chunk_ids": [
+        "9d2740d3e2920616_050"
+      ],
+      "retrieved_chunk_ids": [
+        "9d2740d3e2920616_009",
+        "c4790bface4196b1_009",
+        "c4790bface4196b1_043",
+        "9d2740d3e2920616_043",
+        "c4790bface4196b1_050",
+        "9d2740d3e2920616_050",
+        "c4790bface4196b1_084",
+        "9d2740d3e2920616_084",
+        "9d2740d3e2920616_042",
+        "c4790bface4196b1_042"
+      ],
+      "first_hit_rank": 6,
+      "mrr": 0.16666666666666666,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "5": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-simple-014",
+      "language": "en",
+      "type": "simple_factual",
+      "original_question": "What is the minimum amount i can pay?",
+      "normalized_question": "What is the minimum payment amount?",
+      "correct_chunk_ids": [
+        "a43121861055a8fa_011"
+      ],
+      "retrieved_chunk_ids": [
+        "a43121861055a8fa_011",
+        "c4790bface4196b1_053",
+        "9d2740d3e2920616_053",
+        "9d2740d3e2920616_007",
+        "c4790bface4196b1_007",
+        "c4790bface4196b1_085",
+        "9d2740d3e2920616_085",
+        "49d8a9e384a6bcb9_002",
+        "49d8a9e384a6bcb9_037",
+        "9d2740d3e2920616_088"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-simple-015",
+      "language": "en",
+      "type": "simple_factual",
+      "original_question": "What type of phone handset I need to use with Digital Voice service?",
+      "normalized_question": "What type of telephone handset is required for use with Digital Voice service?",
+      "correct_chunk_ids": [
+        "642712e093584c6e_011"
+      ],
+      "retrieved_chunk_ids": [
+        "642712e093584c6e_011",
+        "642712e093584c6e_020",
+        "642712e093584c6e_009",
+        "642712e093584c6e_012",
+        "642712e093584c6e_019",
+        "642712e093584c6e_010",
+        "642712e093584c6e_013",
+        "642712e093584c6e_015",
+        "642712e093584c6e_017",
+        "642712e093584c6e_014"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-simple-016",
+      "language": "en",
+      "type": "simple_factual",
+      "original_question": "Is the ABS service will reset automatically?",
+      "normalized_question": "Will the ABS service reset automatically?",
+      "correct_chunk_ids": [
+        "49d8a9e384a6bcb9_007"
+      ],
+      "retrieved_chunk_ids": [
+        "49d8a9e384a6bcb9_007",
+        "16af3a779c48f7a1_006",
+        "9d2740d3e2920616_088",
+        "c4790bface4196b1_088",
+        "c4790bface4196b1_107",
+        "49d8a9e384a6bcb9_038",
+        "9d2740d3e2920616_107",
+        "35d0f13e82e9675f_085",
+        "97c3ba92a38eb494_085",
+        "642712e093584c6e_027"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-simple-017",
+      "language": "en",
+      "type": "simple_factual",
+      "original_question": "What is Data carry over feature?",
+      "normalized_question": "What is the data carry-over feature?",
+      "correct_chunk_ids": [
+        "59b28e214a8b7017_001"
+      ],
+      "retrieved_chunk_ids": [
+        "59b28e214a8b7017_001",
+        "892563201ac794b3_001",
+        "49d8a9e384a6bcb9_006",
+        "49d8a9e384a6bcb9_004",
+        "49d8a9e384a6bcb9_001",
+        "892563201ac794b3_002",
+        "59b28e214a8b7017_002",
+        "49d8a9e384a6bcb9_008",
+        "998b108075cc4af8_001",
+        "c4790bface4196b1_101"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-simple-018",
+      "language": "en",
+      "type": "simple_factual",
+      "original_question": "Is the Card to Wallet Top up service secure?",
+      "normalized_question": "Is the Card-to-Wallet Top-Up service secure?",
+      "correct_chunk_ids": [
+        "9d2740d3e2920616_090"
+      ],
+      "retrieved_chunk_ids": [
+        "9d2740d3e2920616_090",
+        "c4790bface4196b1_090",
+        "c4790bface4196b1_082",
+        "9d2740d3e2920616_082",
+        "c4790bface4196b1_085",
+        "9d2740d3e2920616_085",
+        "c4790bface4196b1_084",
+        "c4790bface4196b1_094",
+        "9d2740d3e2920616_094",
+        "9d2740d3e2920616_084"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-simple-019",
+      "language": "en",
+      "type": "simple_factual",
+      "original_question": "What happens In case of illegal activity such as Fraud and/or Financial Crimes?",
+      "normalized_question": "What occurs in the event of illegal activities, such as fraud and/or financial crimes?",
+      "correct_chunk_ids": [
+        "a43121861055a8fa_005"
+      ],
+      "retrieved_chunk_ids": [
+        "a43121861055a8fa_005",
+        "fc4e8ce20cf935f4_005",
+        "9d2740d3e2920616_111",
+        "c4790bface4196b1_047",
+        "c4790bface4196b1_111",
+        "9d2740d3e2920616_047",
+        "c4790bface4196b1_012",
+        "9d2740d3e2920616_106",
+        "9d2740d3e2920616_012",
+        "c4790bface4196b1_106"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-simple-020",
+      "language": "en",
+      "type": "simple_factual",
+      "original_question": "What is the modem type is it wireless or wired?",
+      "normalized_question": "Is the modem wireless or wired?",
+      "correct_chunk_ids": [
+        "642712e093584c6e_029"
+      ],
+      "retrieved_chunk_ids": [
+        "642712e093584c6e_029",
+        "642712e093584c6e_005",
+        "642712e093584c6e_006",
+        "fa74d8c747ecd06e_023",
+        "642712e093584c6e_011",
+        "49d8a9e384a6bcb9_038",
+        "642712e093584c6e_021",
+        "c4790bface4196b1_019",
+        "642712e093584c6e_033",
+        "9d2740d3e2920616_019"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-exact-001",
+      "language": "ar",
+      "type": "exact_value",
+      "original_question": "ما هي خدمه Orange فايبر ؟",
+      "normalized_question": "ما هي خدمة أورانج فايبر؟",
+      "correct_chunk_ids": [
+        "fa74d8c747ecd06e_001"
+      ],
+      "retrieved_chunk_ids": [
+        "fa74d8c747ecd06e_005",
+        "fa74d8c747ecd06e_001",
+        "fa74d8c747ecd06e_004",
+        "fa74d8c747ecd06e_014",
+        "97c3ba92a38eb494_085",
+        "35d0f13e82e9675f_085",
+        "642712e093584c6e_001",
+        "fa74d8c747ecd06e_006",
+        "642712e093584c6e_008",
+        "c4790bface4196b1_088"
+      ],
+      "first_hit_rank": 2,
+      "mrr": 0.5,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-exact-002",
+      "language": "ar",
+      "type": "exact_value",
+      "original_question": "كيف يمكنني التحقق من الحد المتبقي من الاستهلاك ومده صلاحيته؟",
+      "normalized_question": "كيف يمكنني التحقق من الحد المتبقي من الاستهلاك ومدة صلاحيته؟",
+      "correct_chunk_ids": [
+        "16af3a779c48f7a1_005"
+      ],
+      "retrieved_chunk_ids": [
+        "16af3a779c48f7a1_005",
+        "16af3a779c48f7a1_037",
+        "16af3a779c48f7a1_031",
+        "16af3a779c48f7a1_002",
+        "16af3a779c48f7a1_003",
+        "16af3a779c48f7a1_035",
+        "49d8a9e384a6bcb9_005",
+        "97c3ba92a38eb494_100",
+        "49d8a9e384a6bcb9_002",
+        "35d0f13e82e9675f_100"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-exact-003",
+      "language": "ar",
+      "type": "exact_value",
+      "original_question": "كيف يمكنني ايقاف الرسائل الدعائيه ؟",
+      "normalized_question": "كيف يمكنني إيقاف الرسائل الدعائية؟",
+      "correct_chunk_ids": [
+        "998b108075cc4af8_003"
+      ],
+      "retrieved_chunk_ids": [
+        "998b108075cc4af8_003",
+        "16af3a779c48f7a1_039",
+        "16af3a779c48f7a1_031",
+        "16af3a779c48f7a1_036",
+        "59b28e214a8b7017_005",
+        "fa74d8c747ecd06e_020",
+        "49d8a9e384a6bcb9_008",
+        "16af3a779c48f7a1_013",
+        "9d2740d3e2920616_047",
+        "fa74d8c747ecd06e_026"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-exact-004",
+      "language": "ar",
+      "type": "exact_value",
+      "original_question": "هل بحتاج موبايل ذكي عشان استخدم Orange Money؟",
+      "normalized_question": "هل أحتاج إلى هاتف ذكي لاستخدام خدمة Orange Money؟",
+      "correct_chunk_ids": [
+        "97c3ba92a38eb494_018"
+      ],
+      "retrieved_chunk_ids": [
+        "97c3ba92a38eb494_018",
+        "fc4e8ce20cf935f4_004",
+        "35d0f13e82e9675f_018",
+        "fa74d8c747ecd06e_009",
+        "9d2740d3e2920616_018",
+        "fa74d8c747ecd06e_008",
+        "c4790bface4196b1_018",
+        "9d2740d3e2920616_003",
+        "97c3ba92a38eb494_077",
+        "c4790bface4196b1_003"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-exact-008",
+      "language": "ar",
+      "type": "exact_value",
+      "original_question": "كيف بقدر احول مصاري من محفظتي لمحفظه اخرى؟",
+      "normalized_question": "كيف يمكنني تحويل الأموال من محفظتي إلى محفظة أخرى؟",
+      "correct_chunk_ids": [
+        "35d0f13e82e9675f_009"
+      ],
+      "retrieved_chunk_ids": [
+        "97c3ba92a38eb494_009",
+        "35d0f13e82e9675f_009",
+        "97c3ba92a38eb494_040",
+        "35d0f13e82e9675f_040",
+        "97c3ba92a38eb494_041",
+        "9d2740d3e2920616_009",
+        "97c3ba92a38eb494_044",
+        "c4790bface4196b1_009",
+        "35d0f13e82e9675f_044",
+        "c4790bface4196b1_047"
+      ],
+      "first_hit_rank": 2,
+      "mrr": 0.5,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-simple-009",
+      "language": "ar",
+      "type": "simple_factual",
+      "original_question": "ما هي الخدمات التي يمكنني سداد فواتيرها؟",
+      "normalized_question": "ما هي الخدمات التي يمكنني سداد فواتيرها؟",
+      "correct_chunk_ids": [
+        "fc4e8ce20cf935f4_007"
+      ],
+      "retrieved_chunk_ids": [
+        "fc4e8ce20cf935f4_007",
+        "35d0f13e82e9675f_085",
+        "97c3ba92a38eb494_085",
+        "16af3a779c48f7a1_028",
+        "9d2740d3e2920616_088",
+        "c4790bface4196b1_088",
+        "97c3ba92a38eb494_083",
+        "35d0f13e82e9675f_083",
+        "97c3ba92a38eb494_015",
+        "35d0f13e82e9675f_015"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-simple-010",
+      "language": "ar",
+      "type": "simple_factual",
+      "original_question": "ما هو الجديد في خدمه الاتصال الصوتي الرقمي مع الفايبر؟",
+      "normalized_question": "ما الجديد في خدمة الاتصال الصوتي الرقمي مع الألياف البصرية؟",
+      "correct_chunk_ids": [
+        "fa74d8c747ecd06e_006"
+      ],
+      "retrieved_chunk_ids": [
+        "fa74d8c747ecd06e_006",
+        "fa74d8c747ecd06e_014",
+        "fa74d8c747ecd06e_009",
+        "fa74d8c747ecd06e_012",
+        "fa74d8c747ecd06e_007",
+        "fa74d8c747ecd06e_011",
+        "fa74d8c747ecd06e_010",
+        "642712e093584c6e_009",
+        "642712e093584c6e_020",
+        "642712e093584c6e_013"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-simple-011",
+      "language": "ar",
+      "type": "simple_factual",
+      "original_question": "ما هي ميزه التحكم في فاتوره بيانات التجوال (حمايه من ارتفاع الفواتير)؟",
+      "normalized_question": "ما هي ميزة التحكم في فاتورة بيانات التجوال (الحماية من ارتفاع الفواتير)؟",
+      "correct_chunk_ids": [
+        "16af3a779c48f7a1_001"
+      ],
+      "retrieved_chunk_ids": [
+        "16af3a779c48f7a1_001",
+        "16af3a779c48f7a1_033",
+        "16af3a779c48f7a1_004",
+        "16af3a779c48f7a1_005",
+        "16af3a779c48f7a1_007",
+        "16af3a779c48f7a1_032",
+        "16af3a779c48f7a1_039",
+        "16af3a779c48f7a1_036",
+        "16af3a779c48f7a1_038",
+        "16af3a779c48f7a1_037"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-simple-012",
+      "language": "ar",
+      "type": "simple_factual",
+      "original_question": "ما هي ميزه ترحيل حزم الانترنت؟",
+      "normalized_question": "ما هي ميزة ترحيل حزم الإنترنت؟",
+      "correct_chunk_ids": [
+        "998b108075cc4af8_001"
+      ],
+      "retrieved_chunk_ids": [
+        "998b108075cc4af8_001",
+        "16af3a779c48f7a1_033",
+        "16af3a779c48f7a1_032",
+        "892563201ac794b3_001",
+        "16af3a779c48f7a1_001",
+        "59b28e214a8b7017_001",
+        "16af3a779c48f7a1_020",
+        "16af3a779c48f7a1_031",
+        "16af3a779c48f7a1_021",
+        "642712e093584c6e_002"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-simple-013",
+      "language": "ar",
+      "type": "simple_factual",
+      "original_question": "كم مده صلاحيه القسائم الالكترونيه ؟",
+      "normalized_question": "ما هي مدة صلاحية القسائم الإلكترونية؟",
+      "correct_chunk_ids": [
+        "35d0f13e82e9675f_061"
+      ],
+      "retrieved_chunk_ids": [
+        "35d0f13e82e9675f_061",
+        "97c3ba92a38eb494_061",
+        "35d0f13e82e9675f_052",
+        "97c3ba92a38eb494_052",
+        "35d0f13e82e9675f_055",
+        "97c3ba92a38eb494_055",
+        "97c3ba92a38eb494_086",
+        "35d0f13e82e9675f_086",
+        "35d0f13e82e9675f_060",
+        "97c3ba92a38eb494_060"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-simple-014",
+      "language": "ar",
+      "type": "simple_factual",
+      "original_question": "ما الذي یجب علي فعله في حاله حدوث خطا، وکیف یمکنني تقدیم شكوى بشان المدفوعات الالكترونيه؟",
+      "normalized_question": "ما الإجراء الذي يجب اتخاذه في حالة حدوث خطأ، وكيف يمكنني تقديم شكوى بشأن المدفوعات الإلكترونية؟",
+      "correct_chunk_ids": [
+        "fc4e8ce20cf935f4_010"
+      ],
+      "retrieved_chunk_ids": [
+        "fc4e8ce20cf935f4_010",
+        "16af3a779c48f7a1_031",
+        "97c3ba92a38eb494_064",
+        "9d2740d3e2920616_047",
+        "35d0f13e82e9675f_064",
+        "c4790bface4196b1_047",
+        "a43121861055a8fa_010",
+        "97c3ba92a38eb494_066",
+        "c4790bface4196b1_096",
+        "35d0f13e82e9675f_066"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-simple-015",
+      "language": "ar",
+      "type": "simple_factual",
+      "original_question": "كيف يمكنني الحصول على احد عروض ال ADSL؟",
+      "normalized_question": "كيف يمكنني الاشتراك في أحد عروض خدمة ADSL؟",
+      "correct_chunk_ids": [
+        "fa74d8c747ecd06e_025"
+      ],
+      "retrieved_chunk_ids": [
+        "fa74d8c747ecd06e_025",
+        "fc4e8ce20cf935f4_007",
+        "fa74d8c747ecd06e_024",
+        "fa74d8c747ecd06e_021",
+        "fa74d8c747ecd06e_017",
+        "642712e093584c6e_031",
+        "16af3a779c48f7a1_027",
+        "16af3a779c48f7a1_028",
+        "642712e093584c6e_025",
+        "16af3a779c48f7a1_013"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-simple-016",
+      "language": "ar",
+      "type": "simple_factual",
+      "original_question": "هل يمكنني شراء اكثر من حزمه تجوال انترنت في نفس الوقت؟",
+      "normalized_question": "هل يمكنني شراء أكثر من حزمة إنترنت تجوال في نفس الوقت؟",
+      "correct_chunk_ids": [
+        "16af3a779c48f7a1_032"
+      ],
+      "retrieved_chunk_ids": [
+        "16af3a779c48f7a1_032",
+        "16af3a779c48f7a1_018",
+        "16af3a779c48f7a1_017",
+        "998b108075cc4af8_001",
+        "16af3a779c48f7a1_030",
+        "16af3a779c48f7a1_013",
+        "97c3ba92a38eb494_067",
+        "35d0f13e82e9675f_067",
+        "49d8a9e384a6bcb9_025",
+        "16af3a779c48f7a1_037"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-simple-017",
+      "language": "ar",
+      "type": "simple_factual",
+      "original_question": "كم مده صلاحيه القسائم الالكترونيه ؟",
+      "normalized_question": "ما هي مدة صلاحية القسائم الإلكترونية؟",
+      "correct_chunk_ids": [
+        "97c3ba92a38eb494_061"
+      ],
+      "retrieved_chunk_ids": [
+        "35d0f13e82e9675f_061",
+        "97c3ba92a38eb494_061",
+        "35d0f13e82e9675f_052",
+        "97c3ba92a38eb494_052",
+        "35d0f13e82e9675f_055",
+        "97c3ba92a38eb494_055",
+        "97c3ba92a38eb494_086",
+        "35d0f13e82e9675f_086",
+        "35d0f13e82e9675f_060",
+        "97c3ba92a38eb494_060"
+      ],
+      "first_hit_rank": 2,
+      "mrr": 0.5,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-simple-018",
+      "language": "ar",
+      "type": "simple_factual",
+      "original_question": "ماذا علي ان افعل للوصول الى الفاتوره التفصيليه على الانترنت؟",
+      "normalized_question": "ما الإجراء الذي يجب اتخاذه للوصول إلى الفاتورة التفصيلية عبر الإنترنت؟",
+      "correct_chunk_ids": [
+        "fc4e8ce20cf935f4_009"
+      ],
+      "retrieved_chunk_ids": [
+        "fc4e8ce20cf935f4_009",
+        "c4790bface4196b1_088",
+        "fa74d8c747ecd06e_018",
+        "9d2740d3e2920616_088",
+        "fc4e8ce20cf935f4_001",
+        "16af3a779c48f7a1_031",
+        "97c3ba92a38eb494_064",
+        "16af3a779c48f7a1_032",
+        "35d0f13e82e9675f_064",
+        "a43121861055a8fa_009"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-simple-019",
+      "language": "ar",
+      "type": "simple_factual",
+      "original_question": "ما هو جهاز المودم او الموزع للانترنت هل هو سلكي ام لاسلكي؟",
+      "normalized_question": "ما هو جهاز المودم أو موزع الإنترنت، وهل هو سلكي أم لاسلكي؟",
+      "correct_chunk_ids": [
+        "fa74d8c747ecd06e_023"
+      ],
+      "retrieved_chunk_ids": [
+        "fa74d8c747ecd06e_023",
+        "fa74d8c747ecd06e_003",
+        "fc4e8ce20cf935f4_002",
+        "642712e093584c6e_029",
+        "fa74d8c747ecd06e_008",
+        "49d8a9e384a6bcb9_038",
+        "16af3a779c48f7a1_002",
+        "642712e093584c6e_022",
+        "642712e093584c6e_033",
+        "fa74d8c747ecd06e_006"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-simple-020",
+      "language": "ar",
+      "type": "simple_factual",
+      "original_question": "كيف يمكنني التحقق من حاله سقف استهلاك و صلاحيته؟",
+      "normalized_question": "كيف يمكنني التحقق من حالة سقف الاستهلاك وصلاحيته؟",
+      "correct_chunk_ids": [
+        "16af3a779c48f7a1_037"
+      ],
+      "retrieved_chunk_ids": [
+        "16af3a779c48f7a1_031",
+        "16af3a779c48f7a1_037",
+        "16af3a779c48f7a1_005",
+        "16af3a779c48f7a1_035",
+        "16af3a779c48f7a1_003",
+        "16af3a779c48f7a1_036",
+        "35d0f13e82e9675f_084",
+        "49d8a9e384a6bcb9_005",
+        "16af3a779c48f7a1_033",
+        "16af3a779c48f7a1_002"
+      ],
+      "first_hit_rank": 2,
+      "mrr": 0.5,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-multi-001",
+      "language": "en",
+      "type": "multi_chunk",
+      "original_question": "How I can save while roaming and how I can know about the standard roaming tariff per service and country?",
+      "normalized_question": "How can I save money while roaming, and how can I find out the standard roaming tariffs per service and country?",
+      "correct_chunk_ids": [
+        "49d8a9e384a6bcb9_017",
+        "49d8a9e384a6bcb9_018"
+      ],
+      "retrieved_chunk_ids": [
+        "49d8a9e384a6bcb9_018",
+        "49d8a9e384a6bcb9_017",
+        "49d8a9e384a6bcb9_014",
+        "49d8a9e384a6bcb9_016",
+        "49d8a9e384a6bcb9_011",
+        "49d8a9e384a6bcb9_015",
+        "49d8a9e384a6bcb9_026",
+        "49d8a9e384a6bcb9_038",
+        "49d8a9e384a6bcb9_019",
+        "c4790bface4196b1_088"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.6666666666666666
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.4
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        }
+      }
+    },
+    {
+      "id": "en-multi-002",
+      "language": "en",
+      "type": "multi_chunk",
+      "original_question": "Who can get it and how long does it take to set up?",
+      "normalized_question": "Who is eligible to obtain it, and how long does the setup process take?",
+      "correct_chunk_ids": [
+        "642712e093584c6e_003",
+        "642712e093584c6e_004"
+      ],
+      "retrieved_chunk_ids": [
+        "642712e093584c6e_004",
+        "9d2740d3e2920616_083",
+        "c4790bface4196b1_083",
+        "c4790bface4196b1_029",
+        "642712e093584c6e_003",
+        "9d2740d3e2920616_029",
+        "49d8a9e384a6bcb9_037",
+        "a43121861055a8fa_006",
+        "9d2740d3e2920616_088",
+        "c4790bface4196b1_088"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.4
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        }
+      }
+    },
+    {
+      "id": "en-multi-003",
+      "language": "en",
+      "type": "multi_chunk",
+      "original_question": "What is the difference between denomination and price and what are the unique features of Orange Money Electronic Vouchers?",
+      "normalized_question": "What is the difference between denomination and price, and what are the unique features of Orange Money Electronic Vouchers?",
+      "correct_chunk_ids": [
+        "c4790bface4196b1_061",
+        "c4790bface4196b1_062"
+      ],
+      "retrieved_chunk_ids": [
+        "9d2740d3e2920616_061",
+        "c4790bface4196b1_061",
+        "c4790bface4196b1_062",
+        "9d2740d3e2920616_062",
+        "c4790bface4196b1_056",
+        "9d2740d3e2920616_056",
+        "9d2740d3e2920616_058",
+        "c4790bface4196b1_058",
+        "9d2740d3e2920616_055",
+        "c4790bface4196b1_055"
+      ],
+      "first_hit_rank": 2,
+      "mrr": 0.5,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.6666666666666666
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.4
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        }
+      }
+    },
+    {
+      "id": "en-multi-004",
+      "language": "en",
+      "type": "multi_chunk",
+      "original_question": "To Which countries can I send and receive money and how much money can I Send and Receive?",
+      "normalized_question": "To which countries can I send and receive money, and what are the limits for sending and receiving funds?",
+      "correct_chunk_ids": [
+        "c4790bface4196b1_044",
+        "c4790bface4196b1_045"
+      ],
+      "retrieved_chunk_ids": [
+        "9d2740d3e2920616_044",
+        "c4790bface4196b1_044",
+        "c4790bface4196b1_045",
+        "c4790bface4196b1_043",
+        "9d2740d3e2920616_045",
+        "9d2740d3e2920616_043",
+        "c4790bface4196b1_050",
+        "9d2740d3e2920616_049",
+        "9d2740d3e2920616_050",
+        "c4790bface4196b1_049"
+      ],
+      "first_hit_rank": 2,
+      "mrr": 0.5,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.6666666666666666
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.4
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        }
+      }
+    },
+    {
+      "id": "en-multi-005",
+      "language": "en",
+      "type": "multi_chunk",
+      "original_question": "How to use QR and where Can I use QR?",
+      "normalized_question": "How are QR codes used, and where can they be utilized?",
+      "correct_chunk_ids": [
+        "c4790bface4196b1_033",
+        "c4790bface4196b1_034"
+      ],
+      "retrieved_chunk_ids": [
+        "c4790bface4196b1_034",
+        "9d2740d3e2920616_034",
+        "c4790bface4196b1_033",
+        "9d2740d3e2920616_033",
+        "9d2740d3e2920616_032",
+        "c4790bface4196b1_032",
+        "49d8a9e384a6bcb9_017",
+        "c4790bface4196b1_086",
+        "9d2740d3e2920616_086",
+        "642712e093584c6e_018"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.6666666666666666
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.4
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        }
+      }
+    },
+    {
+      "id": "en-multi-006",
+      "language": "en",
+      "type": "multi_chunk",
+      "original_question": "1) How can I subscribe to Turkey Passenger Bundles and 1) How can I subscribe to Palestine Passenger Bundles?",
+      "normalized_question": "How can I subscribe to Turkey Passenger Bundles and Palestine Passenger Bundles?",
+      "correct_chunk_ids": [
+        "49d8a9e384a6bcb9_031",
+        "49d8a9e384a6bcb9_032"
+      ],
+      "retrieved_chunk_ids": [
+        "49d8a9e384a6bcb9_031",
+        "49d8a9e384a6bcb9_032",
+        "49d8a9e384a6bcb9_030",
+        "49d8a9e384a6bcb9_027",
+        "49d8a9e384a6bcb9_036",
+        "49d8a9e384a6bcb9_020",
+        "49d8a9e384a6bcb9_035",
+        "49d8a9e384a6bcb9_034",
+        "49d8a9e384a6bcb9_029",
+        "49d8a9e384a6bcb9_033"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.6666666666666666
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.4
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        }
+      }
+    },
+    {
+      "id": "en-multi-007",
+      "language": "en",
+      "type": "multi_chunk",
+      "original_question": "How can I send an SMS while roaming and how can I use internet while roaming?",
+      "normalized_question": "How can I send SMS messages and use the internet while roaming?",
+      "correct_chunk_ids": [
+        "49d8a9e384a6bcb9_012",
+        "49d8a9e384a6bcb9_013"
+      ],
+      "retrieved_chunk_ids": [
+        "49d8a9e384a6bcb9_009",
+        "49d8a9e384a6bcb9_013",
+        "49d8a9e384a6bcb9_012",
+        "49d8a9e384a6bcb9_018",
+        "49d8a9e384a6bcb9_017",
+        "49d8a9e384a6bcb9_014",
+        "49d8a9e384a6bcb9_016",
+        "49d8a9e384a6bcb9_011",
+        "49d8a9e384a6bcb9_015",
+        "49d8a9e384a6bcb9_038"
+      ],
+      "first_hit_rank": 2,
+      "mrr": 0.5,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.6666666666666666
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.4
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        }
+      }
+    },
+    {
+      "id": "en-multi-008",
+      "language": "en",
+      "type": "multi_chunk",
+      "original_question": "Will I be notified if a payment authorization fails and can I use Orange Money Visa card to top up my wallet ?",
+      "normalized_question": "Will I be notified if a payment authorization fails, and can I use an Orange Money Visa card to top up my wallet?",
+      "correct_chunk_ids": [
+        "9d2740d3e2920616_096",
+        "9d2740d3e2920616_097"
+      ],
+      "retrieved_chunk_ids": [
+        "c4790bface4196b1_096",
+        "9d2740d3e2920616_096",
+        "c4790bface4196b1_097",
+        "9d2740d3e2920616_097",
+        "c4790bface4196b1_090",
+        "9d2740d3e2920616_090",
+        "9d2740d3e2920616_091",
+        "c4790bface4196b1_091",
+        "c4790bface4196b1_082",
+        "9d2740d3e2920616_082"
+      ],
+      "first_hit_rank": 2,
+      "mrr": 0.5,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.4
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        }
+      }
+    },
+    {
+      "id": "ar-multi-009",
+      "language": "ar",
+      "type": "multi_chunk",
+      "original_question": "كيف استطيع استخدام الانترنت اثناء تواجدي خارج الاردن (التجوال) وكيف يمكنني معرفه حزم التجوال المتاحه لكل دوله؟",
+      "normalized_question": "كيف يمكنني استخدام الإنترنت أثناء تواجدي خارج الأردن (التجوال)، وكيف يمكنني معرفة حزم التجوال المتاحة لكل دولة؟",
+      "correct_chunk_ids": [
+        "16af3a779c48f7a1_012",
+        "16af3a779c48f7a1_013"
+      ],
+      "retrieved_chunk_ids": [
+        "16af3a779c48f7a1_012",
+        "16af3a779c48f7a1_013",
+        "16af3a779c48f7a1_008",
+        "97c3ba92a38eb494_092",
+        "16af3a779c48f7a1_010",
+        "35d0f13e82e9675f_092",
+        "16af3a779c48f7a1_024",
+        "16af3a779c48f7a1_032",
+        "16af3a779c48f7a1_016",
+        "16af3a779c48f7a1_017"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.6666666666666666
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.4
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        }
+      }
+    },
+    {
+      "id": "ar-multi-010",
+      "language": "ar",
+      "type": "multi_chunk",
+      "original_question": "كيف بقدر اشوف كل القسائم الالكترونيه اللي اشتريتها من تطبيق Orange Money وكيف بقدر اشوف تفاصيل القسائم الالكترونيه اللي اشتريتها من تطبيق Orange Money؟",
+      "normalized_question": "كيف يمكنني عرض جميع القسائم الإلكترونية التي اشتريتها من تطبيق Orange Money، وكيف يمكنني عرض تفاصيل القسائم الإلكترونية التي اشتريتها من تطبيق Orange Money؟",
+      "correct_chunk_ids": [
+        "35d0f13e82e9675f_055",
+        "35d0f13e82e9675f_056"
+      ],
+      "retrieved_chunk_ids": [
+        "97c3ba92a38eb494_056",
+        "35d0f13e82e9675f_056",
+        "35d0f13e82e9675f_055",
+        "97c3ba92a38eb494_055",
+        "97c3ba92a38eb494_054",
+        "35d0f13e82e9675f_054",
+        "97c3ba92a38eb494_060",
+        "35d0f13e82e9675f_060",
+        "35d0f13e82e9675f_053",
+        "97c3ba92a38eb494_053"
+      ],
+      "first_hit_rank": 2,
+      "mrr": 0.5,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.6666666666666666
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.4
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        }
+      }
+    },
+    {
+      "id": "ar-multi-011",
+      "language": "ar",
+      "type": "multi_chunk",
+      "original_question": "هل منطقتي مغطاه بخدمه الاتصال الصوتي الرقمي وما هو نوع الهاتف الذي احتاجه لاستخدام خدمه الاتصال الصوتي الرقمي ؟",
+      "normalized_question": "هل تغطي خدمات الاتصال الصوتي الرقمي منطقتي، وما هو نوع الهاتف المطلوب لاستخدام هذه الخدمة؟",
+      "correct_chunk_ids": [
+        "fa74d8c747ecd06e_007",
+        "fa74d8c747ecd06e_008"
+      ],
+      "retrieved_chunk_ids": [
+        "fa74d8c747ecd06e_008",
+        "fa74d8c747ecd06e_009",
+        "fa74d8c747ecd06e_014",
+        "fa74d8c747ecd06e_007",
+        "fa74d8c747ecd06e_012",
+        "fa74d8c747ecd06e_011",
+        "35d0f13e82e9675f_085",
+        "97c3ba92a38eb494_085",
+        "fa74d8c747ecd06e_006",
+        "49d8a9e384a6bcb9_038"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.4
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        }
+      }
+    },
+    {
+      "id": "ar-multi-012",
+      "language": "ar",
+      "type": "multi_chunk",
+      "original_question": "ما هو الجديد في خدمه الاتصال الصوتي الرقمي مع الفايبر وهل منطقتي مغطاه بخدمه الاتصال الصوتي الرقمي ؟",
+      "normalized_question": "ما هي الميزات الجديدة في خدمة الاتصال الصوتي الرقمي عبر الألياف البصرية، وهل تغطي هذه الخدمة منطقتي؟",
+      "correct_chunk_ids": [
+        "fa74d8c747ecd06e_006",
+        "fa74d8c747ecd06e_007"
+      ],
+      "retrieved_chunk_ids": [
+        "fa74d8c747ecd06e_014",
+        "fa74d8c747ecd06e_007",
+        "fa74d8c747ecd06e_011",
+        "fa74d8c747ecd06e_006",
+        "fa74d8c747ecd06e_009",
+        "fa74d8c747ecd06e_012",
+        "97c3ba92a38eb494_085",
+        "fc4e8ce20cf935f4_007",
+        "35d0f13e82e9675f_085",
+        "642712e093584c6e_010"
+      ],
+      "first_hit_rank": 2,
+      "mrr": 0.5,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.4
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        }
+      }
+    },
+    {
+      "id": "ar-multi-013",
+      "language": "ar",
+      "type": "multi_chunk",
+      "original_question": "ماذا يجب ان افعل عند وصولي لوجهه السفر وكيف استطيع معرفه اسعار خدمات التجوال التفصيليه خارج الحزمه لكل بلد؟",
+      "normalized_question": "ما الإجراءات التي يجب اتخاذها عند الوصول إلى وجهَة السفر، وكيف يمكن الاطلاع على الأسعار التفصيلية لخدمات التجوال خارج الحزمة لكل بلد؟",
+      "correct_chunk_ids": [
+        "16af3a779c48f7a1_015",
+        "16af3a779c48f7a1_016"
+      ],
+      "retrieved_chunk_ids": [
+        "16af3a779c48f7a1_016",
+        "16af3a779c48f7a1_013",
+        "16af3a779c48f7a1_017",
+        "16af3a779c48f7a1_015",
+        "16af3a779c48f7a1_023",
+        "16af3a779c48f7a1_026",
+        "16af3a779c48f7a1_022",
+        "16af3a779c48f7a1_014",
+        "fc4e8ce20cf935f4_009",
+        "16af3a779c48f7a1_037"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.4
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        }
+      }
+    },
+    {
+      "id": "ar-multi-014",
+      "language": "ar",
+      "type": "multi_chunk",
+      "original_question": "كيف بقدر اشوف تفاصيل القسائم الالكترونيه اللي اشتريتها من تطبيق Orange Money وشو بعمل اذا اشتريت قسيمه الكترونيه وما ظهرت عندي على التطبيق؟",
+      "normalized_question": "كيف يمكنني عرض تفاصيل القسائم الإلكترونية التي اشتريتها من تطبيق Orange Money، وما هي الإجراءات التي يجب اتخاذها في حال شراء قسيمة إلكترونية ولم تظهر في التطبيق؟",
+      "correct_chunk_ids": [
+        "97c3ba92a38eb494_056",
+        "97c3ba92a38eb494_057"
+      ],
+      "retrieved_chunk_ids": [
+        "97c3ba92a38eb494_056",
+        "35d0f13e82e9675f_056",
+        "97c3ba92a38eb494_055",
+        "35d0f13e82e9675f_055",
+        "97c3ba92a38eb494_054",
+        "35d0f13e82e9675f_054",
+        "97c3ba92a38eb494_057",
+        "97c3ba92a38eb494_060",
+        "35d0f13e82e9675f_057",
+        "35d0f13e82e9675f_060"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        }
+      }
+    },
+    {
+      "id": "ar-multi-015",
+      "language": "ar",
+      "type": "multi_chunk",
+      "original_question": "ما هي Google Pay وهل يمكنني اضافه بطاقه Orange Money Visa الى Google Pay؟",
+      "normalized_question": "ما هي Google Pay، وهل يمكنني إضافة بطاقة Orange Money Visa إلى Google Pay؟",
+      "correct_chunk_ids": [
+        "97c3ba92a38eb494_064",
+        "97c3ba92a38eb494_065"
+      ],
+      "retrieved_chunk_ids": [
+        "97c3ba92a38eb494_065",
+        "35d0f13e82e9675f_065",
+        "97c3ba92a38eb494_066",
+        "35d0f13e82e9675f_066",
+        "97c3ba92a38eb494_064",
+        "35d0f13e82e9675f_064",
+        "97c3ba92a38eb494_072",
+        "35d0f13e82e9675f_072",
+        "97c3ba92a38eb494_069",
+        "35d0f13e82e9675f_069"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.4
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        }
+      }
+    },
+    {
+      "id": "ar-multi-016",
+      "language": "ar",
+      "type": "multi_chunk",
+      "original_question": "كيف يمكنني الوصول الى خدمه اداره الرقم السري وكيف يمكنني اظهار الرقم السري للبطاقه ؟",
+      "normalized_question": "كيف يمكنني الوصول إلى خدمة إدارة الرقم السري، وكيف يمكنني إظهار الرقم السري للبطاقة؟",
+      "correct_chunk_ids": [
+        "35d0f13e82e9675f_099",
+        "35d0f13e82e9675f_100"
+      ],
+      "retrieved_chunk_ids": [
+        "97c3ba92a38eb494_100",
+        "97c3ba92a38eb494_099",
+        "35d0f13e82e9675f_099",
+        "35d0f13e82e9675f_100",
+        "35d0f13e82e9675f_098",
+        "97c3ba92a38eb494_098",
+        "97c3ba92a38eb494_106",
+        "97c3ba92a38eb494_103",
+        "35d0f13e82e9675f_106",
+        "35d0f13e82e9675f_103"
+      ],
+      "first_hit_rank": 3,
+      "mrr": 0.3333333333333333,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 0.5,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.4
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        }
+      }
+    },
+    {
+      "id": "ar-dialect-001",
+      "language": "ar",
+      "type": "dialect_arabizi",
+      "original_question": "kif ba2dar atchek 3ala el package w shu ba2i minha?",
+      "normalized_question": "كيف يمكنني التحقق من الحزمة وما الذي تبقى منها؟",
+      "correct_chunk_ids": [
+        "16af3a779c48f7a1_005"
+      ],
+      "retrieved_chunk_ids": [
+        "16af3a779c48f7a1_031",
+        "16af3a779c48f7a1_037",
+        "16af3a779c48f7a1_005",
+        "16af3a779c48f7a1_013",
+        "16af3a779c48f7a1_023",
+        "16af3a779c48f7a1_032",
+        "16af3a779c48f7a1_027",
+        "97c3ba92a38eb494_057",
+        "35d0f13e82e9675f_057",
+        "97c3ba92a38eb494_100"
+      ],
+      "first_hit_rank": 3,
+      "mrr": 0.3333333333333333,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-dialect-002",
+      "language": "ar",
+      "type": "dialect_arabizi",
+      "original_question": "ما هي الخدمات التي يمكنني سداد فواتيرها?",
+      "normalized_question": "ما هي الخدمات التي يمكنني سداد فواتيرها؟",
+      "correct_chunk_ids": [
+        "fc4e8ce20cf935f4_007"
+      ],
+      "retrieved_chunk_ids": [
+        "fc4e8ce20cf935f4_007",
+        "35d0f13e82e9675f_085",
+        "97c3ba92a38eb494_085",
+        "16af3a779c48f7a1_028",
+        "9d2740d3e2920616_088",
+        "c4790bface4196b1_088",
+        "97c3ba92a38eb494_083",
+        "35d0f13e82e9675f_083",
+        "97c3ba92a38eb494_015",
+        "35d0f13e82e9675f_015"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-dialect-003",
+      "language": "ar",
+      "type": "dialect_arabizi",
+      "original_question": "ما هو الجديد في خدمه الاتصال الصوتي الرقمي مع الفايبر?",
+      "normalized_question": "ما هي الميزات الجديدة في خدمة الاتصال الصوتي الرقمي عبر الألياف البصرية؟",
+      "correct_chunk_ids": [
+        "fa74d8c747ecd06e_006"
+      ],
+      "retrieved_chunk_ids": [
+        "fa74d8c747ecd06e_006",
+        "fa74d8c747ecd06e_014",
+        "fa74d8c747ecd06e_011",
+        "fa74d8c747ecd06e_009",
+        "fa74d8c747ecd06e_012",
+        "fa74d8c747ecd06e_007",
+        "642712e093584c6e_009",
+        "642712e093584c6e_020",
+        "fa74d8c747ecd06e_010",
+        "642712e093584c6e_012"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-dialect-004",
+      "language": "ar",
+      "type": "dialect_arabizi",
+      "original_question": "ما هي ميزه التحكم في فاتوره بيانات التجوال (حمايه من ارتفاع الفواتير)?",
+      "normalized_question": "ما هي ميزة التحكم في فاتورة بيانات التجوال (الحماية من ارتفاع الفواتير)؟",
+      "correct_chunk_ids": [
+        "16af3a779c48f7a1_001"
+      ],
+      "retrieved_chunk_ids": [
+        "16af3a779c48f7a1_001",
+        "16af3a779c48f7a1_033",
+        "16af3a779c48f7a1_004",
+        "16af3a779c48f7a1_005",
+        "16af3a779c48f7a1_007",
+        "16af3a779c48f7a1_032",
+        "16af3a779c48f7a1_039",
+        "16af3a779c48f7a1_036",
+        "16af3a779c48f7a1_038",
+        "16af3a779c48f7a1_037"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-dialect-005",
+      "language": "en",
+      "type": "informal",
+      "original_question": "so like, how long does it take for my bill to be processed or what",
+      "normalized_question": "How long does it take for my bill to be processed?",
+      "correct_chunk_ids": [
+        "a43121861055a8fa_006"
+      ],
+      "retrieved_chunk_ids": [
+        "a43121861055a8fa_006",
+        "c4790bface4196b1_089",
+        "9d2740d3e2920616_089",
+        "9d2740d3e2920616_010",
+        "c4790bface4196b1_010",
+        "642712e093584c6e_004",
+        "642712e093584c6e_026",
+        "9d2740d3e2920616_088",
+        "c4790bface4196b1_088",
+        "fc4e8ce20cf935f4_006"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-dialect-006",
+      "language": "en",
+      "type": "informal",
+      "original_question": "so like, can i use a security system alarm with the digital voice service or what",
+      "normalized_question": "Can a security system alarm be used with the digital voice service?",
+      "correct_chunk_ids": [
+        "642712e093584c6e_019"
+      ],
+      "retrieved_chunk_ids": [
+        "642712e093584c6e_019",
+        "642712e093584c6e_020",
+        "642712e093584c6e_009",
+        "642712e093584c6e_012",
+        "642712e093584c6e_018",
+        "642712e093584c6e_015",
+        "642712e093584c6e_011",
+        "642712e093584c6e_010",
+        "642712e093584c6e_013",
+        "642712e093584c6e_017"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-dialect-007",
+      "language": "en",
+      "type": "informal",
+      "original_question": "so like, how can i use internet while roaming or what",
+      "normalized_question": "How can I use the internet while roaming?",
+      "correct_chunk_ids": [
+        "49d8a9e384a6bcb9_013"
+      ],
+      "retrieved_chunk_ids": [
+        "49d8a9e384a6bcb9_013",
+        "49d8a9e384a6bcb9_009",
+        "49d8a9e384a6bcb9_017",
+        "c4790bface4196b1_095",
+        "9d2740d3e2920616_095",
+        "49d8a9e384a6bcb9_015",
+        "49d8a9e384a6bcb9_011",
+        "49d8a9e384a6bcb9_012",
+        "49d8a9e384a6bcb9_008",
+        "49d8a9e384a6bcb9_003"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-dialect-008",
+      "language": "en",
+      "type": "informal",
+      "original_question": "so like, was this page helpful  or what",
+      "normalized_question": "Was this page helpful?",
+      "correct_chunk_ids": [
+        "892563201ac794b3_005"
+      ],
+      "retrieved_chunk_ids": [
+        "892563201ac794b3_005",
+        "124a480cd7ccc2ee_000",
+        "9d2740d3e2920616_088",
+        "c4790bface4196b1_088",
+        "c4790bface4196b1_083",
+        "97c3ba92a38eb494_109",
+        "49d8a9e384a6bcb9_000",
+        "c4790bface4196b1_040",
+        "c4790bface4196b1_093",
+        "97c3ba92a38eb494_111"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-shortcode-001",
+      "language": "en",
+      "type": "exact_value",
+      "original_question": "What code do I dial for SOS (emergency) credit?",
+      "normalized_question": "What code should I dial for SOS (emergency) credit?",
+      "correct_chunk_ids": [
+        "9044d8dde9894bc6_000"
+      ],
+      "retrieved_chunk_ids": [
+        "9044d8dde9894bc6_000",
+        "892563201ac794b3_003",
+        "59b28e214a8b7017_004",
+        "9d2740d3e2920616_099",
+        "c4790bface4196b1_099",
+        "49d8a9e384a6bcb9_042",
+        "49d8a9e384a6bcb9_036",
+        "59b28e214a8b7017_003",
+        "49d8a9e384a6bcb9_011",
+        "a43121861055a8fa_001"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-shortcode-002",
+      "language": "en",
+      "type": "exact_value",
+      "original_question": "How do I activate Missed Call Alert (MCA)?",
+      "normalized_question": "How do I activate the Missed Call Alert (MCA) service?",
+      "correct_chunk_ids": [
+        "9044d8dde9894bc6_000"
+      ],
+      "retrieved_chunk_ids": [
+        "9044d8dde9894bc6_000",
+        "59b28e214a8b7017_004",
+        "892563201ac794b3_003",
+        "c4790bface4196b1_024",
+        "9d2740d3e2920616_024",
+        "49d8a9e384a6bcb9_042",
+        "49d8a9e384a6bcb9_038",
+        "49d8a9e384a6bcb9_022",
+        "59b28e214a8b7017_003",
+        "998b108075cc4af8_002"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "en-shortcode-003",
+      "language": "en",
+      "type": "exact_value",
+      "original_question": "What short code do I use to check my balance and remaining bundles?",
+      "normalized_question": "What short code should I use to check my balance and remaining bundles?",
+      "correct_chunk_ids": [
+        "9044d8dde9894bc6_000"
+      ],
+      "retrieved_chunk_ids": [
+        "59b28e214a8b7017_004",
+        "9044d8dde9894bc6_000",
+        "c4790bface4196b1_014",
+        "49d8a9e384a6bcb9_040",
+        "9d2740d3e2920616_014",
+        "49d8a9e384a6bcb9_005",
+        "49d8a9e384a6bcb9_035",
+        "59b28e214a8b7017_006",
+        "49d8a9e384a6bcb9_034",
+        "49d8a9e384a6bcb9_042"
+      ],
+      "first_hit_rank": 2,
+      "mrr": 0.5,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-shortcode-001",
+      "language": "ar",
+      "type": "exact_value",
+      "original_question": "شو الكود يلي بضغطه لرصيد الطوارئ؟",
+      "normalized_question": "ما هو الرمز الخاص بسحب رصيد الطوارئ؟",
+      "correct_chunk_ids": [
+        "60409545ab124892_000"
+      ],
+      "retrieved_chunk_ids": [
+        "60409545ab124892_000",
+        "97c3ba92a38eb494_105",
+        "97c3ba92a38eb494_031",
+        "16af3a779c48f7a1_031",
+        "35d0f13e82e9675f_031",
+        "9044d8dde9894bc6_000",
+        "97c3ba92a38eb494_100",
+        "9044d8dde9894bc6_001",
+        "35d0f13e82e9675f_100",
+        "998b108075cc4af8_004"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-shortcode-002",
+      "language": "ar",
+      "type": "exact_value",
+      "original_question": "كيف بفعّل ميزة تنبيه المكالمات الفائتة؟",
+      "normalized_question": "كيف يمكنني تفعيل ميزة تنبيه المكالمات الفائتة؟",
+      "correct_chunk_ids": [
+        "60409545ab124892_000"
+      ],
+      "retrieved_chunk_ids": [
+        "16af3a779c48f7a1_039",
+        "998b108075cc4af8_002",
+        "16af3a779c48f7a1_007",
+        "fa74d8c747ecd06e_016",
+        "998b108075cc4af8_003",
+        "60409545ab124892_000",
+        "998b108075cc4af8_004",
+        "16af3a779c48f7a1_005",
+        "49d8a9e384a6bcb9_038",
+        "fa74d8c747ecd06e_021"
+      ],
+      "first_hit_rank": 6,
+      "mrr": 0.16666666666666666,
+      "per_k": {
+        "1": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "3": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "5": {
+          "hit": 0,
+          "recall": 0.0,
+          "precision": 0.0
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    },
+    {
+      "id": "ar-shortcode-003",
+      "language": "ar",
+      "type": "exact_value",
+      "original_question": "شو الكود يلي بعرفني على رصيدي والحزم المتبقية؟",
+      "normalized_question": "ما هو الكود الذي يُظهر لي الرصيد والحزم المتبقية؟",
+      "correct_chunk_ids": [
+        "60409545ab124892_000"
+      ],
+      "retrieved_chunk_ids": [
+        "60409545ab124892_000",
+        "16af3a779c48f7a1_031",
+        "fc4e8ce20cf935f4_002",
+        "16af3a779c48f7a1_037",
+        "fa74d8c747ecd06e_008",
+        "16af3a779c48f7a1_005",
+        "97c3ba92a38eb494_088",
+        "97c3ba92a38eb494_014",
+        "35d0f13e82e9675f_088",
+        "35d0f13e82e9675f_014"
+      ],
+      "first_hit_rank": 1,
+      "mrr": 1.0,
+      "per_k": {
+        "1": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 1.0
+        },
+        "3": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.3333333333333333
+        },
+        "5": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.2
+        },
+        "10": {
+          "hit": 1,
+          "recall": 1.0,
+          "precision": 0.1
+        }
+      }
+    }
+  ]
+}

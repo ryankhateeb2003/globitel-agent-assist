@@ -20,13 +20,15 @@ from groq import Groq
 
 from app.rag.retrieval import build_context
 from app.rag.language_detect import detect_language
-from app.retrieval.retrieval import search as retrieval_search
+from app.retrieval.retrieval import search as retrieval_search, vector_search
 from app.guardrails.guardrails import (
     is_arabizi,
     translate_arabizi_bilingual,
+    normalize_query_for_retrieval,
     merge_chunk_lists,
     decide_action,
     refusal_text,
+    PREVIEW_CHUNK_COUNT,
 )
 
 app = FastAPI(title="Globitel Agent Assist API")
@@ -109,36 +111,104 @@ def ask(request: AskRequest):
     # language it actually exists in. The customer's original wording
     # still reaches the answering model and the response metadata
     # unchanged either way.
+    # How many candidates to actually fetch from retrieval -- normally
+    # just top_k, but for hybrid mode we fetch a wider pool (matching
+    # guardrails.PREVIEW_CHUNK_COUNT) so the guardrail classifier below
+    # can see far enough into the ranking to catch a genuinely relevant
+    # chunk that plain RRF fusion (no reranker -- see retrieval.py)
+    # buried outside the top few. The final answer still only uses the
+    # user-requested top_k, sliced off this wider fetch below.
+    fetch_top_k = PREVIEW_CHUNK_COUNT if mode == "hybrid" else top_k
+
     arabizi_override_applied = False
     if not request.language and is_arabizi(question):
         detected_language = "ar"
         arabizi_override_applied = True
         translations = translate_arabizi_bilingual(client, GROQ_MODEL, question)
 
-        outcome_ar = retrieval_search(translations["arabic"], mode=mode, top_k=top_k)
-        outcome_en = retrieval_search(translations["english"], mode=mode, top_k=top_k)
+        outcome_ar = retrieval_search(translations["arabic"], mode=mode, top_k=fetch_top_k)
+        outcome_en = retrieval_search(translations["english"], mode=mode, top_k=fetch_top_k)
 
-        merged_chunks = merge_chunk_lists(outcome_ar["results"], outcome_en["results"])[:top_k]
+        merged_chunks = merge_chunk_lists(outcome_ar["results"], outcome_en["results"])[:fetch_top_k]
         retrieval_outcome = {
             "mode": mode,
             "query": question,
             "elapsed_ms": round(outcome_ar["elapsed_ms"] + outcome_en["elapsed_ms"], 2),
             "results": merged_chunks,
         }
+        # Arabizi already goes through an LLM rewrite (into standard
+        # Arabic AND English) via translate_arabizi_bilingual above --
+        # that already IS the normalization this variable exists for, so
+        # there is no separate retrieval_query for the confidence check
+        # below; it builds its own variants from `translations` directly.
+        retrieval_query = None
     else:
-        retrieval_outcome = retrieval_search(question, mode=mode, top_k=top_k)
+        # Normalize colloquial/regional wording to standard phrasing
+        # before retrieval -- see normalize_query_for_retrieval()'s
+        # docstring for why vector/keyword matching needs this help.
+        # Only affects what gets embedded/matched against the corpus;
+        # `question` (the customer's real wording) still reaches the
+        # answering model and every response field unchanged.
+        retrieval_query = normalize_query_for_retrieval(client, GROQ_MODEL, question, detected_language)
+        retrieval_outcome = retrieval_search(retrieval_query, mode=mode, top_k=fetch_top_k)
 
-    chunks = retrieval_outcome["results"]
+    # classify_chunks: the wider pool, passed to decide_action() below so
+    # classify_intent() can see past the top few. chunks: what actually
+    # builds the answer's context (and gets reported as "the" retrieved
+    # chunks in the response metadata).
+    #
+    # For hybrid mode, chunks uses the SAME wide pool as classify_chunks
+    # (not sliced down to the user-requested top_k) -- manual testing
+    # found a single-answer question ("كيف بقدر اعبي محفظتي؟") whose one
+    # correct chunk ranked #18 in plain RRF fusion (no reranker -- see
+    # retrieval.py), well past top_k=5. The classifier's wider window
+    # (fix above) catches this for ambiguity detection, but the answer
+    # itself would still have been generated from a context that never
+    # included the right chunk at all -- a real, single answer that
+    # exists in the corpus, wrongly refused as "no info" purely because
+    # of where RRF happened to rank it. Non-hybrid modes (vector/keyword
+    # alone) keep the original top_k slicing -- their own score is
+    # already meaningful, so they don't have this "correct chunk ranked
+    # low despite passing the confidence check" failure mode the same way.
+    classify_chunks = retrieval_outcome["results"]
+    chunks = classify_chunks if mode == "hybrid" else classify_chunks[:top_k]
 
     # Task 6: decide whether to refuse, ask a clarifying question, or
     # answer normally -- before spending any tokens on a full RAG answer.
     # is_arabizi_query softens the relevance threshold for this query
     # (see guardrails.ARABIZI_RELEVANCE_THRESHOLD) since the
-    # transliteration step above adds noise the reranker wasn't trained
-    # around, and Task 6 requires Arabizi input to still be answered.
+    # transliteration step above adds noise the underlying retrieval
+    # wasn't trained around, and Task 6 requires Arabizi input to still
+    # be answered.
+    #
+    # confidence_score: on the hybrid path specifically, `chunks`' own
+    # top score is rrf_score, which tune_threshold.py measured as
+    # unusable for the no-info decision (see guardrails.py's note above
+    # passes_relevance_threshold()) -- a genuinely relevant and a
+    # genuinely irrelevant question score almost identically, since RRF
+    # reflects rank position, not match strength. So for hybrid, run one
+    # extra plain vector_search() here just for this confidence check
+    # (top_k=1, cheap) -- vector/keyword-only modes still use `chunks`'
+    # own score directly (see decide_action's confidence_score=None
+    # default), since those scores already carry real magnitude.
+    confidence_score = None
+    if mode == "hybrid":
+        # Same normalized text used for retrieval above -- checking
+        # confidence against the customer's raw wording again would
+        # reintroduce the exact colloquial/standard mismatch
+        # normalize_query_for_retrieval() exists to fix.
+        variants = [translations["arabic"], translations["english"]] if arabizi_override_applied else [retrieval_query]
+        scores = []
+        for variant in variants:
+            v_results = vector_search(variant, top_k=1)
+            if v_results and v_results[0].get("score") is not None:
+                scores.append(v_results[0]["score"])
+        confidence_score = max(scores) if scores else None
+
     decision = decide_action(
-        client, GROQ_MODEL, question, detected_language, chunks,
+        client, GROQ_MODEL, question, detected_language, classify_chunks,
         is_arabizi_query=arabizi_override_applied,
+        confidence_score=confidence_score,
     )
 
     if decision["action"] != "answer_normally":
@@ -190,6 +260,15 @@ def ask(request: AskRequest):
             # identical questions while still reading naturally, rather
             # than at Groq's default (unset, effectively high-variance).
             temperature=0.2,
+            # Groq's per-minute output-token rate limit is checked
+            # against the request's max possible output, not what it
+            # actually generates -- leaving this unset let Groq assume a
+            # large default, which repeatedly tripped a 429
+            # (RateLimitError) during testing even though the prompt
+            # itself asks for 1-3 sentences. 500 comfortably covers even
+            # a longer answer (e.g. a step list, or rule 7's
+            # present-both-sides conflict wording).
+            max_tokens=500,
             stream=True,
         )
 

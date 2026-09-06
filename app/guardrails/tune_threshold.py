@@ -3,12 +3,19 @@ Task 6 -- Derives the per-language relevance thresholds used by
 guardrails.passes_relevance_threshold() and reports the numbers behind
 them into threshold-tuning.md.
 
+Re-purposed for RRF_RELEVANCE_THRESHOLD: retrieval.py's hybrid_search()
+now defaults to use_rerank=False (plain RRF fusion, no reranking -- see
+that file's docstring for why), so the score that matters for the /ask
+default path is now rrf_score, not rerank_score. This script measures
+against rrf_score specifically; re-run it if hybrid_search's default
+ever changes back.
+
 Method: run a set of POSITIVE queries (real, answerable questions sampled
 from chunks.jsonl the same way Task 5's eval_hybrid.py did -- the correct
 chunk is known in advance) and a set of NEGATIVE queries (genuinely
 unanswerable from this corpus: either clearly out-of-domain, or
 telecom-adjacent but not covered by these 7 topic pages) through hybrid
-search (the /ask default mode), and record each one's top-1 rerank_score.
+search (the /ask default mode), and record each one's top-1 rrf_score.
 
 The threshold for a language is picked as the midpoint between the worst
 (minimum) positive score and the best (maximum) negative score for that
@@ -59,7 +66,7 @@ def collect_scores(queries: list[str]) -> list[float]:
     scores = []
     for q in queries:
         results = hybrid_search(q, top_k=5)
-        score = results[0]["rerank_score"] if results else float("-inf")
+        score = results[0]["rrf_score"] if results else float("-inf")
         scores.append(score)
         print(f"  [negative] score={score:.4f}  {q[:60]}")
     return scores
@@ -72,7 +79,7 @@ def run() -> dict:
     print(f"--- Positive queries ({len(positive_set)}) ---")
     for i, item in enumerate(positive_set, 1):
         results = hybrid_search(item["question"], top_k=5)
-        score = results[0]["rerank_score"] if results else float("-inf")
+        score = results[0]["rrf_score"] if results else float("-inf")
         positive_scores[item["language"]].append(
             {"question": item["question"], "score": score}
         )
@@ -125,8 +132,8 @@ def write_markdown(outcome: dict, path: str = "app/guardrails/threshold-tuning.m
         "with a known correct answer) plus 10 negative questions per "
         "language (genuinely unanswerable from this 7-topic-page corpus -- "
         "either clearly out-of-domain or telecom-adjacent but not covered) "
-        "through `hybrid_search` (the `/ask` default mode), and recorded "
-        "each query's top-1 `rerank_score`.",
+        "through `hybrid_search` (the `/ask` default mode, use_rerank=False), "
+        "and recorded each query's top-1 `rrf_score`.",
         "",
         "The threshold per language is the midpoint between the worst "
         "(minimum) positive score and the best (maximum) negative score -- "

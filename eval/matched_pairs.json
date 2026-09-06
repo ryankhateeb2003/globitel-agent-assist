@@ -1,0 +1,322 @@
+[
+  {
+    "pair_id": "pair-001",
+    "topic": "bills-payment",
+    "en": {
+      "question": "What types of credit cards are accepted ?",
+      "expected_answer": "Visa and MasterCard debit and credit. (Cards must be activated for online transactions).",
+      "source_file": "corpus/en/bills-payment.html",
+      "_chunk_id": "a43121861055a8fa_001"
+    },
+    "ar": {
+      "question": "ما هي انواع بطاقات الائتمان المقبوله ؟",
+      "expected_answer": "فيزا و ماستر كارد (debit and credit)( البطاقه يجب ان تكون مفعله للشراء عبر الانترنت).",
+      "source_file": "corpus/ar/bills-payment.html",
+      "_chunk_id": "fc4e8ce20cf935f4_001"
+    }
+  },
+  {
+    "pair_id": "pair-002",
+    "topic": "bills-payment",
+    "en": {
+      "question": "What browsers version do I need to have ?",
+      "expected_answer": "Microsoft Edge, Firefox, Safari or Google Chrome",
+      "source_file": "corpus/en/bills-payment.html",
+      "_chunk_id": "a43121861055a8fa_002"
+    },
+    "ar": {
+      "question": "ما هو اصدار المتصفحات الذي احتاجه ؟",
+      "expected_answer": "Microsoft Edge, Firefox, Safari or Google Chrome",
+      "source_file": "corpus/ar/bills-payment.html",
+      "_chunk_id": "fc4e8ce20cf935f4_002"
+    }
+  },
+  {
+    "pair_id": "pair-003",
+    "topic": "bills-payment",
+    "en": {
+      "question": "Is it really safe to use my credit card/payment information ?",
+      "expected_answer": "Yes our online payment gateway uses 3D Secure.",
+      "source_file": "corpus/en/bills-payment.html",
+      "_chunk_id": "a43121861055a8fa_003"
+    },
+    "ar": {
+      "question": "هل من الامن حقا استخدام معلومات بطاقه الائتمان / الدفع الخاصه بي؟",
+      "expected_answer": "نعم, بوابه Orange للدفع الالكتروني تستخدم خاصيه 3D Secure .",
+      "source_file": "corpus/ar/bills-payment.html",
+      "_chunk_id": "fc4e8ce20cf935f4_003"
+    }
+  },
+  {
+    "pair_id": "pair-004",
+    "topic": "bills-payment",
+    "en": {
+      "question": "Do I need to be signed-in to use the online payment ?",
+      "expected_answer": "No, you don’t need to.",
+      "source_file": "corpus/en/bills-payment.html",
+      "_chunk_id": "a43121861055a8fa_004"
+    },
+    "ar": {
+      "question": "هل احتاج الى حساب و تسجيل الدخول لاستخدام بوابه Orange للدفع الالكتروني ؟",
+      "expected_answer": "لا",
+      "source_file": "corpus/ar/bills-payment.html",
+      "_chunk_id": "fc4e8ce20cf935f4_004"
+    }
+  },
+  {
+    "pair_id": "pair-005",
+    "topic": "bills-payment",
+    "en": {
+      "question": "What happens In case of illegal activity such as Fraud and/or Financial Crimes?",
+      "expected_answer": "Customer has the right to object on fraudulent activities and if proven customer will be refunded.",
+      "source_file": "corpus/en/bills-payment.html",
+      "_chunk_id": "a43121861055a8fa_005"
+    },
+    "ar": {
+      "question": "ماذا يحدث في حاله النشاط غير القانوني مثل الاحتيال و / او الجرائم الماليه؟",
+      "expected_answer": "العميل لديه الحق في الاعتراض على الانشطه الاحتياليه واذا اثبت ذلك سيتم اعاده الدفعه للزبون.",
+      "source_file": "corpus/ar/bills-payment.html",
+      "_chunk_id": "fc4e8ce20cf935f4_005"
+    }
+  },
+  {
+    "pair_id": "pair-006",
+    "topic": "bills-payment",
+    "en": {
+      "question": "How long does it take for my bill to be processed?",
+      "expected_answer": "Your payment will be processed instantly.",
+      "source_file": "corpus/en/bills-payment.html",
+      "_chunk_id": "a43121861055a8fa_006"
+    },
+    "ar": {
+      "question": "كم من الوقت تستغرق معالجه فاتورتي؟",
+      "expected_answer": "ستتم معالجه دفعتك على الفور.",
+      "source_file": "corpus/ar/bills-payment.html",
+      "_chunk_id": "fc4e8ce20cf935f4_006"
+    }
+  },
+  {
+    "pair_id": "pair-007",
+    "topic": "bills-payment",
+    "en": {
+      "question": "What services can I pay bills for?",
+      "expected_answer": "Mobile, Fixed, Internet Everywhere, ADSL/Fiber and Bait Al Aileh convergent offers.",
+      "source_file": "corpus/en/bills-payment.html",
+      "_chunk_id": "a43121861055a8fa_007"
+    },
+    "ar": {
+      "question": "ما هي الخدمات التي يمكنني سداد فواتيرها؟",
+      "expected_answer": "عروض الجوال والثابت والانترنت في كل مكان و ADSL / الالياف وبيت العيله المتقاربه",
+      "source_file": "corpus/ar/bills-payment.html",
+      "_chunk_id": "fc4e8ce20cf935f4_007"
+    }
+  },
+  {
+    "pair_id": "pair-008",
+    "topic": "bills-payment",
+    "en": {
+      "question": "How can I confirm that a payment has been made?",
+      "expected_answer": "After the payment is confirmed and processed, a confirmation SMS will be sent by Orange and by the customer’s bank.",
+      "source_file": "corpus/en/bills-payment.html",
+      "_chunk_id": "a43121861055a8fa_008"
+    },
+    "ar": {
+      "question": "كيف يمكنني التاكد من انه تم اجراء دفعه ؟",
+      "expected_answer": "بعد تاكيد عمليه الدفع ، سيتم ارسال رساله تاكيد من قبل Orange وبنك العميل على رقمك العميل المعتمد.",
+      "source_file": "corpus/ar/bills-payment.html",
+      "_chunk_id": "fc4e8ce20cf935f4_008"
+    }
+  },
+  {
+    "pair_id": "pair-009",
+    "topic": "bills-payment",
+    "en": {
+      "question": "What do I have to do to access the bill details online?",
+      "expected_answer": "You can access your bill details through Orange\ne-care\n(log in account).",
+      "source_file": "corpus/en/bills-payment.html",
+      "_chunk_id": "a43121861055a8fa_009"
+    },
+    "ar": {
+      "question": "ماذا علي ان افعل للوصول الى الفاتوره التفصيليه على الانترنت؟",
+      "expected_answer": "يمكنك الوصول الى تفاصيل الفاتوره من خلال Orange\necare\n(تسجيل الدخول)",
+      "source_file": "corpus/ar/bills-payment.html",
+      "_chunk_id": "fc4e8ce20cf935f4_009"
+    }
+  },
+  {
+    "pair_id": "pair-010",
+    "topic": "bills-payment",
+    "en": {
+      "question": "What if I’m not able to complete a transaction electronically?",
+      "expected_answer": "You can contact our Call Center by calling 1777 or 077700177 or contact us through Orange Live Chat or you can visit our Shops , if the transaction is declined by the issuer, then you need to contact your Bank.",
+      "source_file": "corpus/en/bills-payment.html",
+      "_chunk_id": "a43121861055a8fa_010"
+    },
+    "ar": {
+      "question": "ما الذي یجب علي فعله في حاله حدوث خطا، وکیف یمکنني تقدیم شكوى بشان المدفوعات الالكترونيه؟",
+      "expected_answer": "يمكنك الاتصال بمركز خدمه المشتركين 1777 او 077700177 او من خلال Orange Live Chat او يمكنك زياره حد معارضنا ،اما اذا تم رفض العمليه من قبل المصدر فعليك الاتصال ببنكك.",
+      "source_file": "corpus/ar/bills-payment.html",
+      "_chunk_id": "fc4e8ce20cf935f4_010"
+    }
+  },
+  {
+    "pair_id": "pair-011",
+    "topic": "bills-payment",
+    "en": {
+      "question": "What is the minimum amount i can pay?",
+      "expected_answer": "The minimum amount is 5.0 JOD.\nCheck out\nOrange bill payment and recharge methods\nOrange Money\nRecharge easily and instantly using Orange Money wallet\nExplore More\neFAWATEER com\nRecharge easily and instantly using efawateercom\nOrange Website\nRecharge easily through our online payment gateway or by using My Orange application\nOrange Shops\nFixed, Mobile & Internet or recharge at any of Orange shops across the Kingdom.\nShop locator\nPost offices\nyou can pay your bills at any of the Jordan Post offices across the Kingdom\nCheck out how can you add Direct Debit service through your credit card\nOur\nSubscribers\nand\nVISA\nor\nMastercard\nusers can use the following safe link to authorize us to deduct their monthly bills automatically from their credit card, also, they can modify or delete the transaction without the need to visit our shops.\nThe accredited Banks and\nCredit cards at Orange\nAll transactions are made through\nDirect Deduction\nfor Internet, Mobile and Fixed lines",
+      "source_file": "corpus/en/bills-payment.html",
+      "_chunk_id": "a43121861055a8fa_011"
+    },
+    "ar": {
+      "question": "ما المده التي تستغرقها لتوصيل الخدمه في حاله الخط المفصول ؟",
+      "expected_answer": "في حاله اذا كان الخط الخاص بك مفصول ، سيتم اعاده توصيل الخدمه في غضون 3 ساعات بعد الدفع.\nراجع\nطرق دفع وشحن فواتير Orange\nOrange Money\nاشحن رصيدك بسهوله وبشكل فوري باستخدام محفظه Orange Money\nاكتشف المزيد\neFAWATEER com\nاشحن بسهوله وعلى الفور باستخدام efawateercom\nOrange Website\nاعد الشحن بسهوله من خلال بوابه الدفع عبر الانترنت او باستخدام تطبيق My Orange\nOrange Shops\nالثابت والجوال والدولي او اعاده الشحن في اي من متاجر Orange في جميع انحاء المملكه.\nفروعنا\nمكاتب البريد\nيمكنك دفع فواتيرك في اي من مكاتب البريد الاردني الموجوده في المملكه.\nاكتشف كيف يمكنك اضافه خدمه الخصم المباشر من خلال بطاقتك الائتمانيه\nيمكن\nللمشتركين\nلدينا ومستخدمي\nVISA\nاو\nMastercard\nاستخدام الرابط الامن التالي للسماح لنا بخصم فواتيرهم الشهريه تلقائيا من بطاقتهم الائتمانيه ، كما يمكنهم تعديل او حذف المعامله دون الحاجه الى زياره متاجرنا.\nالبنوك والبطاقات الائتمانيه\nالمعتمده لدى Orange\nتتم جميع المعاملات من خلال\nالخصم المباشر\nللانترنت والموبايل والخطوط الثابته",
+      "source_file": "corpus/ar/bills-payment.html",
+      "_chunk_id": "fc4e8ce20cf935f4_011"
+    }
+  },
+  {
+    "pair_id": "pair-012",
+    "topic": "fiber-adsl",
+    "en": {
+      "question": "What is Orange Fiber?",
+      "expected_answer": "Orange Fiber is offering an Internet connection speed that’s up to 1000 megabits per second, along with a service like no other.",
+      "source_file": "corpus/en/fiber-adsl.html",
+      "_chunk_id": "642712e093584c6e_001"
+    },
+    "ar": {
+      "question": "ما هي خدمه Orange فايبر ؟",
+      "expected_answer": "خدمه Orange فايبر تقدم سرعه اتصال بالانترنت تصل الى 1000 ميجابت في الثانيه ، جنبا الى جنب مع خدمه لا مثيل لها.",
+      "source_file": "corpus/ar/fiber-adsl.html",
+      "_chunk_id": "fa74d8c747ecd06e_001"
+    }
+  },
+  {
+    "pair_id": "pair-013",
+    "topic": "fiber-adsl",
+    "en": {
+      "question": "What does it mean for me?",
+      "expected_answer": "Much faster speeds, making it more suitable for sharing Internet access in your household. Unlike standard broadband, the distance from your local telephone exchange doesn't determine the speed you can get.",
+      "source_file": "corpus/en/fiber-adsl.html",
+      "_chunk_id": "642712e093584c6e_002"
+    },
+    "ar": {
+      "question": "هل من الممكن الحصول على هذه الخدمه؟",
+      "expected_answer": "هذه الخدمه متاحه لاي شخص في المناطق التي تم تغطيتها.",
+      "source_file": "corpus/ar/fiber-adsl.html",
+      "_chunk_id": "fa74d8c747ecd06e_002"
+    }
+  },
+  {
+    "pair_id": "pair-014",
+    "topic": "fiber-adsl",
+    "en": {
+      "question": "Who can get it?",
+      "expected_answer": "Our fiber broadband service is available to anyone in a fiber-enabled area.",
+      "source_file": "corpus/en/fiber-adsl.html",
+      "_chunk_id": "642712e093584c6e_003"
+    },
+    "ar": {
+      "question": "هل ساحتاج جهاز مودم جديد؟",
+      "expected_answer": "نعم, الاجهزه متوفره مجانا مع كل عروض Orange فايبر",
+      "source_file": "corpus/ar/fiber-adsl.html",
+      "_chunk_id": "fa74d8c747ecd06e_003"
+    }
+  },
+  {
+    "pair_id": "pair-015",
+    "topic": "fiber-adsl",
+    "en": {
+      "question": "How long does it take to set up?",
+      "expected_answer": "If you're new to broadband your service should be up and running after 7-10 working days.",
+      "source_file": "corpus/en/fiber-adsl.html",
+      "_chunk_id": "642712e093584c6e_004"
+    },
+    "ar": {
+      "question": "ما هي الخدمه الافضل ADSL, Orange Fiber Or 4G ؟",
+      "expected_answer": "خدمه Orange فايبر هي الخدمه الاسرع بين الخدمات مع سعات تحميل غير محدوده\nاذا قمت بالتحويل من ADSL الى خدمه Orange فايبر , هل ساحتفظ بالخط الارضي؟\nنعم يمكنك الاحتفاظ من الرقم الارضي",
+      "source_file": "corpus/ar/fiber-adsl.html",
+      "_chunk_id": "fa74d8c747ecd06e_004"
+    }
+  },
+  {
+    "pair_id": "pair-016",
+    "topic": "fiber-adsl",
+    "en": {
+      "question": "Will I need a new router?",
+      "expected_answer": "Yes. A wireless fiber router is available for free with all fiber packages.",
+      "source_file": "corpus/en/fiber-adsl.html",
+      "_chunk_id": "642712e093584c6e_005"
+    },
+    "ar": {
+      "question": "ما هي مميزات خدمه Orange فايبر؟",
+      "expected_answer": "• سعه تحميل غير محدوده\n• انترنت بحمايه كبيره\n• انترنت ثابت وفائق السرعه\n• تجربه متميزه لدى استخدام كافه انواع التطبيقات",
+      "source_file": "corpus/ar/fiber-adsl.html",
+      "_chunk_id": "fa74d8c747ecd06e_005"
+    }
+  },
+  {
+    "pair_id": "pair-017",
+    "topic": "fiber-adsl",
+    "en": {
+      "question": "What’s better … Fiber optic, ADSL or 4G?",
+      "expected_answer": "Fiber optic is the fastest Internet option available; it is not shared and provides far greater speeds to enhance your experience.",
+      "source_file": "corpus/en/fiber-adsl.html",
+      "_chunk_id": "642712e093584c6e_006"
+    },
+    "ar": {
+      "question": "ما هو الجديد في خدمه الاتصال الصوتي الرقمي مع الفايبر؟",
+      "expected_answer": "بمجرد تركيب خط الفايبر، سيتم تفعيل خدمه الاتصال الصوتي الرقمي فورا حيث يتم توصيل جهاز الهاتف الارضي على الفايبر بوكس مباشره دون الحاجه لوجود اي تمديدات اسلاك نحاسيه داخليه",
+      "source_file": "corpus/ar/fiber-adsl.html",
+      "_chunk_id": "fa74d8c747ecd06e_006"
+    }
+  },
+  {
+    "pair_id": "pair-018",
+    "topic": "fiber-adsl",
+    "en": {
+      "question": "If I switch my ADSL service to Orange fiber , do I get to keep my same phone number?",
+      "expected_answer": "Yes you can keep your fixed line number active.",
+      "source_file": "corpus/en/fiber-adsl.html",
+      "_chunk_id": "642712e093584c6e_007"
+    },
+    "ar": {
+      "question": "هل منطقتي مغطاه بخدمه الاتصال الصوتي الرقمي ؟",
+      "expected_answer": "نعم، لمشتركي خدمه الفايبر الجدد الذين لايمتلكون خط ارضي في منازلهم.",
+      "source_file": "corpus/ar/fiber-adsl.html",
+      "_chunk_id": "fa74d8c747ecd06e_007"
+    }
+  },
+  {
+    "pair_id": "pair-019",
+    "topic": "fiber-adsl",
+    "en": {
+      "question": "What is Orange Fiber Features?",
+      "expected_answer": "• High speed internet ( up to 1GB )\n• Unlimited download capacity\n• Secured internet connection\n• Special experience when using all kind of application",
+      "source_file": "corpus/en/fiber-adsl.html",
+      "_chunk_id": "642712e093584c6e_008"
+    },
+    "ar": {
+      "question": "ما هو نوع الهاتف الذي احتاجه لاستخدام خدمه الاتصال الصوتي الرقمي ؟",
+      "expected_answer": "يمكنك استخدام اي هاتف عادي سلكي او لاسلكي، باستثناء الهواتف الدواره القديمه.",
+      "source_file": "corpus/ar/fiber-adsl.html",
+      "_chunk_id": "fa74d8c747ecd06e_008"
+    }
+  },
+  {
+    "pair_id": "pair-020",
+    "topic": "fiber-adsl",
+    "en": {
+      "question": "What's new in the Digital Voice service with fiber?",
+      "expected_answer": "With Fiber installation, the digital voice service will be activated on spot by connecting phone handset to the fiber box directly without any internal copper wiring",
+      "source_file": "corpus/en/fiber-adsl.html",
+      "_chunk_id": "642712e093584c6e_009"
+    },
+    "ar": {
+      "question": "هل احتاج الى شراء اي معدات خاصه مع خدمه الاتصال الصوتي الرقمي ؟",
+      "expected_answer": "لا.",
+      "source_file": "corpus/ar/fiber-adsl.html",
+      "_chunk_id": "fa74d8c747ecd06e_009"
+    }
+  }
+]

@@ -37,23 +37,42 @@ def keyword_search(query: str, top_k: int = 5) -> list[dict]:
     return _keyword_search(query, top_k=top_k)
 
 
-def hybrid_search(query: str, top_k: int = 5, rerank_candidates: int = RERANK_CANDIDATES) -> list[dict]:
+def hybrid_search(
+    query: str, top_k: int = 5, rerank_candidates: int = RERANK_CANDIDATES,
+    use_rerank: bool = False,
+) -> list[dict]:
     """
-    Vector + keyword, fused with RRF, reranked, truncated to top_k.
+    Vector + keyword, fused with RRF, truncated to top_k.
 
     Each of the two underlying searches is run over `rerank_candidates`
-    (20) results, not just `top_k`, so fusion and reranking have enough
-    material to actually re-order -- asking each side for only the final
-    top_k first would throw away exactly the chunks a weaker-but-correct
-    signal from the *other* method might have promoted.
+    (20) results, not just `top_k`, so fusion has enough material to
+    actually re-order -- asking each side for only the final top_k first
+    would throw away exactly the chunks a weaker-but-correct signal from
+    the *other* method might have promoted.
+
+    `use_rerank` defaults to False: manual live testing (see
+    hybrid-results.md's "Known limitation" section and the /ask session
+    log) found bge-reranker-v2-m3 demoting an already-correct top-1
+    result often enough -- including one case where it dragged a
+    genuinely correct chunk's score so low the relevance-threshold check
+    refused to answer a question it actually had the right information
+    for -- that it was no longer a net win over plain RRF fusion, while
+    being 5-10x slower (reranking is the dominant cost in every hybrid
+    latency measurement recorded in hybrid-results.md). The reranker
+    itself (rerank.py) is NOT deleted -- Task 5's deliverable requires
+    the 3-way comparison to stay reproducible, so `use_rerank=True` still
+    runs the original reranked path for that purpose.
     """
     vector_results = vector_search(query, top_k=rerank_candidates)
     keyword_results = keyword_search(query, top_k=rerank_candidates)
 
     fused = reciprocal_rank_fusion([vector_results, keyword_results])
-    reranked = rerank(query, fused[:rerank_candidates])
 
-    return reranked[:top_k]
+    if use_rerank:
+        reranked = rerank(query, fused[:rerank_candidates])
+        return reranked[:top_k]
+
+    return fused[:top_k]
 
 
 def search(query: str, mode: str = "hybrid", top_k: int = 5) -> list[dict]:

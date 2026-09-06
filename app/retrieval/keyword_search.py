@@ -51,6 +51,60 @@ def normalize_for_keyword_match(text: str) -> str:
     return normalize_arabic(text).lower()
 
 
+# Light Arabic stemming -- strips the definite article prefix and common
+# attached pronoun suffixes so BM25 (exact-token matching) doesn't treat
+# "محفظتي" (my wallet), "المحفظه" (the wallet), and "محفظه" (wallet) as
+# three unrelated tokens, when they're obviously the same underlying
+# word. Found necessary via manual testing: a genuinely correct FAQ
+# chunk about topping up a wallet ranked #29 of 49 fused candidates for
+# "كيف بقدر اعبي محفظتي؟" purely because "محفظتي" never matched the
+# corpus's "المحفظه" -- no amount of widening the classifier's candidate
+# window (guardrails.PREVIEW_CHUNK_COUNT) fixes a token BM25 fundamentally
+# can't see as related to begin with.
+#
+# Deliberately a LIGHT stemmer (Larkey-style), not full morphological
+# analysis -- a fixed list of attachable suffixes, stripped only when the
+# remaining stem is long enough (>=3 chars) to still plausibly be a real
+# word, not a fragment. This is an approximation (a rare proper noun
+# ending in one of these letters could get over-stemmed) accepted as a
+# standard trade-off in Arabic IR; the alternative (no stemming) is the
+# concrete, measured failure above.
+#
+# Feminine-noun + pronoun combinations (تي/تك/تها/تهم/تكم/تنا) collapse
+# to a bare "ه" ending, landing on the same normalized taa-marbuta form
+# normalize_arabic() already produces for the un-suffixed noun (e.g.
+# "خدمة" -> "خدمه"). Bare "ه" is deliberately NOT in the general
+# possessive-suffix list below -- after taa-marbuta normalization, most
+# feminine nouns already end in "ه" as their base form (not a pronoun),
+# and stripping it there would wrongly collapse "محفظه" (wallet) itself
+# down to "محفظ".
+_FEMININE_POSSESSIVE_SUFFIXES = ["تها", "تهم", "تكم", "تنا", "تي", "تك"]
+_POSSESSIVE_SUFFIXES = ["ها", "هم", "كم", "نا", "هن", "كن", "ي", "ك"]
+_MIN_STEM_LEN = 3
+_PURE_ARABIC_TOKEN = re.compile(r"[؀-ۿ]+")
+
+
+def _light_stem_arabic(token: str) -> str:
+    if not _PURE_ARABIC_TOKEN.fullmatch(token):
+        return token  # short code, English word, or mixed -- leave as-is
+
+    stemmed = token
+    if stemmed.startswith("ال") and len(stemmed) - 2 >= _MIN_STEM_LEN:
+        stemmed = stemmed[2:]
+
+    for suffix in _FEMININE_POSSESSIVE_SUFFIXES:
+        if stemmed.endswith(suffix) and len(stemmed) - len(suffix) + 1 >= _MIN_STEM_LEN:
+            stemmed = stemmed[:-len(suffix)] + "ه"
+            return stemmed
+
+    for suffix in _POSSESSIVE_SUFFIXES:
+        if stemmed.endswith(suffix) and len(stemmed) - len(suffix) >= _MIN_STEM_LEN:
+            stemmed = stemmed[:-len(suffix)]
+            break
+
+    return stemmed
+
+
 def tokenize(text: str) -> list[str]:
     """
     Whitespace/punctuation tokenizer that keeps two things intact as
@@ -60,9 +114,15 @@ def tokenize(text: str) -> list[str]:
         ("979").
       - Arabic script runs (\\u0600-\\u06FF), alongside plain word
         characters for English/digits.
+
+    Every Arabic token then goes through _light_stem_arabic() -- applied
+    identically to corpus text (at index-build time) and every incoming
+    query, so a possessive/definite-article variant of a word still
+    matches the corpus's own phrasing of it.
     """
     normalized = normalize_for_keyword_match(text)
-    return re.findall(r"\*\d+(?:\*\d+)*#|[\w؀-ۿ]+", normalized)
+    raw_tokens = re.findall(r"\*\d+(?:\*\d+)*#|[\w؀-ۿ]+", normalized)
+    return [_light_stem_arabic(t) for t in raw_tokens]
 
 
 def load_chunks(path: str | Path = "chunks.jsonl") -> list[dict]:

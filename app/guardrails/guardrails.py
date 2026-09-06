@@ -26,42 +26,65 @@ import re
 
 # Tuned per language by tune_threshold.py (see threshold-tuning.md for
 # the measured positive/negative score distributions these numbers come
-# from -- these are not guesses). Compared against the top retrieved
-# result's confidence score: `rerank_score` for hybrid mode (the /ask
-# default, and the score the reranker itself produces, roughly 0-1), or
-# `score` (raw vector/BM25 similarity) as a fallback for the other two
-# modes, since they never carry a rerank_score.
+# from -- these are not guesses). This scale (0-1) is vector cosine
+# similarity / raw BM25 -- a real, meaningful measure of how close a
+# match actually is, not just its rank position.
 RELEVANCE_THRESHOLDS = {
     "en": 0.30,
     "ar": 0.30,
 }
 
 # A separate, lower threshold for queries that went through the Arabizi
-# transliteration override (main.py's `retrieval_question =
-# transliterate_arabizi(...)` path). Manual testing found a genuinely
-# correct top-1 match scoring as low as 0.095 for an Arabizi-origin query
-# -- the LLM transliteration step adds noise the reranker wasn't trained
-# around, so the *same* confidence number means less for these queries
-# than for a native-script Arabic one. Using the normal "ar" threshold
-# here would systematically refuse answerable Arabizi questions, which
-# directly contradicts Task 6's requirement that dialect/Arabizi input
-# must still be answered. Value is provisional (see threshold-tuning.md's
-# Arabizi section for the measured positive/negative scores behind it)
-# pending a larger sample.
+# transliteration override (main.py's bilingual-search path). Manual
+# testing found a genuinely correct top-1 match scoring as low as 0.095
+# for an Arabizi-origin query -- the LLM transliteration step adds noise
+# the underlying retrieval wasn't trained around, so the *same*
+# confidence number means less for these queries than for a
+# native-script one. Using the normal threshold here would systematically
+# refuse answerable Arabizi questions, which directly contradicts Task
+# 6's requirement that dialect/Arabizi input must still be answered.
 ARABIZI_RELEVANCE_THRESHOLD = 0.05
+
+# NOTE on why this file does NOT use retrieval.py's rrf_score for
+# confidence, even though hybrid_search() now defaults to plain RRF
+# fusion (use_rerank=False -- see that file): tune_threshold.py was
+# re-run against rrf_score specifically and found it unusable as a
+# relevance signal -- positive (answerable) and negative (genuinely
+# out-of-scope) queries scored almost identically (Arabic: 0.0320 vs
+# 0.0320, literally overlapping; English: 0.0325 vs 0.0323, a gap too
+# thin to trust). This is not a tuning failure -- RRF's score is a
+# function of *rank position* (1/(k+rank)), not similarity magnitude, so
+# a totally unrelated question's "closest available" chunk scores almost
+# as high as a genuinely relevant one's, since both are simply "ranked
+# #1" in the same formula. RRF fusion is still used to pick which chunks
+# get shown to the answering model (see main.py) -- it is just not
+# trusted for the separate "is there a real match at all" decision,
+# which is instead computed directly from a plain vector_search() call
+# passed in as `confidence_score` (see decide_action() below).
 
 
 def top_score(results: list[dict]) -> float | None:
-    """Best-available confidence score for the top retrieved result,
-    mode-agnostic."""
+    """Best-available confidence score for the top retrieved result --
+    used for vector-only and keyword-only modes, where the results' own
+    score is already a meaningful magnitude (unlike hybrid/RRF -- see
+    the note above)."""
     if not results:
         return None
     top = results[0]
     return top.get("rerank_score", top.get("score"))
 
 
-def passes_relevance_threshold(results: list[dict], language: str, is_arabizi_query: bool = False) -> bool:
-    score = top_score(results)
+def passes_relevance_threshold(
+    results: list[dict], language: str, is_arabizi_query: bool = False,
+    confidence_score: float | None = None,
+) -> bool:
+    """
+    confidence_score, when given, overrides whatever score `results`
+    itself carries -- this is how callers on the hybrid path (main.py)
+    supply a real vector-search confidence number instead of the
+    RRF-ranked `results`' own (meaningless, see above) score.
+    """
+    score = confidence_score if confidence_score is not None else top_score(results)
     if score is None:
         return False
     threshold = (
@@ -160,6 +183,14 @@ def transliterate_arabizi(client, model: str, text: str) -> str:
         # so identical questions could retrieve different chunks across
         # runs purely because the transliteration text itself changed.
         temperature=0,
+        # Groq's per-minute output-token rate limit is checked against
+        # the request's max possible output, not what it actually ends
+        # up generating -- leaving max_tokens unset let Groq assume a
+        # large default, which under heavy testing tripped a 429
+        # (RateLimitError) even though this call's real output is one
+        # short line of text. 200 is generous for a single transliterated
+        # question.
+        max_tokens=200,
     )
     return response.choices[0].message.content.strip()
 
@@ -197,6 +228,7 @@ def translate_arabizi_bilingual(client, model: str, text: str) -> dict:
         messages=[{"role": "user", "content": prompt}],
         reasoning_effort="none",
         temperature=0,  # same input -> same translation every time
+        max_tokens=300,  # see transliterate_arabizi()'s comment on why this is set
     )
     raw = response.choices[0].message.content or ""
 
@@ -214,6 +246,52 @@ def translate_arabizi_bilingual(client, model: str, text: str) -> dict:
     }
 
 
+def normalize_query_for_retrieval(client, model: str, question: str, language: str) -> str:
+    """
+    One Groq call: rewrite the question into clear, standard wording in
+    the SAME language it's already in -- colloquial/regional/informal
+    words replaced by their standard equivalent, meaning unchanged. Used
+    ONLY to build the text handed to retrieval (vector_search,
+    keyword_search); the customer's original wording still reaches the
+    answering model and the response metadata unchanged.
+
+    Why this exists: vector embeddings and BM25 keyword matching are both
+    surface-level approximations of meaning, not real understanding --
+    neither reliably recognizes that a colloquial word and the corpus's
+    own standard phrasing of the same idea are "the same thing" (measured
+    live: "اسكر محفظتي" scored a genuinely correct chunk about closing a
+    wallet too low to pass the relevance threshold, purely because the
+    corpus phrases it with "اغلق", not "اسكر" -- a different case of the
+    exact gap already documented for "اعبي" vs "شحن"). Retrieval has no
+    general fix for this; an LLM call that already understands both words
+    mean the same thing does. This generalizes the same idea already used
+    for Arabizi (translate_arabizi_bilingual) to every question, in
+    whatever language it's already written in -- not a fixed synonym
+    list, which would need a new entry hand-added for every future word
+    this happens to catch instead of none at all.
+    """
+    prompt = (
+        "Rewrite the following question into clear, standard, formal "
+        "wording, IN THE SAME LANGUAGE it is already written in -- do "
+        "NOT translate it to a different language. Replace any "
+        "colloquial, regional, or informal words with their standard "
+        "equivalent, but keep the exact same meaning and intent. If the "
+        "question is already standard wording, return it unchanged. "
+        "Output ONLY the rewritten question, nothing else -- no "
+        "explanation, no quotes.\n\n"
+        f"Question: {question}"
+    )
+    response = client.chat.completions.create(
+        model=model,
+        messages=[{"role": "user", "content": prompt}],
+        reasoning_effort="none",
+        temperature=0,  # same input -> same normalization every time
+        max_tokens=200,
+    )
+    rewritten = (response.choices[0].message.content or "").strip()
+    return rewritten or question  # fall back to the original rather than an empty query
+
+
 def merge_chunk_lists(*chunk_lists: list[dict]) -> list[dict]:
     """
     Deduplicates retrieved chunks (by chunk_id) across multiple retrieval
@@ -224,6 +302,14 @@ def merge_chunk_lists(*chunk_lists: list[dict]) -> list[dict]:
     lists so a chunk found strongly by one language pass isn't buried
     under weaker duplicates of itself from the other pass.
     """
+    # Checked in the same order as top_score() -- rerank_score only exists
+    # if hybrid_search() was called with use_rerank=True (not the default
+    # since retrieval.py's use_rerank change), rrf_score is what the
+    # default hybrid path actually carries, score is the vector/keyword-
+    # alone fallback.
+    def best_score(chunk: dict) -> float:
+        return chunk.get("rerank_score", chunk.get("rrf_score", chunk.get("score", 0)))
+
     best_by_id: dict[str, dict] = {}
 
     for chunks in chunk_lists:
@@ -231,17 +317,11 @@ def merge_chunk_lists(*chunk_lists: list[dict]) -> list[dict]:
             cid = chunk.get("chunk_id")
             if cid is None:
                 continue
-            score = chunk.get("rerank_score", chunk.get("score", 0))
             existing = best_by_id.get(cid)
-            existing_score = existing.get("rerank_score", existing.get("score", 0)) if existing else None
-            if existing is None or score > existing_score:
+            if existing is None or best_score(chunk) > best_score(existing):
                 best_by_id[cid] = chunk
 
-    return sorted(
-        best_by_id.values(),
-        key=lambda c: c.get("rerank_score", c.get("score", 0)),
-        reverse=True,
-    )
+    return sorted(best_by_id.values(), key=best_score, reverse=True)
 
 
 # ---------------------------------------------------------------------
@@ -289,7 +369,20 @@ _LANGUAGE_NAMES = {"ar": "Arabic", "en": "English"}
 # testing a query with 5 near-tied real answers -- with the old count of
 # 4, the classifier never even saw the 5th one, so it couldn't have
 # listed it in a clarifying question no matter how the prompt was worded.
-_PREVIEW_CHUNK_COUNT = 5
+#
+# Was briefly widened 5 -> 20 after retrieval.py's hybrid_search()
+# switched to use_rerank=False (plain RRF, no reranking -- see that
+# file): without a reranker, RRF fusion can leave a genuinely relevant
+# chunk buried well past top-5 (measured real cases: rank #13, #18,
+# #29-31), since it only compensates for appearing in BOTH the vector and
+# keyword rankings, not for actual meaning. 20 caught more of those cases
+# at the cost of much larger prompts (main.py fetches this many
+# candidates for hybrid mode, and used to build the answer's context
+# from all of them too) and slower answers. Reverted back to 5 by
+# explicit request, accepting that a genuinely correct chunk ranked
+# outside the top 5 will still be missed sometimes -- see hybrid-results.md
+# and the session's manual testing for the known cases this reintroduces.
+PREVIEW_CHUNK_COUNT = 5
 _PREVIEW_CHARS_PER_CHUNK = 220
 
 
@@ -297,7 +390,7 @@ def _build_content_preview(results: list[dict]) -> str:
     if not results:
         return "(no results found)"
     previews = []
-    for r in results[:_PREVIEW_CHUNK_COUNT]:
+    for r in results[:PREVIEW_CHUNK_COUNT]:
         text = r.get("text", "")[:_PREVIEW_CHARS_PER_CHUNK]
         previews.append(f"- {text}")
     return "\n".join(previews)
@@ -331,6 +424,13 @@ def classify_intent(client, model: str, question: str, language: str, results: l
         # question sitting right at the ambiguous/needs-account-data
         # boundary could flip its classification between identical runs.
         temperature=0,
+        # See transliterate_arabizi()'s comment on why this matters --
+        # confirmed live: this exact call hit Groq's 429 output-token
+        # rate limit multiple times during testing (Requested up to
+        # ~1300) despite the real output being a small JSON object. 500
+        # comfortably covers even a case-(b) clarifying question that
+        # has to enumerate several real options.
+        max_tokens=500,
     )
     raw = response.choices[0].message.content or ""
 
@@ -382,7 +482,7 @@ def refusal_text(reason: str, language: str) -> str:
 
 def decide_action(
     client, model: str, question: str, language: str, results: list[dict],
-    is_arabizi_query: bool = False,
+    is_arabizi_query: bool = False, confidence_score: float | None = None,
 ) -> dict:
     """
     Runs the classifier and the threshold check and returns exactly one
@@ -405,6 +505,13 @@ def decide_action(
     `is_arabizi_query` picks ARABIZI_RELEVANCE_THRESHOLD instead of the
     normal per-language one for that last check -- see its definition for
     why the same confidence number needs a lower bar for these queries.
+
+    `confidence_score`: on the hybrid path, main.py computes this
+    separately via a plain vector_search() call and passes it in here,
+    instead of trusting `results`' own top score -- see the note above
+    passes_relevance_threshold() for why RRF's score can't be used for
+    this decision. Leave None for vector/keyword-only callers, where
+    `results` already carries a meaningful score.
     """
     verdict = classify_intent(client, model, question, language, results)
 
@@ -417,7 +524,7 @@ def decide_action(
     if verdict["is_ambiguous"] and verdict["clarifying_question"]:
         return {"action": "ambiguous", "clarifying_question": verdict["clarifying_question"]}
 
-    if not passes_relevance_threshold(results, language, is_arabizi_query):
+    if not passes_relevance_threshold(results, language, is_arabizi_query, confidence_score):
         return {"action": "no_info"}
 
     return {"action": "answer_normally"}

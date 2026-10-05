@@ -15,6 +15,14 @@ knows about Groq credentials/config.
 an instruction added to the prompt templates (prompts/rag_answer_*.txt),
 because it is about how the final answer is *worded*, not a pre-check
 that should block generation.
+
+`model` (passed in from app/api/main.py) is qwen/qwen3.8-27b as of this
+writing -- the previous qwen3.6-27b was withdrawn by Groq (a preview
+model, pulled with no formal notice; see main.py's GROQ_MODEL comment).
+The `reasoning_effort="none"` argument every call here used to pass is
+gone, not just changed to a different value -- qwen3.8-27b doesn't
+accept that parameter at all (a live test showed passing it returns
+empty content instead of an error).
 """
 
 import json
@@ -33,6 +41,24 @@ RELEVANCE_THRESHOLDS = {
     "en": 0.30,
     "ar": 0.30,
 }
+
+# Globitel's hosted model (globitelai-bge, the production default) scores
+# everything higher than BGE-M3, so 0.30 refused nothing with it: measured
+# on eval/task1_dataset/dataset_v1.json (top-1 vector cosine, 2026-09-29),
+# answerable questions scored EN 0.62-0.88 / AR 0.49-0.90, while
+# should_refuse ones scored EN 0.40-0.61 / AR 0.39-0.56 -- all 16 above
+# 0.30. At EN 0.60 / AR 0.55: 0/32 EN and 1/32 AR answerable questions
+# refused, 1/8 should_refuse passed in each language (the LLM classifier
+# in decide_action() still catches out-of-domain questions before this).
+# Only 8 negatives per language -- re-check if the dataset grows.
+RELEVANCE_THRESHOLDS_BY_BACKEND = {
+    "bge_m3": RELEVANCE_THRESHOLDS,
+    "globitelai_bge": {
+        "en": 0.60,
+        "ar": 0.55,
+    },
+}
+DEFAULT_THRESHOLD_BACKEND = "globitelai_bge"
 
 # A separate, lower threshold for queries that went through the Arabizi
 # transliteration override (main.py's bilingual-search path). Manual
@@ -76,20 +102,26 @@ def top_score(results: list[dict]) -> float | None:
 
 def passes_relevance_threshold(
     results: list[dict], language: str, is_arabizi_query: bool = False,
-    confidence_score: float | None = None,
+    confidence_score: float | None = None, embedding_backend: str | None = None,
 ) -> bool:
     """
     confidence_score, when given, overrides whatever score `results`
     itself carries -- this is how callers on the hybrid path (main.py)
     supply a real vector-search confidence number instead of the
     RRF-ranked `results`' own (meaningless, see above) score.
+
+    embedding_backend picks the threshold set calibrated for the model
+    that produced the score (see RELEVANCE_THRESHOLDS_BY_BACKEND).
     """
     score = confidence_score if confidence_score is not None else top_score(results)
     if score is None:
         return False
+    thresholds = RELEVANCE_THRESHOLDS_BY_BACKEND.get(
+        embedding_backend or DEFAULT_THRESHOLD_BACKEND, RELEVANCE_THRESHOLDS,
+    )
     threshold = (
         ARABIZI_RELEVANCE_THRESHOLD if is_arabizi_query
-        else RELEVANCE_THRESHOLDS.get(language, RELEVANCE_THRESHOLDS["en"])
+        else thresholds.get(language, thresholds["en"])
     )
     return score >= threshold
 
@@ -177,7 +209,6 @@ def transliterate_arabizi(client, model: str, text: str) -> str:
     response = client.chat.completions.create(
         model=model,
         messages=[{"role": "user", "content": prompt}],
-        reasoning_effort="none",
         # Pinned low so the same Arabizi input transliterates the same
         # way every time -- previously unset (Groq's default is not 0),
         # so identical questions could retrieve different chunks across
@@ -226,7 +257,6 @@ def translate_arabizi_bilingual(client, model: str, text: str) -> dict:
     response = client.chat.completions.create(
         model=model,
         messages=[{"role": "user", "content": prompt}],
-        reasoning_effort="none",
         temperature=0,  # same input -> same translation every time
         max_tokens=300,  # see transliterate_arabizi()'s comment on why this is set
     )
@@ -284,7 +314,6 @@ def normalize_query_for_retrieval(client, model: str, question: str, language: s
     response = client.chat.completions.create(
         model=model,
         messages=[{"role": "user", "content": prompt}],
-        reasoning_effort="none",
         temperature=0,  # same input -> same normalization every time
         max_tokens=200,
     )
@@ -418,7 +447,6 @@ def classify_intent(client, model: str, question: str, language: str, results: l
     response = client.chat.completions.create(
         model=model,
         messages=[{"role": "user", "content": prompt}],
-        reasoning_effort="none",
         # Pinned so the same question + same retrieved chunks always
         # yield the same guardrail decision -- previously unset, so a
         # question sitting right at the ambiguous/needs-account-data
@@ -477,12 +505,50 @@ def refusal_text(reason: str, language: str) -> str:
 
 
 # ---------------------------------------------------------------------
+# Too-vague input -- short-circuits BEFORE retrieval/classify_intent even
+# runs, since none of that can produce a meaningful result from input
+# with no real content. Found live: a single stray character (e.g. "ز")
+# scored just high enough on noisy BM25/vector similarity against short
+# FAQ question titles to be classified "ambiguous" and generate a
+# specific-sounding but nonsensical clarifying question (e.g. asking
+# about roaming fees for a one-character question that has nothing to do
+# with roaming) -- confusing and useless to an agent, and a wasted
+# retrieval + classify_intent call besides.
+# ---------------------------------------------------------------------
+
+MIN_QUESTION_CHARS = 3
+
+VAGUE_CLARIFY_TEXT = {
+    "en": "Could you please clarify your question further?",
+    "ar": "ممكن توضح سؤالك أكثر؟",
+}
+
+
+def is_too_vague(question: str) -> bool:
+    """True for input with no real content for retrieval or intent
+    classification to act on: shorter than MIN_QUESTION_CHARS, made up
+    entirely of punctuation/digits/symbols (no letters at all), or a
+    single letter repeated (e.g. "aaaaa" / "ااااا" -- long enough to pass
+    a plain length check but carrying no more information than one
+    character)."""
+    if len(question) < MIN_QUESTION_CHARS:
+        return True
+    letters = re.findall(r"[^\W\d_]", question, re.UNICODE)
+    if not letters:
+        return True
+    if len(set(letters)) == 1:
+        return True
+    return False
+
+
+# ---------------------------------------------------------------------
 # Top-level decision -- combines everything above into one action
 # ---------------------------------------------------------------------
 
 def decide_action(
     client, model: str, question: str, language: str, results: list[dict],
     is_arabizi_query: bool = False, confidence_score: float | None = None,
+    embedding_backend: str | None = None,
 ) -> dict:
     """
     Runs the classifier and the threshold check and returns exactly one
@@ -524,7 +590,7 @@ def decide_action(
     if verdict["is_ambiguous"] and verdict["clarifying_question"]:
         return {"action": "ambiguous", "clarifying_question": verdict["clarifying_question"]}
 
-    if not passes_relevance_threshold(results, language, is_arabizi_query, confidence_score):
+    if not passes_relevance_threshold(results, language, is_arabizi_query, confidence_score, embedding_backend):
         return {"action": "no_info"}
 
     return {"action": "answer_normally"}

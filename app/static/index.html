@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -167,6 +167,7 @@
     margin-top: 6px;
   }
   .footer-info span { display: inline-flex; align-items: center; gap: 3px; }
+  .footer-info .slowest { color: var(--accent-dark); font-weight: 600; }
 
   details.sources {
     margin-top: 6px;
@@ -235,32 +236,22 @@
     <div class="sub">Task 6 -- guardrails-aware bilingual RAG demo</div>
   </div>
   <div class="controls">
-    <select id="modeSelect" title="Retrieval mode">
-      <option value="hybrid" selected>Hybrid</option>
-      <option value="vector">Vector</option>
-      <option value="keyword">Keyword</option>
-    </select>
-    <select id="langSelect" title="Language override">
-      <option value="" selected>Auto-detect</option>
-      <option value="ar">Arabic</option>
-      <option value="en">English</option>
-    </select>
     <button class="ctrl" id="clearBtn">Clear history</button>
   </div>
 </header>
 
 <details id="recentPanel" class="recent-panel">
-  <summary>🕘 آخر 5 أسئلة</summary>
+  <summary>🕘 Last 5 questions</summary>
   <div id="recentList" class="recent-list"></div>
 </details>
 
 <div id="transcript">
-  <div class="empty-hint" id="emptyHint">اسأل أي سؤال عن خدمات Orange Jordan (خطوط، إنترنت، محفظة، تجوال، فواتير)...</div>
+  <div class="empty-hint" id="emptyHint">Ask anything about Orange Jordan services (lines, internet, wallet, roaming, bills)...</div>
 </div>
 
 <div id="inputBar">
-  <textarea id="questionInput" placeholder="اكتب سؤالك هنا... (Enter للإرسال، Shift+Enter لسطر جديد)" rows="1"></textarea>
-  <button id="sendBtn">إرسال</button>
+  <textarea id="questionInput" placeholder="Type your question... (Enter to send, Shift+Enter for new line)" rows="1"></textarea>
+  <button id="sendBtn">Send</button>
 </div>
 
 <script>
@@ -268,20 +259,18 @@ const transcript = document.getElementById('transcript');
 const emptyHint = document.getElementById('emptyHint');
 const input = document.getElementById('questionInput');
 const sendBtn = document.getElementById('sendBtn');
-const modeSelect = document.getElementById('modeSelect');
-const langSelect = document.getElementById('langSelect');
 const clearBtn = document.getElementById('clearBtn');
 
 const HISTORY_KEY = 'globitel_agent_assist_history_v1';
 const MARKER = '\n\n---METADATA---\n';
 
 const BADGE_LABELS = {
-  answer_normally: 'جواب مباشر',
-  ambiguous: 'سؤال يحتاج توضيح',
-  no_info: 'لا تتوفر معلومة',
-  out_of_domain: 'خارج النطاق',
-  needs_account_data: 'يحتاج بيانات حساب',
-  error: 'خطأ'
+  answer_normally: 'Direct answer',
+  ambiguous: 'Needs clarification',
+  no_info: 'No info available',
+  out_of_domain: 'Out of scope',
+  needs_account_data: 'Needs account data',
+  error: 'Error'
 };
 
 function looksArabic(text) {
@@ -325,7 +314,7 @@ function renderRecentPanel() {
   const last5 = history.slice(-5).reverse();
 
   if (!last5.length) {
-    recentList.innerHTML = '<div class="recent-empty">لسا ما في أسئلة.</div>';
+    recentList.innerHTML = '<div class="recent-empty">No questions yet.</div>';
     return;
   }
 
@@ -409,29 +398,51 @@ function renderMetadata(refs, meta, answerText) {
   refs.badge.className = 'badge ' + action;
   refs.badge.style.display = 'inline-block';
 
-  const pieces = [];
-  if (meta.language) pieces.push(`<span>🌐 ${meta.language.toUpperCase()}</span>`);
-  if (meta.retrieval_mode) pieces.push(`<span>🔎 ${meta.retrieval_mode}</span>`);
-  if (typeof meta.retrieval_latency_ms === 'number') pieces.push(`<span>📡 استرجاع: ${(meta.retrieval_latency_ms / 1000).toFixed(1)} ث</span>`);
-  if (typeof meta.total_elapsed_s === 'number') pieces.push(`<span>⏱ الوقت الكلي: ${meta.total_elapsed_s.toFixed(1)} ث</span>`);
-  const topChunk = (meta.retrieved_chunks || [])[0];
-  const topScore = topChunk ? (topChunk.rerank_score ?? topChunk.score) : null;
-  if (typeof topScore === 'number') pieces.push(`<span>🎯 ${(topScore * 100).toFixed(0)}%</span>`);
-  if (meta.token_usage && meta.token_usage.total_tokens) pieces.push(`<span>🧮 ${meta.token_usage.total_tokens} tok</span>`);
-  refs.footer.innerHTML = pieces.join('');
+  refs.footer.innerHTML = renderTimings(meta);
 
   const chunks = meta.retrieved_chunks || [];
   if (chunks.length) {
     refs.sourcesEl.style.display = '';
-    refs.sourcesEl.innerHTML = `<summary>عملية البحث -- ${chunks.length} نتيجة مسترجعة</summary>` +
+    refs.sourcesEl.innerHTML = `<summary>Retrieval -- ${chunks.length} chunks retrieved</summary>` +
       '<div class="chunk-list">' + chunks.map(renderChunkCard).join('') + '</div>';
   } else if (meta.sources && meta.sources.length) {
     // Fallback for guardrail short-circuit responses, which don't attach
     // full retrieved_chunks -- just the source file names.
     refs.sourcesEl.style.display = '';
-    refs.sourcesEl.innerHTML = `<summary>المصادر (${meta.sources.length})</summary>` +
+    refs.sourcesEl.innerHTML = `<summary>Sources (${meta.sources.length})</summary>` +
       '<ul>' + meta.sources.map(s => `<li>${escapeHtml(s)}</li>`).join('') + '</ul>';
   }
+}
+
+// Per-stage times from the server's timings_ms, in pipeline order.
+// "retrieval" is left out since it is just vector + keyword.
+const TIMING_STAGES = [
+  ['normalize', 'Normalize'],
+  ['vector', 'Vector'],
+  ['keyword', 'Keyword'],
+  ['guardrail', 'Guardrail'],
+  ['ttft', 'First token'],
+  ['generation', 'Generation'],
+];
+
+function formatMs(ms) {
+  return ms < 1000 ? `${Math.round(ms)} ms` : `${(ms / 1000).toFixed(1)} s`;
+}
+
+function renderTimings(meta) {
+  const t = meta.timings_ms;
+  if (!t) {
+    // Older history entries only carry the overall retrieval time.
+    return typeof meta.retrieval_latency_ms === 'number'
+      ? `<span>📡 Retrieval: ${formatMs(meta.retrieval_latency_ms)}</span>`
+      : '';
+  }
+  const stages = TIMING_STAGES.filter(([key]) => typeof t[key] === 'number');
+  const slowest = Math.max(...stages.map(([key]) => t[key]));
+  const pieces = stages.map(([key, label]) =>
+    `<span class="${t[key] === slowest ? 'slowest' : ''}">${label} ${formatMs(t[key])}</span>`);
+  if (typeof t.total === 'number') pieces.push(`<span><b>Total ${formatMs(t.total)}</b></span>`);
+  return pieces.join('<span>·</span>');
 }
 
 function escapeHtml(s) {
@@ -467,8 +478,8 @@ async function sendQuestion() {
   const question = input.value.trim();
   if (!question) return;
 
-  const mode = modeSelect.value;
-  const language = langSelect.value || null;
+  const mode = 'hybrid';
+  const language = null;  // server auto-detects the question language
 
   input.value = '';
   input.style.height = 'auto';
@@ -484,10 +495,11 @@ async function sendQuestion() {
     response = await fetch('/ask', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      // No embedding_backend: the server default is Globitel's hosted model.
       body: JSON.stringify({ question, mode, language, top_k: 5 })
     });
   } catch (e) {
-    renderError(refs, 'تعذر الاتصال بالسيرفر. تأكد إنه شغّال.');
+    renderError(refs, 'Could not reach the server. Make sure it is running.');
     sendBtn.disabled = false;
     return;
   }
@@ -509,7 +521,7 @@ async function sendQuestion() {
   }
 
   if (!response.ok) {
-    let msg = 'حدث خطأ.';
+    let msg = 'Something went wrong.';
     try { msg = JSON.parse(buffer).error || msg; } catch (e) {}
     renderError(refs, msg);
     sendBtn.disabled = false;

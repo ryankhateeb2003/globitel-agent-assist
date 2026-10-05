@@ -15,7 +15,11 @@ from groq import Groq
 from app.rag.retrieval import retrieve_chunks, build_context
 from app.rag.language_detect import detect_language
 
-GROQ_MODEL = "qwen/qwen3.6-27b"
+GROQ_MODEL = "qwen/qwen3.8-27b"
+# qwen3.6-27b was withdrawn by Groq (preview model, pulled abruptly --
+# see app/api/main.py's GROQ_MODEL note for the full story). This module
+# isn't currently imported anywhere (main.py has its own inline
+# generation path), but kept in sync for whenever it is.
 
 PROMPT_PATHS = {
     "en": Path("prompts/rag_answer_en.txt"),
@@ -60,7 +64,6 @@ def answer_question(question: str, language: str | None = None, top_k: int = 5) 
     response = client.chat.completions.create(
         model=GROQ_MODEL,
         messages=[{"role": "user", "content": filled_prompt}],
-        reasoning_effort="none",
     )
 
     answer_text = response.choices[0].message.content

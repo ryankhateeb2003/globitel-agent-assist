@@ -1,9 +1,9 @@
 """
-Part Two, Task 1 -- generates dataset-stats.md from eval/dataset_v1.json
-and eval/matched_pairs.json: counts per type per language, coverage
+Part Two, Task 1 -- generates dataset-stats.md from eval/task1_dataset/dataset_v1.json
+and eval/task1_dataset/matched_pairs.json: counts per type per language, coverage
 across source pages, and which pages are not covered yet.
 
-Usage: python eval/build_stats.py (run last, after the dataset is final)
+Usage: python eval/task1_dataset/build_stats.py (run last, after the dataset is final)
 """
 
 import json
@@ -17,15 +17,15 @@ ALL_CORPUS_TOPICS = [
 
 
 def main():
-    dataset = json.loads(Path("eval/dataset_v1.json").read_text(encoding="utf-8"))
-    matched_pairs = json.loads(Path("eval/matched_pairs.json").read_text(encoding="utf-8"))
+    dataset = json.loads(Path("eval/task1_dataset/dataset_v1.json").read_text(encoding="utf-8"))
+    matched_pairs = json.loads(Path("eval/task1_dataset/matched_pairs.json").read_text(encoding="utf-8"))
 
     type_lang_counts = Counter((d["type"], d["language"]) for d in dataset)
     topics_covered = Counter(d["_topic"] for d in dataset if d.get("_topic"))
     missing_topics = [t for t in ALL_CORPUS_TOPICS if t not in topics_covered]
 
     lines = [
-        "# Dataset Statistics -- eval/dataset_v1.json",
+        "# Dataset Statistics -- eval/task1_dataset/dataset_v1.json",
         "",
         f"**Total items:** {len(dataset)}",
         f"**Matched pairs:** {len(matched_pairs)}/20",
@@ -72,8 +72,8 @@ def main():
         "there is no correct chunk for them by design; the correct system behavior is refusal itself.",
     ]
 
-    Path("eval/dataset-stats.md").write_text("\n".join(lines), encoding="utf-8")
-    print("[SAVED] eval/dataset-stats.md")
+    Path("eval/task1_dataset/dataset-stats.md").write_text("\n".join(lines), encoding="utf-8")
+    print("[SAVED] eval/task1_dataset/dataset-stats.md")
     print(f"Missing topics: {missing_topics}")
 
 

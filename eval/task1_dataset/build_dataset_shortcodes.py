@@ -2,7 +2,7 @@
 Part Two, Task 1 -- manual top-up for the `short-codes` topic.
 
 short-codes.html isn't structured as question-per-line FAQs like the
-other 6 corpus pages (see eval/README.md's coverage note) -- it's a
+other 6 corpus pages (see eval/task1_dataset/README.md's coverage note) -- it's a
 flat list of "code / what it does" lines with no "?" anywhere, so
 build_dataset.py's extract_question() finds nothing there at all. These
 3 items per language are hand-written questions whose answer is copied
@@ -16,7 +16,7 @@ pure navigation menu (page section titles like "FAQs", "Find Shops",
 genuinely nothing to write a real question against. That is reported
 as-is in dataset-stats.md rather than papered over.
 
-Usage: python eval/build_dataset_shortcodes.py (run after build_dataset_part2.py)
+Usage: python eval/task1_dataset/build_dataset_shortcodes.py (run after build_dataset_part2.py)
 """
 
 import json
@@ -63,7 +63,7 @@ SHORT_CODES_ITEMS = [
 
 
 def main():
-    dataset_path = Path("eval/dataset_v1.json")
+    dataset_path = Path("eval/task1_dataset/dataset_v1.json")
     dataset = json.loads(dataset_path.read_text(encoding="utf-8"))
 
     counter = {"en": 0, "ar": 0}

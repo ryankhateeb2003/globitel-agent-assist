@@ -1,5 +1,5 @@
 """
-Part Two, Task 1 -- extends eval/dataset_v1.json (built by build_dataset.py)
+Part Two, Task 1 -- extends eval/task1_dataset/dataset_v1.json (built by build_dataset.py)
 with the 3 categories that can't be pulled straight out of the corpus by
 a simple sampler: multi_chunk, should_refuse, dialect/Arabizi.
 
@@ -17,7 +17,7 @@ dialect/Arabizi: takes 4 already-sampled AR simple_factual items and
 rewrites their question in Arabizi, and 4 EN items rewritten in informal
 English -- same real answer/source, only the question phrasing changes.
 
-Usage: python eval/build_dataset_part2.py (run AFTER build_dataset.py)
+Usage: python eval/task1_dataset/build_dataset_part2.py (run AFTER build_dataset.py)
 """
 
 import json
@@ -241,7 +241,7 @@ def build_dialect(dataset_so_far: list[dict], start_id: int) -> list[dict]:
 
 
 if __name__ == "__main__":
-    dataset_path = Path("eval/dataset_v1.json")
+    dataset_path = Path("eval/task1_dataset/dataset_v1.json")
     dataset = json.loads(dataset_path.read_text(encoding="utf-8"))
     print(f"[LOADED] {len(dataset)} existing items from {dataset_path}")
 

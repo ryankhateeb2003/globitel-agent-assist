@@ -1,6 +1,6 @@
 """
 Part Two, Task 2 -- measures retrieval alone (not generation), against
-eval/dataset_v1.json, using the real retrieval code from Part One
+eval/task1_dataset/dataset_v1.json, using the real retrieval code from Part One
 (app/retrieval/retrieval.py's search(), same function /ask calls).
 
 Deliberately calls retrieval.py's search() directly, NOT the full /ask
@@ -12,7 +12,7 @@ language-model help. (Task 4's experiments can test with normalization
 on top of this baseline later if wanted.)
 
 should_refuse items are excluded here -- they have no correct chunk to
-measure hit-rate/MRR against by design (see eval/README.md); the correct
+measure hit-rate/MRR against by design (see eval/task1_dataset/README.md); the correct
 system behavior for them is refusal, which is what Task 6's guardrail
 tests and Task 3's answer-quality checks measure, not retrieval ranking.
 
@@ -95,7 +95,7 @@ def aggregate(results: list[dict], group_key) -> dict:
 
 
 def run():
-    dataset = json.loads(Path("eval/dataset_v1.json").read_text(encoding="utf-8"))
+    dataset = json.loads(Path("eval/task1_dataset/dataset_v1.json").read_text(encoding="utf-8"))
     testable = [item for item in dataset if item["type"] != "should_refuse"]
     print(f"Evaluating {len(testable)} items ({len(dataset) - len(testable)} should_refuse items excluded)")
 
@@ -122,10 +122,10 @@ if __name__ == "__main__":
         "by_type_language": {f"{k[1]}_{k[0]}": v for k, v in by_type_language.items()},
         "per_item": results,
     }
-    Path("eval/retrieval_metrics_raw.json").write_text(
+    Path("eval/task2_retrieval_metrics/retrieval_metrics_raw.json").write_text(
         json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8"
     )
-    print("\n[SAVED] eval/retrieval_metrics_raw.json")
+    print("\n[SAVED] eval/task2_retrieval_metrics/retrieval_metrics_raw.json")
 
     print("\n=== By language ===")
     for lang, m in by_language.items():

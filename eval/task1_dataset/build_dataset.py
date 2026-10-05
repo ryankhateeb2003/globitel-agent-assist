@@ -1,5 +1,5 @@
 """
-Part Two, Task 1 -- builds eval/dataset_v1.json: real question/answer
+Part Two, Task 1 -- builds eval/task1_dataset/dataset_v1.json: real question/answer
 pairs sampled directly from chunks.jsonl (the same corpus indexed in
 Part One), not invented. Same sampling approach as Task 5's
 eval_hybrid.py's build_test_set() -- extended here to cover simple_factual
@@ -8,7 +8,7 @@ dialect/Arabizi need separate, more manual construction (see
 build_dataset_manual.py) since they can't be pulled straight out of the
 corpus the same way.
 
-Usage: python eval/build_dataset.py
+Usage: python eval/task1_dataset/build_dataset.py
 """
 
 import json
@@ -156,7 +156,7 @@ def build_dataset() -> list[dict]:
 
 if __name__ == "__main__":
     dataset = build_dataset()
-    out_path = Path("eval/dataset_v1.json")
+    out_path = Path("eval/task1_dataset/dataset_v1.json")
     out_path.write_text(json.dumps(dataset, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\n[SAVED] {out_path} -- {len(dataset)} items so far (simple_factual + exact_value only)")
     print("Still needed: multi_chunk, should_refuse, dialect/Arabizi -- see build_dataset_manual.py")

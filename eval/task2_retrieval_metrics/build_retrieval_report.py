@@ -1,10 +1,10 @@
 """
-Part Two, Task 2 -- turns eval/retrieval_metrics_raw.json into
+Part Two, Task 2 -- turns eval/task2_retrieval_metrics/retrieval_metrics_raw.json into
 retrieval-metrics-report.md: full metric table, per-type breakdown,
 matched-pair EN/AR comparison, 10 worst questions, and the one explicit
 "weakest language+type combo" statement the PDF asks for.
 
-Usage: python eval/build_retrieval_report.py (run AFTER retrieval_metrics.py)
+Usage: python eval/task1_dataset/build_retrieval_report.py (run AFTER retrieval_metrics.py)
 """
 
 import json
@@ -32,15 +32,15 @@ def fmt_table(summary: dict, row_label_name: str) -> list[str]:
 
 
 def main():
-    raw = json.loads(Path("eval/retrieval_metrics_raw.json").read_text(encoding="utf-8"))
-    dataset = {item["id"]: item for item in json.loads(Path("eval/dataset_v1.json").read_text(encoding="utf-8"))}
+    raw = json.loads(Path("eval/task2_retrieval_metrics/retrieval_metrics_raw.json").read_text(encoding="utf-8"))
+    dataset = {item["id"]: item for item in json.loads(Path("eval/task1_dataset/dataset_v1.json").read_text(encoding="utf-8"))}
 
     lines = [
         "# Retrieval Metrics Report",
         "",
         "## Method",
         "",
-        "Every non-`should_refuse` item in `eval/dataset_v1.json` (72 of 80 -- "
+        "Every non-`should_refuse` item in `eval/task1_dataset/dataset_v1.json` (72 of 80 -- "
         "`should_refuse` items have no correct chunk to rank, by design) was run "
         "through `app/retrieval/retrieval.py`'s `search()` in **hybrid** mode "
         "(the `/ask` default), at `top_k=10`, using the customer's raw question "
@@ -68,7 +68,7 @@ def main():
     lines += fmt_table(raw["by_type_language"], "Type_Language")
 
     # --- Matched pairs comparison ---
-    matched_pairs = json.loads(Path("eval/matched_pairs.json").read_text(encoding="utf-8"))
+    matched_pairs = json.loads(Path("eval/task1_dataset/matched_pairs.json").read_text(encoding="utf-8"))
     per_item = {r["id"]: r for r in raw["per_item"]}
 
     lines += [
@@ -78,10 +78,10 @@ def main():
         "## Matched pairs -- same question, EN vs AR, side by side",
         "",
         "Each pair points at the identical FAQ entry in both languages "
-        "(`eval/matched_pairs.json`). Scored here by re-running retrieval "
+        "(`eval/task1_dataset/matched_pairs.json`). Scored here by re-running retrieval "
         "directly on each pair's question text (these are not necessarily the "
         "same items already scored above, since matched_pairs.json was built "
-        "independently -- see eval/README.md).",
+        "independently -- see eval/task1_dataset/README.md).",
         "",
         "| Pair | Topic | EN Hit@5 | AR Hit@5 | EN rank | AR rank |",
         "|---|---|---:|---:|---:|---:|",
@@ -141,8 +141,8 @@ def main():
         f"(n={weakest[1]['n']}). This is the exact cell to prioritize in Task 4's experiments.",
     ]
 
-    Path("eval/retrieval-metrics-report.md").write_text("\n".join(lines), encoding="utf-8")
-    print("[SAVED] eval/retrieval-metrics-report.md")
+    Path("eval/task2_retrieval_metrics/retrieval-metrics-report.md").write_text("\n".join(lines), encoding="utf-8")
+    print("[SAVED] eval/task2_retrieval_metrics/retrieval-metrics-report.md")
     print(f"Matched-pair language disagreements: {mismatch_count}/20")
     print(f"Weakest combo: {weakest[0]} (hit@5={weakest[1]['hit@5']:.2f})")
 

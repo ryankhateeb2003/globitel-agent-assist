@@ -1,18 +1,18 @@
 """
-Part Two, Task 1 -- builds eval/matched_pairs.json: 20 EN/AR pairs
+Part Two, Task 1 -- builds eval/task1_dataset/matched_pairs.json: 20 EN/AR pairs
 pointing at the SAME underlying FAQ entry (same topic, matching
 chunk_index across the language-twin documents) -- lets retrieval-metrics
 report a same-question EN vs AR score side by side, isolating "is a gap
 caused by language or by the question being harder" per the PDF's
 requirement.
 
-Matches items already in eval/dataset_v1.json by (_topic, _chunk_id's
+Matches items already in eval/task1_dataset/dataset_v1.json by (_topic, _chunk_id's
 numeric suffix) -- the corpus's own doc-pair convention (Task 1/3):
 en/ar docs about the same page share the same trailing chunk index for
 the same FAQ entry (confirmed in Task 5's hybrid-results.md, e.g.
 c4790bface4196b1_032 (en) / 97c3ba92a38eb494_031 (ar) for QR Payment).
 
-Usage: python eval/build_matched_pairs.py (run AFTER build_dataset_part2.py)
+Usage: python eval/task1_dataset/build_matched_pairs.py (run AFTER build_dataset_part2.py)
 """
 
 import json
@@ -105,12 +105,12 @@ def build_matched_pairs(dataset: list[dict], chunks: list[dict], n_pairs: int = 
 
 
 if __name__ == "__main__":
-    dataset = json.loads(Path("eval/dataset_v1.json").read_text(encoding="utf-8"))
+    dataset = json.loads(Path("eval/task1_dataset/dataset_v1.json").read_text(encoding="utf-8"))
     chunks = load_chunks()
 
     pairs = build_matched_pairs(dataset, chunks, n_pairs=20)
     print(f"[BUILT] {len(pairs)}/20 matched pairs")
 
-    out_path = Path("eval/matched_pairs.json")
+    out_path = Path("eval/task1_dataset/matched_pairs.json")
     out_path.write_text(json.dumps(pairs, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"[SAVED] {out_path}")

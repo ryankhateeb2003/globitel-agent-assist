@@ -21,7 +21,7 @@ K_VALUES = [1, 3, 5, 10]
 
 
 def main():
-    dataset = json.loads(Path("eval/dataset_v1.json").read_text(encoding="utf-8"))
+    dataset = json.loads(Path("eval/task1_dataset/dataset_v1.json").read_text(encoding="utf-8"))
 
     if len(sys.argv) > 1:
         item = next((d for d in dataset if d["id"] == sys.argv[1]), None)

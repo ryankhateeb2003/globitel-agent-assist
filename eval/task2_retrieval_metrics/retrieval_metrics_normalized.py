@@ -80,7 +80,7 @@ def aggregate(results: list[dict], group_key) -> dict:
 
 def run():
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
-    dataset = json.loads(Path("eval/dataset_v1.json").read_text(encoding="utf-8"))
+    dataset = json.loads(Path("eval/task1_dataset/dataset_v1.json").read_text(encoding="utf-8"))
     testable = [item for item in dataset if item["type"] != "should_refuse"]
     print(f"Evaluating {len(testable)} items WITH query normalization")
 
@@ -100,10 +100,10 @@ if __name__ == "__main__":
     by_type_language = aggregate(results, lambda r: f"{r['type']}_{r['language']}")
 
     out = {"by_language": by_language, "by_type_language": by_type_language, "per_item": results}
-    Path("eval/retrieval_metrics_normalized_raw.json").write_text(
+    Path("eval/task2_retrieval_metrics/retrieval_metrics_normalized_raw.json").write_text(
         json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8"
     )
-    print("\n[SAVED] eval/retrieval_metrics_normalized_raw.json")
+    print("\n[SAVED] eval/task2_retrieval_metrics/retrieval_metrics_normalized_raw.json")
     print("\n=== By language (WITH normalization) ===")
     for lang, m in by_language.items():
         print(f"{lang}: n={m['n']} MRR={m['mrr']:.3f} "

@@ -20,7 +20,8 @@ that row uses one dialect (Arabic-script) example and one Arabizi
 example instead of one-per-language.
 """
 
-from app.api.main import get_groq_client, GROQ_MODEL, load_prompt_template
+from app.api.main import get_groq_client, GROQ_MODEL
+from app.api.config import load_prompt_template
 from app.rag.retrieval import build_context
 from app.retrieval.retrieval import search as retrieval_search
 from app.guardrails.guardrails import (
@@ -106,7 +107,6 @@ def generate_real_answer(question: str, language: str, chunks: list[dict], clien
     response = client.chat.completions.create(
         model=GROQ_MODEL,
         messages=[{"role": "user", "content": filled_prompt}],
-        reasoning_effort="none",
     )
     return response.choices[0].message.content.strip()
 

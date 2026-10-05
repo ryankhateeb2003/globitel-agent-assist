@@ -7,20 +7,27 @@ Task 6: before generating a normal RAG answer, /ask runs the retrieved
 chunks and the question through app/guardrails/guardrails.py's
 decide_action(), which can short-circuit the request with a refusal or a
 clarifying question instead -- see that module for the 6 cases handled.
+
+Settings live in config.py, the startup warm-up in warm.py, the timing
+log line in logs.py, and every StreamingResponse builder in stream.py --
+this file just orchestrates: validate, detect language, retrieve, decide,
+then hand off to the right stream.py builder.
 """
 
 import os
-import json
+import time
 from pathlib import Path
 
 from fastapi import FastAPI
-from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from groq import Groq
 
-from app.rag.retrieval import build_context
+from app.api.config import GROQ_MODEL, MAX_QUESTION_CHARS, STATIC_DIR, EMBEDDING_BACKEND_DEFAULT
+from app.api.warm import lifespan
+from app.api import stream
 from app.rag.language_detect import detect_language
-from app.retrieval.retrieval import search as retrieval_search, vector_search
+from app.retrieval.retrieval import search as retrieval_search
 from app.guardrails.guardrails import (
     is_arabizi,
     translate_arabizi_bilingual,
@@ -28,17 +35,12 @@ from app.guardrails.guardrails import (
     merge_chunk_lists,
     decide_action,
     refusal_text,
+    is_too_vague,
+    VAGUE_CLARIFY_TEXT,
     PREVIEW_CHUNK_COUNT,
 )
 
-app = FastAPI(title="Globitel Agent Assist API")
-
-GROQ_MODEL = "qwen/qwen3.6-27b"
-
-PROMPT_PATHS = {
-    "en": Path("prompts/rag_answer_en.txt"),
-    "ar": Path("prompts/rag_answer_ar.txt"),
-}
+app = FastAPI(title="Globitel Agent Assist API", lifespan=lifespan)
 
 _groq_client = None
 
@@ -50,10 +52,6 @@ def get_groq_client() -> Groq:
     return _groq_client
 
 
-def load_prompt_template(language: str) -> str:
-    return PROMPT_PATHS[language].read_text(encoding="utf-8")
-
-
 class AskRequest(BaseModel):
     question: str
     language: str | None = None  # optional hint: "ar" or "en"
@@ -63,6 +61,11 @@ class AskRequest(BaseModel):
     # Defaults to hybrid; exposed here (not hardcoded) so the 3 modes can
     # be compared live through the same endpoint, same as hybrid-results.md.
     mode: str | None = "hybrid"
+    # Which embedding model to use for the vector half of retrieval --
+    # "globitelai_bge" (Globitel's hosted API, the default when omitted) or
+    # "bge_m3" (local) -- see app/rag/retrieval.py. The UI omits it; kept
+    # so eval scripts can still compare the two per request.
+    embedding_backend: str | None = None
 
 
 @app.post("/ask")
@@ -73,29 +76,40 @@ def ask(request: AskRequest):
     are sent as a final JSON line after the answer text, since usage
     stats are only known once the stream completes.
     """
+    request_start = time.perf_counter()
+
     # Basic input validation -- covers the "empty question" and
     # "very long question" API test cases required by the task.
     question = request.question.strip()
 
     if not question:
-        def empty_error():
-            yield json.dumps({"error": "Question cannot be empty."}, ensure_ascii=False)
-        return StreamingResponse(empty_error(), media_type="text/plain", status_code=400)
+        return stream.empty_question_response()
 
-    MAX_QUESTION_CHARS = 1000
     if len(question) > MAX_QUESTION_CHARS:
-        def too_long_error():
-            yield json.dumps(
-                {"error": f"Question too long ({len(question)} chars). Maximum is {MAX_QUESTION_CHARS}."},
-                ensure_ascii=False,
-            )
-        return StreamingResponse(too_long_error(), media_type="text/plain", status_code=400)
+        return stream.too_long_question_response(len(question), MAX_QUESTION_CHARS)
+
+    # Short-circuits before retrieval/classify_intent even run -- neither
+    # can produce a meaningful result from input with no real content
+    # (a stray character, punctuation/digits only, or one letter
+    # repeated), and letting it through previously produced a
+    # confusing, specific-sounding but nonsensical clarifying question
+    # (see guardrails.is_too_vague's docstring for the live case found).
+    if is_too_vague(question):
+        return stream.vague_response(question, VAGUE_CLARIFY_TEXT)
 
     detected_language = request.language or detect_language(question)
     top_k = request.top_k or 5
     mode = request.mode or "hybrid"
+    embedding_backend = request.embedding_backend or EMBEDDING_BACKEND_DEFAULT
 
     client = get_groq_client()
+
+    # Per-stage wall-clock times for this request, logged to the terminal
+    # and returned in the metadata as timings_ms. None = stage didn't run.
+    timings = {
+        "normalize": None, "vector": None, "keyword": None, "retrieval": None,
+        "guardrail": None, "ttft": None, "generation": None, "total": None,
+    }
 
     # Task 6: Arabizi (Levantine Arabic typed in Latin letters/digits, e.g.
     # "kif ba3mal top up") has zero Arabic-script characters, so
@@ -124,10 +138,13 @@ def ask(request: AskRequest):
     if not request.language and is_arabizi(question):
         detected_language = "ar"
         arabizi_override_applied = True
+        t0 = time.perf_counter()
         translations = translate_arabizi_bilingual(client, GROQ_MODEL, question)
+        timings["normalize"] = (time.perf_counter() - t0) * 1000
 
-        outcome_ar = retrieval_search(translations["arabic"], mode=mode, top_k=fetch_top_k)
-        outcome_en = retrieval_search(translations["english"], mode=mode, top_k=fetch_top_k)
+        outcome_ar = retrieval_search(translations["arabic"], mode=mode, top_k=fetch_top_k, embedding_backend=embedding_backend)
+        outcome_en = retrieval_search(translations["english"], mode=mode, top_k=fetch_top_k, embedding_backend=embedding_backend)
+        outcomes = [outcome_ar, outcome_en]
 
         merged_chunks = merge_chunk_lists(outcome_ar["results"], outcome_en["results"])[:fetch_top_k]
         retrieval_outcome = {
@@ -149,8 +166,16 @@ def ask(request: AskRequest):
         # Only affects what gets embedded/matched against the corpus;
         # `question` (the customer's real wording) still reaches the
         # answering model and every response field unchanged.
+        t0 = time.perf_counter()
         retrieval_query = normalize_query_for_retrieval(client, GROQ_MODEL, question, detected_language)
-        retrieval_outcome = retrieval_search(retrieval_query, mode=mode, top_k=fetch_top_k)
+        timings["normalize"] = (time.perf_counter() - t0) * 1000
+        retrieval_outcome = retrieval_search(retrieval_query, mode=mode, top_k=fetch_top_k, embedding_backend=embedding_backend)
+        outcomes = [retrieval_outcome]
+
+    timings["retrieval"] = retrieval_outcome["elapsed_ms"]
+    if mode == "hybrid":
+        timings["vector"] = sum(o["vector_ms"] for o in outcomes)
+        timings["keyword"] = sum(o["keyword_ms"] for o in outcomes)
 
     # classify_chunks: the wider pool, passed to decide_action() below so
     # classify_intent() can see past the top few. chunks: what actually
@@ -186,136 +211,41 @@ def ask(request: AskRequest):
     # unusable for the no-info decision (see guardrails.py's note above
     # passes_relevance_threshold()) -- a genuinely relevant and a
     # genuinely irrelevant question score almost identically, since RRF
-    # reflects rank position, not match strength. So for hybrid, run one
-    # extra plain vector_search() here just for this confidence check
-    # (top_k=1, cheap) -- vector/keyword-only modes still use `chunks`'
-    # own score directly (see decide_action's confidence_score=None
-    # default), since those scores already carry real magnitude.
+    # reflects rank position, not match strength. So for hybrid, use the
+    # top cosine score of hybrid's own vector half (same normalized query,
+    # same embedding model -- no second embedding call needed) --
+    # vector/keyword-only modes still use `chunks`' own score directly
+    # (see decide_action's confidence_score=None default), since those
+    # scores already carry real magnitude.
     confidence_score = None
     if mode == "hybrid":
-        # Same normalized text used for retrieval above -- checking
-        # confidence against the customer's raw wording again would
-        # reintroduce the exact colloquial/standard mismatch
-        # normalize_query_for_retrieval() exists to fix.
-        variants = [translations["arabic"], translations["english"]] if arabizi_override_applied else [retrieval_query]
-        scores = []
-        for variant in variants:
-            v_results = vector_search(variant, top_k=1)
-            if v_results and v_results[0].get("score") is not None:
-                scores.append(v_results[0]["score"])
+        scores = [o["vector_top_score"] for o in outcomes if o.get("vector_top_score") is not None]
         confidence_score = max(scores) if scores else None
 
+    t0 = time.perf_counter()
     decision = decide_action(
         client, GROQ_MODEL, question, detected_language, classify_chunks,
         is_arabizi_query=arabizi_override_applied,
         confidence_score=confidence_score,
+        embedding_backend=embedding_backend,
     )
+    timings["guardrail"] = (time.perf_counter() - t0) * 1000
 
     if decision["action"] != "answer_normally":
-        def guardrail_response():
-            if decision["action"] == "ambiguous":
-                text = decision["clarifying_question"]
-            else:
-                text = refusal_text(decision["action"], detected_language)
-            yield text
-
-            sources = sorted(set(c["source_file"] for c in chunks))
-            metadata = {
-                "language": detected_language,
-                "retrieval_mode": mode,
-                "retrieval_latency_ms": retrieval_outcome["elapsed_ms"],
-                "guardrail_action": decision["action"],
-                "sources": sources,
-                "retrieved_chunks": chunks,
-                "token_usage": {
-                    "prompt_tokens": None,
-                    "completion_tokens": None,
-                    "total_tokens": None,
-                },
-            }
-            yield "\n\n---METADATA---\n"
-            yield json.dumps(metadata, ensure_ascii=False)
-
-        return StreamingResponse(guardrail_response(), media_type="text/plain")
-
-    context = build_context(chunks)
-
-    template = load_prompt_template(detected_language)
-    filled_prompt = template.replace("{context}", context).replace("{question}", question)
-
-    def stream_response():
-        stream = client.chat.completions.create(
-            model=GROQ_MODEL,
-            messages=[{"role": "user", "content": filled_prompt}],
-            # "default" reasoning was tried as a fix for garbled Arabic
-            # words (see prompts/rag_answer_*.txt rule 8), and it did
-            # produce clean output -- but a live test measured ~110s per
-            # answer even with reasoning_format="hidden" (the model still
-            # does the full reasoning pass internally, just doesn't show
-            # it), which is unusable for a live-call product. Reverted to
-            # "none" -- rule 8's explicit language-purity instruction is
-            # the fix being kept for the garbling problem instead.
-            reasoning_effort="none",
-            # Pinned low (not 0) so answers stay deterministic-ish for
-            # identical questions while still reading naturally, rather
-            # than at Groq's default (unset, effectively high-variance).
-            temperature=0.2,
-            # Groq's per-minute output-token rate limit is checked
-            # against the request's max possible output, not what it
-            # actually generates -- leaving this unset let Groq assume a
-            # large default, which repeatedly tripped a 429
-            # (RateLimitError) during testing even though the prompt
-            # itself asks for 1-3 sentences. 500 comfortably covers even
-            # a longer answer (e.g. a step list, or rule 7's
-            # present-both-sides conflict wording).
-            max_tokens=500,
-            stream=True,
+        return stream.guardrail_response(
+            decision, detected_language, mode, embedding_backend,
+            retrieval_outcome, chunks, timings, request_start, refusal_text,
         )
 
-        completion_text = ""
-        prompt_tokens = None
-        completion_tokens = None
-
-        for chunk in stream:
-            delta = chunk.choices[0].delta.content
-            if delta:
-                completion_text += delta
-                yield delta
-
-            # The final chunk of a Groq stream carries x_groq.usage stats.
-            if hasattr(chunk, "x_groq") and chunk.x_groq and chunk.x_groq.usage:
-                prompt_tokens = chunk.x_groq.usage.prompt_tokens
-                completion_tokens = chunk.x_groq.usage.completion_tokens
-
-        sources = sorted(set(c["source_file"] for c in chunks))
-        metadata = {
-            "language": detected_language,
-            "retrieval_mode": mode,
-            "retrieval_latency_ms": retrieval_outcome["elapsed_ms"],
-            "guardrail_action": "answer_normally",
-            "sources": sources,
-            "retrieved_chunks": chunks,
-            "token_usage": {
-                "prompt_tokens": prompt_tokens,
-                "completion_tokens": completion_tokens,
-                "total_tokens": (prompt_tokens + completion_tokens) if prompt_tokens and completion_tokens else None,
-            },
-        }
-        yield "\n\n---METADATA---\n"
-        yield json.dumps(metadata, ensure_ascii=False)
-
-    return StreamingResponse(stream_response(), media_type="text/plain")
+    return stream.answer_response(
+        client, question, detected_language, mode, embedding_backend,
+        retrieval_outcome, chunks, timings, request_start,
+    )
 
 
 @app.get("/health")
 def health():
     return {"status": "ok"}
-
-
-# Simple browser UI over /ask -- single static file, no build step, served
-# from the same origin as the API so the page's fetch() calls need no CORS
-# configuration. See app/static/index.html for the frontend itself.
-STATIC_DIR = Path("app/static")
 
 
 @app.get("/")

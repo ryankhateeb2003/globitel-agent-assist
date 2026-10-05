@@ -1,0 +1,1453 @@
+{
+  "judge_model": "openai/gpt-oss-20b",
+  "embedding_backend": "globitelai_bge",
+  "complete": true,
+  "by_language": {
+    "en": {
+      "n": 32,
+      "faithfulness": 1.0,
+      "relevance": 0.8187499999999999,
+      "completeness": 0.7796875000000001,
+      "language_correctness": 0.8718749999999997
+    },
+    "ar": {
+      "n": 32,
+      "faithfulness": 0.978125,
+      "relevance": 0.8874999999999998,
+      "completeness": 0.8103125,
+      "language_correctness": 0.8140624999999997
+    }
+  },
+  "by_type_language": {
+    "exact_value_en": {
+      "n": 8,
+      "faithfulness": 1.0,
+      "relevance": 0.9812500000000001,
+      "completeness": 0.8875,
+      "language_correctness": 0.86875
+    },
+    "simple_factual_en": {
+      "n": 12,
+      "faithfulness": 1.0,
+      "relevance": 0.7583333333333333,
+      "completeness": 0.8333333333333334,
+      "language_correctness": 0.8375
+    },
+    "exact_value_ar": {
+      "n": 8,
+      "faithfulness": 1.0,
+      "relevance": 0.975,
+      "completeness": 0.7875,
+      "language_correctness": 0.8562500000000001
+    },
+    "simple_factual_ar": {
+      "n": 12,
+      "faithfulness": 1.0,
+      "relevance": 0.9,
+      "completeness": 0.8191666666666667,
+      "language_correctness": 0.8041666666666667
+    },
+    "multi_chunk_en": {
+      "n": 8,
+      "faithfulness": 1.0,
+      "relevance": 0.86875,
+      "completeness": 0.73125,
+      "language_correctness": 0.9125000000000001
+    },
+    "multi_chunk_ar": {
+      "n": 8,
+      "faithfulness": 0.9125,
+      "relevance": 0.925,
+      "completeness": 0.85,
+      "language_correctness": 0.8312500000000002
+    },
+    "dialect_arabizi_ar": {
+      "n": 4,
+      "faithfulness": 1.0,
+      "relevance": 0.6,
+      "completeness": 0.75,
+      "language_correctness": 0.725
+    },
+    "informal_en": {
+      "n": 4,
+      "faithfulness": 1.0,
+      "relevance": 0.5750000000000001,
+      "completeness": 0.5,
+      "language_correctness": 0.9
+    }
+  },
+  "should_refuse_by_language": {
+    "en": {
+      "n": 8,
+      "correctly_refused": 5
+    },
+    "ar": {
+      "n": 8,
+      "correctly_refused": 7
+    }
+  },
+  "per_item_answerable": [
+    {
+      "id": "en-exact-001",
+      "language": "en",
+      "type": "exact_value",
+      "question": "What is Orange Fiber Features?",
+      "answer": "Orange Fiber features include high-speed internet up to 1GB, unlimited download capacity, a secured internet connection, and a special experience when using all kinds of applications.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.4
+      },
+      "reasons": {
+        "faithfulness": "All claims are directly supported by the context.",
+        "relevance": "The answer directly lists the Orange Fiber features as requested.",
+        "completeness": "",
+        "language_correctness": "Unnatural phrasing: \"high-speed internet up to 1GB\" and \"unlimited download capacity\""
+      }
+    },
+    {
+      "id": "en-exact-002",
+      "language": "en",
+      "type": "exact_value",
+      "question": "How I can save while roaming?",
+      "answer": "To save while roaming, subscribe to a roaming bundle or offer by dialing *777# or visiting https://internationalandroaming.orange.jo/roaming-services/. Additionally, turn off automatic updates on your devices before traveling to prevent unnecessary data consumption.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.9,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "All claims are directly supported by the context.",
+        "relevance": "The answer directly addresses how to save while roaming by suggesting bundles and disabling auto updates.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-exact-003",
+      "language": "en",
+      "type": "exact_value",
+      "question": "Easy steps to check your balance with Orange?",
+      "answer": "To check your balance, send the word \"List\" on WhatsApp to 0777700177, select \"Self-Services,\" and choose \"Know Your Balance.\" You can then select \"My Number\" for your own line or \"Another Number\" to check a different line, and enter the verification number to view your balance, calls, and internet details.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 0.1,
+        "language_correctness": 1.0
+      },
+      "reasons": {
+        "faithfulness": "The answer accurately restates the steps provided in the context without adding any unsupported information.",
+        "relevance": "The answer directly provides the requested steps to check the balance.",
+        "completeness": "Only the balance‑check steps are covered; all other sections (discounts, golden numbers, flexible minutes, unlimited internet, data carry‑over, roaming, USSD codes, etc.) are omitted.",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-exact-004",
+      "language": "en",
+      "type": "exact_value",
+      "question": "what is the minimum amount that you can cash in into your wallet from your bank account?",
+      "answer": "The minimum amount you can cash in into your wallet from your bank account is 5 JDs.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer correctly states the minimum amount of 5 JDs, which is directly supported by the context.",
+        "relevance": "The answer directly states the minimum cash-in amount of 5 JDs, exactly addressing the question.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-exact-008",
+      "language": "en",
+      "type": "exact_value",
+      "question": "How do I transfer money from my wallet to another mobile wallet?",
+      "answer": "You can transfer money through the Orange Money app by logging in, selecting \"Money transfer,\" entering the recipient's mobile number and amount, and adding any optional notes. Alternatively, Orange mobile customers can use the USSD menu by dialing *999# and following the on-screen steps. You will receive an SMS with the transfer details once the transaction is successful.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "All claims are directly supported by the context.",
+        "relevance": "The answer directly explains the steps to transfer money from the wallet to another mobile wallet.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-simple-009",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "How long does it take for my bill to be processed?",
+      "answer": "Your payment will be processed instantly.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer directly quotes the statement from the context.",
+        "relevance": "The answer directly states that the payment (bill) is processed instantly, matching the question.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-simple-010",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "Can I use a security system alarm with the Digital Voice service?",
+      "answer": "Yes, it works with a normal auto dialer that requires generating a call with a voice message.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.1,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer directly restates the context statement without adding any unsupported details.",
+        "relevance": "Answer addresses auto dialer, not the security system alarm question.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-simple-011",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "How can I use internet while roaming?",
+      "answer": "Turn on data roaming on your mobile and make sure that the access point name (APN) is: net.orange.jo",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.9,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer directly repeats the information provided in the context.",
+        "relevance": "The answer directly states the steps to use internet while roaming.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-simple-012",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "Was this page helpful ?",
+      "answer": "I don't have this information in the documentation. Please check with a supervisor or the relevant system.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.0,
+        "completeness": 0.0,
+        "language_correctness": 0.0
+      },
+      "reasons": {
+        "faithfulness": "The answer is a generic refusal, which is fully faithful to the context.",
+        "relevance": "The answer refuses to address the question about page helpfulness.",
+        "completeness": "All reference content is missing",
+        "language_correctness": "Answer is in English, not Arabic"
+      }
+    },
+    {
+      "id": "en-simple-013",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "How can I collect the money to my wallet?",
+      "answer": "To collect money to your wallet, click on \"Receive,\" enter the transaction number provided by the sender, and confirm to securely transfer the amount to your Orange Money wallet.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer directly restates the instructions from the context without adding any new information.",
+        "relevance": "The answer directly explains how to collect money into the wallet, matching the question.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-simple-014",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "What is the minimum amount i can pay?",
+      "answer": "Are you asking about the minimum amount to pay an Orange bill, or the minimum amount to cash in to your Orange Money wallet?",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.2,
+        "completeness": 0.0,
+        "language_correctness": 0.95
+      },
+      "reasons": {
+        "faithfulness": "The answer only asks for clarification and does not add any unsupported factual claim.",
+        "relevance": "The answer does not provide the requested minimum amount, instead it asks for clarification.",
+        "completeness": "Missing the stated minimum amount of 5.0 JOD",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-simple-015",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "What type of phone handset I need to use with Digital Voice service?",
+      "answer": "You can use any normal phone handset, whether wired or wireless, excluding very old rotary types.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer directly reflects the context statement without adding any unsupported details.",
+        "relevance": "The answer directly states the type of handset needed, matching the question.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-simple-016",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "Is the ABS service will reset automatically?",
+      "answer": "Yes, the ABS service resets automatically. For Pay Monthly customers, it resets on the bill cycle date, and for Pay As You Go customers, it resets at the beginning of each month.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer accurately reflects the information in the context without adding any unsupported details.",
+        "relevance": "The answer directly confirms the reset and specifies the conditions, fully addressing the question.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-simple-017",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "What is Data carry over feature?",
+      "answer": "The Data carry over feature allows you to carry over the remaining internet bundle from this month to the next month, provided you renew on time or earlier.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer accurately restates the information in the context without adding any unsupported details.",
+        "relevance": "The answer directly defines the Data carry over feature as requested.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-simple-018",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "Is the Card to Wallet Top up service secure?",
+      "answer": "Yes. Orange Money uses bank-grade encryption and 3D Secure (OTP) verification to protect your transactions and card details. Your transactions are processed through a licensed and certified payment gateway that obeys international and PCI-DSS security standards and practices.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 1.0
+      },
+      "reasons": {
+        "faithfulness": "The answer directly quotes the provided context without adding any unsupported claims.",
+        "relevance": "The answer directly confirms security and explains the measures.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-simple-019",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "What happens In case of illegal activity such as Fraud and/or Financial Crimes?",
+      "answer": "The customer has the right to object to fraudulent activities, and if the fraud is proven, the customer will be refunded.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.9,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer directly reflects the statement in the context without adding any new information.",
+        "relevance": "Answer directly addresses the question by stating the customer can object and will be refunded.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-simple-020",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "What is the modem type is it wireless or wired?",
+      "answer": "It's a wireless device and is available with all packages.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer directly repeats the statement from the context.",
+        "relevance": "The answer directly states the modem is wireless, addressing the question.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-exact-001",
+      "language": "ar",
+      "type": "exact_value",
+      "question": "ما هي خدمه Orange فايبر ؟",
+      "answer": "خدمة Orange فايبر هي خدمة إنترنت ثابتة وفائقة السرعة تصل إلى 1000 ميجابت في الثانية، وتتميز بسعة تحميل غير محدودة وتجربة متميزة في استخدام جميع التطبيقات.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.9,
+        "completeness": 0.8,
+        "language_correctness": 0.6
+      },
+      "reasons": {
+        "faithfulness": "All claims in the answer are directly supported by the context.",
+        "relevance": "The answer directly describes Orange Fiber as a high-speed internet service, matching the question.",
+        "completeness": "Missing mention of \"خدمة لا مثيل لها\"",
+        "language_correctness": "العبارة \"سعة تحميل غير محدودة\" غير طبيعية في العربية"
+      }
+    },
+    {
+      "id": "ar-exact-002",
+      "language": "ar",
+      "type": "exact_value",
+      "question": "كيف يمكنني التحقق من الحد المتبقي من الاستهلاك ومده صلاحيته؟",
+      "answer": "يمكنك التحقق من الحد المتبقي من الاستهلاك ومدة صلاحيته عبر تطبيق Max it أو بالاتصال على الرمز *979#.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 0.5,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer directly quotes the context without adding any new information.",
+        "relevance": "The answer directly states how to check the remaining limit and its validity period, matching the question.",
+        "completeness": "Missing the second part about the control feature when activating the roaming data package.",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-exact-003",
+      "language": "ar",
+      "type": "exact_value",
+      "question": "كيف يمكنني ايقاف الرسائل الدعائيه ؟",
+      "answer": "اتصل على *112# لوقف الرسائل الدعائية.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.7
+      },
+      "reasons": {
+        "faithfulness": "The answer directly repeats the instruction from the context.",
+        "relevance": "The answer directly provides the requested method to stop advertising messages.",
+        "completeness": "",
+        "language_correctness": "Use of \"لوقف\" instead of natural \"لإيقاف\""
+      }
+    },
+    {
+      "id": "ar-exact-004",
+      "language": "ar",
+      "type": "exact_value",
+      "question": "هل بحتاج موبايل ذكي عشان استخدم Orange Money؟",
+      "answer": "لا، لا تحتاج إلى موبايل ذكي. جميع أنواع الموبايلات تدعم خدمة Orange Money، وكل ما تحتاجه هو رقم خلوي فعال. للموبايلات العادية (غير الذكية)، يمكنك استخدام قائمة USSD عبر الكود *999# للمشتركين في Orange فقط.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 0.5,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "All claims are directly supported by the context.",
+        "relevance": "The answer directly states that a smart phone is not required and explains the alternatives.",
+        "completeness": "Missing mention of the Orange Money app for smart phones",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-exact-008",
+      "language": "ar",
+      "type": "exact_value",
+      "question": "كيف بقدر احول مصاري من محفظتي لمحفظه اخرى؟",
+      "answer": "تقدر تحوّل المصاري من محفظتك لمحفظة أخرى عن طريق تطبيق Orange Money أو عبر قائمة USSD (*999#) لمشتركي Orange خلوي. إذا كنت تستخدم التطبيق، ادخل على حسابك واختر \"تحويل الأموال\"، ثم أدخل رقم الموبايل المستهدف والمبلغ المطلوب، وبعد نجاح العملية ستصلك رسالة نصية بتفاصيل التحويل.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.9,
+        "completeness": 0.5,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "All claims are directly supported by the context.",
+        "relevance": "The answer directly explains the steps to transfer money using Orange Money, matching the question.",
+        "completeness": "Missing USSD step details and note‑adding option",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-simple-009",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "ما هي الخدمات التي يمكنني سداد فواتيرها؟",
+      "answer": "يمكنك سداد فواتير عروض الجوال والثابت والانترنت في كل مكان، وخدمات ADSL والألياف، وبيت العيلة المتقاربة.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.9,
+        "completeness": 1.0,
+        "language_correctness": 0.3
+      },
+      "reasons": {
+        "faithfulness": "The answer accurately lists the services mentioned in the context without adding any new information.",
+        "relevance": "The answer directly lists the services whose bills can be paid, matching the question.",
+        "completeness": "",
+        "language_correctness": "العبارة \"بيت العيلة المتقاربة\" غير طبيعية وغير مفهومة"
+      }
+    },
+    {
+      "id": "ar-simple-010",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "ما هو الجديد في خدمه الاتصال الصوتي الرقمي مع الفايبر؟",
+      "answer": "بمجرد تركيب خط الفايبر، سيتم تفعيل خدمة الاتصال الصوتي الرقمي فوراً، حيث يتم توصيل جهاز الهاتف الأرضي على الفايبر بوكس مباشرة دون الحاجة لوجود أي تمديدات أسلاك نحاسية داخلية.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.2,
+        "completeness": 1.0,
+        "language_correctness": 0.7
+      },
+      "reasons": {
+        "faithfulness": "The answer directly restates information present in the context without adding any unsupported claims.",
+        "relevance": "Answer repeats activation details but does not explain what is new about the service.",
+        "completeness": "",
+        "language_correctness": "العبارة \"على الفايبر بوكس\" غير طبيعية"
+      }
+    },
+    {
+      "id": "ar-simple-011",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "ما هي ميزه التحكم في فاتوره بيانات التجوال (حمايه من ارتفاع الفواتير)؟",
+      "answer": "هي خدمة تحمي الزبون من ارتفاع فواتير التجوال، وذلك من خلال تحديد حد استهلاك محدد.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.9,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer accurately restates the context without adding any unsupported details.",
+        "relevance": "The answer directly defines the feature as a protection against high roaming bills, matching the question.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-simple-012",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "ما هي ميزه ترحيل حزم الانترنت؟",
+      "answer": "ميزة ترحيل حزم الإنترنت تتيح لك نقل المتبقي من حزمة الإنترنت الأساسية إلى الشهر التالي، وذلك عند تجديد اشتراكك في موعده أو قبل انتهاء فترة الاشتراك الشهري.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 0.33,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer accurately restates the information provided in the context without adding any unsupported details.",
+        "relevance": "The answer directly explains the data carry‑over feature as requested.",
+        "completeness": "Missing unlimited internet and number hiding parts",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-simple-013",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "كم مده صلاحيه القسائم الالكترونيه ؟",
+      "answer": "مدة صلاحية القسائم الإلكترونية 6 أشهر من وقت الشراء.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer directly repeats the stated validity period from the context.",
+        "relevance": "The answer directly states the requested validity period.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-simple-014",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "ما الذي یجب علي فعله في حاله حدوث خطا، وکیف یمکنني تقدیم شكوى بشان المدفوعات الالكترونيه؟",
+      "answer": "يمكنك تقديم الشكوى أو الإبلاغ عن الخطأ عبر الاتصال بمركز خدمة المشتركين على الرقم 1777 أو 077700177، أو من خلال خدمة Orange Live Chat، أو بزيارة أحد معارضنا. أما إذا كان رفض العملية صادرًا من البنك المصدر، فيجب عليك الاتصال ببنكك مباشرة.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.9,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "All claims are directly supported by the context.",
+        "relevance": "The answer directly explains how to report an error and file a complaint, matching the question.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-simple-015",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "كيف يمكنني الحصول على احد عروض ال ADSL؟",
+      "answer": "يمكنك الحصول على عروض ADSL من خلال زيارة أحد معارضنا المنتشرة في المملكة، أو الاتصال على الرقم 1214، أو الطلب عبر الموقع من خلال E-shop.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.7
+      },
+      "reasons": {
+        "faithfulness": "The answer directly restates the options given in the context without adding any new information.",
+        "relevance": "The answer directly states how to obtain ADSL offers, matching the question.",
+        "completeness": "",
+        "language_correctness": "phrase \"من خلال زيارة أحد معارضنا المنتشرة في المملكة\" is slightly unnatural"
+      }
+    },
+    {
+      "id": "ar-simple-016",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "هل يمكنني شراء اكثر من حزمه تجوال انترنت في نفس الوقت؟",
+      "answer": "نعم، يمكنك تفعيل حزمة تجوال جديدة قبل انتهاء صلاحية حزمتك الحالية، وذلك عبر الاتصال على الأرقام المختصرة أو من خلال تطبيق Orange Max it أو زيارة أحد معارض Orange.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.9,
+        "completeness": 0.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer accurately reflects the information in the context without adding unsupported details.",
+        "relevance": "Answer directly confirms you can activate another package before the current one expires, addressing the question.",
+        "completeness": "Missing the reference answer’s mention of downloading the app feature to control the internet bill during roaming.",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-simple-017",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "كم مده صلاحيه القسائم الالكترونيه ؟",
+      "answer": "مدة صلاحية القسائم الإلكترونية 6 أشهر من وقت الشراء.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer directly repeats the stated validity period from the context.",
+        "relevance": "The answer directly states the requested validity period.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-simple-018",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "ماذا علي ان افعل للوصول الى الفاتوره التفصيليه على الانترنت؟",
+      "answer": "يمكنك الوصول إلى تفاصيل الفاتورة من خلال تسجيل الدخول إلى خدمة Orange ecare.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.95
+      },
+      "reasons": {
+        "faithfulness": "The answer directly restates the information in the context without adding any unsupported details.",
+        "relevance": "The answer directly tells the user to log in to Orange ecare to access the detailed invoice.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-simple-019",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "ما هو جهاز المودم او الموزع للانترنت هل هو سلكي ام لاسلكي؟",
+      "answer": "جهاز المودم لاسلكي، وهو متوفر مع جميع الحزم.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.7
+      },
+      "reasons": {
+        "faithfulness": "The answer accurately reflects the context: the modem is wireless and available with all packages.",
+        "relevance": "The answer directly states that the modem is wireless, which directly addresses the question.",
+        "completeness": "",
+        "language_correctness": "The phrase \"متوفر مع جميع الحزم\" is unnatural in Arabic."
+      }
+    },
+    {
+      "id": "ar-simple-020",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "كيف يمكنني التحقق من حاله سقف استهلاك و صلاحيته؟",
+      "answer": "يمكنك التحقق من الرصيد المتبقي لسقف الاستهلاك وصلاحيته عبر تطبيق Max it أو بالاتصال على *979#.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 0.5,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer accurately reflects the information in the context.",
+        "relevance": "The answer directly tells how to check the consumption ceiling and its validity.",
+        "completeness": "Missing the part about the roaming bill control feature not working.",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-multi-001",
+      "language": "en",
+      "type": "multi_chunk",
+      "question": "How I can save while roaming and how I can know about the standard roaming tariff per service and country?",
+      "answer": "To save while roaming, subscribe to a roaming bundle by dialing *777# or visiting https://internationalandroaming.orange.jo/roaming-services/, and turn off automatic updates on your devices. To check the standard roaming tariff per service and country, you will receive SMS notifications with the rates upon arriving at your destination, or you can visit the website for detailed tariffs.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.95,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "All claims are directly supported by the context.",
+        "relevance": "The answer directly addresses both saving while roaming and how to find standard roaming tariffs.",
+        "completeness": "All parts of the reference answer are covered.",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-multi-002",
+      "language": "en",
+      "type": "multi_chunk",
+      "question": "Who can get it and how long does it take to set up?",
+      "answer": "Are you asking about the setup time for a new broadband connection or the eligibility and dormancy rules for Orange Money?",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.1,
+        "completeness": 0.0,
+        "language_correctness": 1.0
+      },
+      "reasons": {
+        "faithfulness": "The answer only asks for clarification and does not make any unsupported factual claims.",
+        "relevance": "The answer does not directly address the question about who can get it and how long it takes to set up.",
+        "completeness": "Missing both eligibility and setup time details",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-multi-003",
+      "language": "en",
+      "type": "multi_chunk",
+      "question": "What is the difference between denomination and price and what are the unique features of Orange Money Electronic Vouchers?",
+      "answer": "The denomination is the value credited to your account when you redeem the voucher, while the price is the cost of the voucher in Jordanian Dinars. Orange Money Electronic Vouchers are available 24/7, the purchase process is simple and secure, and you receive the voucher instantly after buying it.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.95,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "All statements are directly supported by the provided context.",
+        "relevance": "Answer directly addresses both the denomination vs price difference and the unique features of Orange Money Electronic Vouchers.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-multi-004",
+      "language": "en",
+      "type": "multi_chunk",
+      "question": "To Which countries can I send and receive money and how much money can I Send and Receive?",
+      "answer": "You can send and receive money internationally to more than 200 countries. The maximum monthly limit for the total value of outgoing and incoming international transfers is 5,000 Jordanian Dinars.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.95
+      },
+      "reasons": {
+        "faithfulness": "All claims are directly supported by the context.",
+        "relevance": "Answer directly provides both the country coverage and the transfer limit requested.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-multi-005",
+      "language": "en",
+      "type": "multi_chunk",
+      "question": "How to use QR and where Can I use QR?",
+      "answer": "To use QR payment, go to the cashier, have your purchases calculated, and then open the Orange Money app on your mobile. Press “Transactions by QR code” and scan the QR code on the cashier's device; the amount will appear on your screen for you to approve and complete the purchase. You can use this payment method at all Orange shops.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 0.75,
+        "language_correctness": 0.85
+      },
+      "reasons": {
+        "faithfulness": "All claims are directly supported by the context.",
+        "relevance": "The answer directly explains how to use QR payment and states it can be used at all Orange shops, fully addressing the question.",
+        "completeness": "Missing the link to the list of shops",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-multi-006",
+      "language": "en",
+      "type": "multi_chunk",
+      "question": "1) How can I subscribe to Turkey Passenger Bundles and 1) How can I subscribe to Palestine Passenger Bundles?",
+      "answer": "To subscribe to Turkey Passenger Bundles, dial *090#. To subscribe to Palestine Passenger Bundles, dial *970#.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.95,
+        "completeness": 0.1,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer accurately repeats the dialing codes provided in the context for both Turkey and Palestine bundles.",
+        "relevance": "The answer directly provides the specific dialing codes requested for Turkey and Palestine bundles.",
+        "completeness": "Only the dialing codes were provided; all other details were omitted.",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-multi-007",
+      "language": "en",
+      "type": "multi_chunk",
+      "question": "How can I send an SMS while roaming and how can I use internet while roaming?",
+      "answer": "To send an SMS while roaming, insert the mobile number in the international format (e.g., 0096277XXXXXX or +96277XXXXXX) in the “To” field. To use the internet, turn on data roaming and ensure your access point name (APN) is set to net.orange.jo.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer accurately restates the instructions from the context without adding any unsupported details.",
+        "relevance": "The answer directly and specifically addresses both parts of the question.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-multi-008",
+      "language": "en",
+      "type": "multi_chunk",
+      "question": "Will I be notified if a payment authorization fails and can I use Orange Money Visa card to top up my wallet ?",
+      "answer": "Yes, you will receive a notification if a payment authorization fails, such as due to insufficient balance. However, you cannot use an Orange Money Visa card to top up your wallet.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "All claims are directly supported by the context.",
+        "relevance": "The answer directly addresses both parts of the question.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-multi-009",
+      "language": "ar",
+      "type": "multi_chunk",
+      "question": "كيف استطيع استخدام الانترنت اثناء تواجدي خارج الاردن (التجوال) وكيف يمكنني معرفه حزم التجوال المتاحه لكل دوله؟",
+      "answer": "للاستخدام الإنترنت أثناء التجوال، قم بتشغيل تجوال البيانات على هاتفك وتأكد من أن نقطة الوصول (APN) هي net.orange.jo. أما لمعرفة حزم التجوال المتاحة، فستصلك رسائل نصية عند وصولك للوجهة، أو يمكنك زيارة الرابط https://oran.ge/2r7cAjq.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.5
+      },
+      "reasons": {
+        "faithfulness": "All claims are directly supported by the context.",
+        "relevance": "The answer directly addresses both parts of the question: enabling internet during roaming and how to find roaming packages.",
+        "completeness": "",
+        "language_correctness": "Unnatural phrase: \"فستصلك رسائل نصية عند وصولك للوجهة\""
+      }
+    },
+    {
+      "id": "ar-multi-010",
+      "language": "ar",
+      "type": "multi_chunk",
+      "question": "كيف بقدر اشوف كل القسائم الالكترونيه اللي اشتريتها من تطبيق Orange Money وكيف بقدر اشوف تفاصيل القسائم الالكترونيه اللي اشتريتها من تطبيق Orange Money؟",
+      "answer": "بتقدر تلاقي كل القسائم الإلكترونية التي اشتريتها في خانة \"قسائمي\" داخل تطبيق Orange Money، وبتقدر تضغط على \"عرض التفاصيل\" لحتى تشوف كل تفاصيل البطاقة.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.8
+      },
+      "reasons": {
+        "faithfulness": "The answer accurately reflects the information in the context without adding any unsupported details.",
+        "relevance": "The answer directly explains how to view all purchased vouchers and their details in the Orange Money app.",
+        "completeness": "",
+        "language_correctness": "The phrase 'لحتى تشوف' is slightly unnatural; it should be 'حتى تشوف'."
+      }
+    },
+    {
+      "id": "ar-multi-011",
+      "language": "ar",
+      "type": "multi_chunk",
+      "question": "هل منطقتي مغطاه بخدمه الاتصال الصوتي الرقمي وما هو نوع الهاتف الذي احتاجه لاستخدام خدمه الاتصال الصوتي الرقمي ؟",
+      "answer": "نعم، الخدمة متوفرة لمشتركي خدمة الفايبر الجدد الذين لا يملكون خطاً أرضياً في منازلهم. يمكنك استخدام أي هاتف عادي سلكي أو لاسلكي، باستثناء الهواتف الدوارة القديمة.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "All claims in the answer are directly supported by the context.",
+        "relevance": "The answer directly addresses both coverage and phone type.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-multi-012",
+      "language": "ar",
+      "type": "multi_chunk",
+      "question": "ما هو الجديد في خدمه الاتصال الصوتي الرقمي مع الفايبر وهل منطقتي مغطاه بخدمه الاتصال الصوتي الرقمي ؟",
+      "answer": "الجديد في الخدمة هو تفعيلها فور تركيب خط الفايبر، حيث يتم توصيل الهاتف الأرضي مباشرة على الفايبر بوكس دون الحاجة لأي تمديدات أسلاك نحاسية داخلية. أما بخصوص التغطية، فهي متاحة لمشتركي خدمة الفايبر الجدد الذين لا يملكون خطاً أرضياً في منازلهم.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.8,
+        "completeness": 1.0,
+        "language_correctness": 0.85
+      },
+      "reasons": {
+        "faithfulness": "All claims are directly supported by the context.",
+        "relevance": "Answer covers the new feature and mentions coverage for new fiber subscribers, but does not address whether the specific area is covered.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-multi-013",
+      "language": "ar",
+      "type": "multi_chunk",
+      "question": "ماذا يجب ان افعل عند وصولي لوجهه السفر وكيف استطيع معرفه اسعار خدمات التجوال التفصيليه خارج الحزمه لكل بلد؟",
+      "answer": "عند وصولك لوجهتك، شغّل موبايلك وسيسجّل تلقائيًا على الشبكة المناسبة، وستصلك رسالة نصية تتضمن أسعار التجوال على الشبكة المسجل عليها وأفضل العروض المتاحة. للاطلاع على الأسعار التفصيلية خارج الحزمة لكل بلد، يمكنك زيارة الموقع الإلكتروني المخصص لذلك.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.9,
+        "completeness": 0.3,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "All claims are directly supported by the context.",
+        "relevance": "Answer directly covers what to do upon arrival and how to find detailed roaming prices outside the package for each country.",
+        "completeness": "Missing manual network selection, package activation SMS, usage notifications, and saving tips.",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-multi-014",
+      "language": "ar",
+      "type": "multi_chunk",
+      "question": "كيف بقدر اشوف تفاصيل القسائم الالكترونيه اللي اشتريتها من تطبيق Orange Money وشو بعمل اذا اشتريت قسيمه الكترونيه وما ظهرت عندي على التطبيق؟",
+      "answer": "لعرض تفاصيل القسائم الإلكترونية، ادخل إلى خانة \"قسائمي\" في التطبيق واضغط على \"عرض التفاصيل\". أما إذا لم تظهر القسيمة بعد الشراء، يرجى الاتصال على الرقم 1441 من شبكة Orange أو على 0777700141 من الشبكات الأخرى.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "All claims are directly supported by the context.",
+        "relevance": "The answer directly addresses both parts of the question: viewing details and steps if the voucher doesn't appear.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-multi-015",
+      "language": "ar",
+      "type": "multi_chunk",
+      "question": "ما هي Google Pay وهل يمكنني اضافه بطاقه Orange Money Visa الى Google Pay؟",
+      "answer": "نعم، يمكنك إضافة بطاقة Orange Money Visa إلى Google Pay إذا كان جهازك يدعمه. Google Pay هي خدمة تتيح لك الدفع باستخدام هاتفك عبر تطبيق Google Wallet، وتبقى بطاقتك البلاستيكية تعمل بشكل طبيعي بعد الإضافة.",
+      "scores": {
+        "faithfulness": 0.3,
+        "relevance": 0.7,
+        "completeness": 0.5,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer claims Google Pay is a service that lets you pay with your phone via Google Wallet, but the context only states that you can add the card to Google Wallet and use Google Pay as an additional method; it does not define Google Pay as a separate service.",
+        "relevance": "Answer addresses adding the card but omits explanation of what Google Pay is.",
+        "completeness": "Missing details about NFC support and full description of Google Pay features",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-multi-016",
+      "language": "ar",
+      "type": "multi_chunk",
+      "question": "كيف يمكنني الوصول الى خدمه اداره الرقم السري وكيف يمكنني اظهار الرقم السري للبطاقه ؟",
+      "answer": "للوصول إلى خدمة إدارة الرقم السري، سجّل الدخول إلى تطبيق محفظة Orange Money، واختر \"بطاقاتي\"، ثم حدد البطاقة التي ترغب بإدارتها واضغط على \"إدارة الرقم السري\".\n\nلإظهار الرقم السري، اختر \"إظهار الرقم السري للبطاقة\"، ثم أدخل رمز التحقق (OTP) المرسل إلى هاتفك، وسيظهر الرقم السري الخاص ببطاقتك.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "All statements are directly supported by the context.",
+        "relevance": "The answer directly explains how to access the PIN management service and how to display the PIN, matching the question.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-dialect-001",
+      "language": "ar",
+      "type": "dialect_arabizi",
+      "question": "kif ba2dar atchek 3ala el package w shu ba2i minha?",
+      "answer": "هل تقصد التحقق من باقة الجوال (Bundle) أم من حد الاستهلاك في التجوال الدولي (Roaming)؟",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.4,
+        "completeness": 0.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer only asks for clarification and does not add any unsupported claim.",
+        "relevance": "The answer partially addresses the question by clarifying the type of package but does not provide the actual method to check it.",
+        "completeness": "Missing all content from reference answer",
+        "language_correctness": "Answer is in Arabic and reads naturally."
+      }
+    },
+    {
+      "id": "ar-dialect-002",
+      "language": "ar",
+      "type": "dialect_arabizi",
+      "question": "ما هي الخدمات التي يمكنني سداد فواتيرها?",
+      "answer": "يمكنك سداد فواتير عروض الجوال والثابت والانترنت في كل مكان و ADSL / الالياف وبيت العيله المتقاربه.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.9,
+        "completeness": 1.0,
+        "language_correctness": 0.4
+      },
+      "reasons": {
+        "faithfulness": "The answer restates the services listed in the context without adding any new information.",
+        "relevance": "The answer directly lists the services whose bills can be paid, matching the question.",
+        "completeness": "",
+        "language_correctness": "العبارة \"في كل مكان و ADSL / الالياف وبيت العيله المتقاربه\" غير طبيعية وغير واضحة"
+      }
+    },
+    {
+      "id": "ar-dialect-003",
+      "language": "ar",
+      "type": "dialect_arabizi",
+      "question": "ما هو الجديد في خدمه الاتصال الصوتي الرقمي مع الفايبر?",
+      "answer": "بمجرد تركيب خط الفايبر، سيتم تفعيل خدمة الاتصال الصوتي الرقمي فوراً، حيث يتم توصيل جهاز الهاتف الأرضي على الفايبر بوكس مباشرة دون الحاجة لوجود أي تمديدات أسلاك نحاسية داخلية.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.2,
+        "completeness": 1.0,
+        "language_correctness": 0.7
+      },
+      "reasons": {
+        "faithfulness": "The answer directly restates information present in the context without adding any unsupported claims.",
+        "relevance": "The answer repeats activation details but does not explain what is new about the service.",
+        "completeness": "",
+        "language_correctness": "العبارة \"على الفايبر بوكس\" غير طبيعية"
+      }
+    },
+    {
+      "id": "ar-dialect-004",
+      "language": "ar",
+      "type": "dialect_arabizi",
+      "question": "ما هي ميزه التحكم في فاتوره بيانات التجوال (حمايه من ارتفاع الفواتير)?",
+      "answer": "هي خدمة تحمي الزبون من ارتفاع فواتير التجوال عن طريق تحديد حد استهلاك محدد.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.9,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer accurately restates the context without adding any unsupported details.",
+        "relevance": "Answer directly describes the feature as protecting against high roaming bills by setting a consumption limit.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-dialect-005",
+      "language": "en",
+      "type": "informal",
+      "question": "so like, how long does it take for my bill to be processed or what",
+      "answer": "Are you asking about the processing time for a bill payment or for an Orange Money wallet top-up?",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.2,
+        "completeness": 0.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer only asks for clarification and does not add any unsupported factual claim.",
+        "relevance": "The assistant only asks for clarification instead of providing the requested processing time.",
+        "completeness": "Missing the statement that the payment is processed instantly.",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-dialect-006",
+      "language": "en",
+      "type": "informal",
+      "question": "so like, can i use a security system alarm with the digital voice service or what",
+      "answer": "Yes, it works with a normal auto dialer that requires generating a call with a voice message.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.9,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer directly restates the context statement about security system alarms and auto dialer usage.",
+        "relevance": "Answer directly confirms that the security system alarm works with Digital Voice via auto dialer.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-dialect-007",
+      "language": "en",
+      "type": "informal",
+      "question": "so like, how can i use internet while roaming or what",
+      "answer": "Turn on data roaming on your mobile and make sure the access point name (APN) is set to net.orange.jo.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer directly repeats the information provided in the context.",
+        "relevance": "The answer directly provides the specific steps to use internet while roaming.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-dialect-008",
+      "language": "en",
+      "type": "informal",
+      "question": "so like, was this page helpful  or what",
+      "answer": "I don't have this information in the documentation. Please check with a supervisor or the relevant system.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.2,
+        "completeness": 0.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer is a generic refusal, which is fully faithful to the context.",
+        "relevance": "The answer refuses to address the question, which is about whether the page was helpful, despite the context containing a feedback form.",
+        "completeness": "All reference content is missing",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-shortcode-001",
+      "language": "en",
+      "type": "exact_value",
+      "question": "What code do I dial for SOS (emergency) credit?",
+      "answer": "Press *606# to access the SOS credit (emergency credit) service.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 0.95,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer correctly states that *606# is the code for SOS credit, which is directly supported by the context.",
+        "relevance": "The answer directly provides the requested code *606# for SOS credit.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-shortcode-002",
+      "language": "en",
+      "type": "exact_value",
+      "question": "How do I activate Missed Call Alert (MCA)?",
+      "answer": "To activate the Missed Call Alert (MCA) service, press *130#.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.95
+      },
+      "reasons": {
+        "faithfulness": "The answer correctly states that pressing *130# activates Missed Call Alert, which is directly supported by the context.",
+        "relevance": "The answer directly states the exact short code to activate MCA, fully addressing the question.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "en-shortcode-003",
+      "language": "en",
+      "type": "exact_value",
+      "question": "What short code do I use to check my balance and remaining bundles?",
+      "answer": "Press *155# to check your balance and remaining bundles.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 1.0
+      },
+      "reasons": {
+        "faithfulness": "The answer directly quotes the exact short code from the context.",
+        "relevance": "The answer directly provides the requested short code.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-shortcode-001",
+      "language": "ar",
+      "type": "exact_value",
+      "question": "شو الكود يلي بضغطه لرصيد الطوارئ؟",
+      "answer": "اضغط *606# لتفعيل خدمة الرصيد الطارئ.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.9
+      },
+      "reasons": {
+        "faithfulness": "The answer correctly states that *606# activates the emergency credit service, which is directly supported by the context.",
+        "relevance": "The answer directly provides the requested code.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-shortcode-002",
+      "language": "ar",
+      "type": "exact_value",
+      "question": "كيف بفعّل ميزة تنبيه المكالمات الفائتة؟",
+      "answer": "لتفعيل ميزة تنبيه المكالمات الفائتة، اضغط على *130#.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 0.95
+      },
+      "reasons": {
+        "faithfulness": "The answer correctly states that *130# activates the missed call alert, which is directly mentioned in the context.",
+        "relevance": "The answer directly states the exact code to activate the missed call alert, matching the question.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    },
+    {
+      "id": "ar-shortcode-003",
+      "language": "ar",
+      "type": "exact_value",
+      "question": "شو الكود يلي بعرفني على رصيدي والحزم المتبقية؟",
+      "answer": "اضغط على *155# لمعرفة رصيدك والحزم المتبقية.",
+      "scores": {
+        "faithfulness": 1.0,
+        "relevance": 1.0,
+        "completeness": 1.0,
+        "language_correctness": 1.0
+      },
+      "reasons": {
+        "faithfulness": "The answer correctly states *155# as the code for balance and remaining packages, which is directly supported by the context.",
+        "relevance": "The answer directly provides the requested code.",
+        "completeness": "",
+        "language_correctness": ""
+      }
+    }
+  ],
+  "per_item_should_refuse": [
+    {
+      "id": "en-refuse-001",
+      "language": "en",
+      "type": "should_refuse",
+      "question": "What's the weather like in Amman today?",
+      "answer": "I can only help with questions about Orange Jordan's mobile lines, internet, wallet, roaming, billing, and short-code services. This question is outside that scope.",
+      "guardrail_action": "out_of_domain",
+      "correctly_refused": true
+    },
+    {
+      "id": "en-refuse-002",
+      "language": "en",
+      "type": "should_refuse",
+      "question": "What is the capital of Jordan?",
+      "answer": "I can only help with questions about Orange Jordan's mobile lines, internet, wallet, roaming, billing, and short-code services. This question is outside that scope.",
+      "guardrail_action": "out_of_domain",
+      "correctly_refused": true
+    },
+    {
+      "id": "en-refuse-003",
+      "language": "en",
+      "type": "should_refuse",
+      "question": "Can you help me write a Python script?",
+      "answer": "I can only help with questions about Orange Jordan's mobile lines, internet, wallet, roaming, billing, and short-code services. This question is outside that scope.",
+      "guardrail_action": "out_of_domain",
+      "correctly_refused": true
+    },
+    {
+      "id": "en-refuse-004",
+      "language": "en",
+      "type": "should_refuse",
+      "question": "What is Orange's current stock price?",
+      "answer": "I can only help with questions about Orange Jordan's mobile lines, internet, wallet, roaming, billing, and short-code services. This question is outside that scope.",
+      "guardrail_action": "out_of_domain",
+      "correctly_refused": true
+    },
+    {
+      "id": "en-refuse-005",
+      "language": "en",
+      "type": "should_refuse",
+      "question": "How do I reset my email password?",
+      "answer": "I don't have this information in the documentation. Please check with a supervisor or the relevant system.",
+      "guardrail_action": "answer_normally",
+      "correctly_refused": false
+    },
+    {
+      "id": "en-refuse-006",
+      "language": "en",
+      "type": "should_refuse",
+      "question": "What's the best restaurant in Amman?",
+      "answer": "I can only help with questions about Orange Jordan's mobile lines, internet, wallet, roaming, billing, and short-code services. This question is outside that scope.",
+      "guardrail_action": "out_of_domain",
+      "correctly_refused": true
+    },
+    {
+      "id": "en-refuse-007",
+      "language": "en",
+      "type": "should_refuse",
+      "question": "Can I get a discounted family postpaid bundle?",
+      "answer": "I don't have this information in the documentation. Please check with a supervisor or the relevant system.",
+      "guardrail_action": "answer_normally",
+      "correctly_refused": false
+    },
+    {
+      "id": "en-refuse-008",
+      "language": "en",
+      "type": "should_refuse",
+      "question": "Do you sell smartphones directly in your stores?",
+      "answer": "I don't have this information in the documentation. Please check with a supervisor or the relevant system.",
+      "guardrail_action": "answer_normally",
+      "correctly_refused": false
+    },
+    {
+      "id": "ar-refuse-009",
+      "language": "ar",
+      "type": "should_refuse",
+      "question": "شو الطقس بعمان اليوم؟",
+      "answer": "أستطيع المساعدة فقط بالأسئلة المتعلقة بخدمات اورنج الاردن: الخطوط، الانترنت، المحفظة، التجوال، الفواتير، والأكواد القصيرة. هذا السؤال خارج هذا النطاق.",
+      "guardrail_action": "out_of_domain",
+      "correctly_refused": true
+    },
+    {
+      "id": "ar-refuse-010",
+      "language": "ar",
+      "type": "should_refuse",
+      "question": "شو عاصمة الاردن؟",
+      "answer": "أستطيع المساعدة فقط بالأسئلة المتعلقة بخدمات اورنج الاردن: الخطوط، الانترنت، المحفظة، التجوال، الفواتير، والأكواد القصيرة. هذا السؤال خارج هذا النطاق.",
+      "guardrail_action": "out_of_domain",
+      "correctly_refused": true
+    },
+    {
+      "id": "ar-refuse-011",
+      "language": "ar",
+      "type": "should_refuse",
+      "question": "ممكن تكتبلي كود بايثون؟",
+      "answer": "أستطيع المساعدة فقط بالأسئلة المتعلقة بخدمات اورنج الاردن: الخطوط، الانترنت، المحفظة، التجوال، الفواتير، والأكواد القصيرة. هذا السؤال خارج هذا النطاق.",
+      "guardrail_action": "out_of_domain",
+      "correctly_refused": true
+    },
+    {
+      "id": "ar-refuse-012",
+      "language": "ar",
+      "type": "should_refuse",
+      "question": "شو سعر سهم اورنج حاليا؟",
+      "answer": "أستطيع المساعدة فقط بالأسئلة المتعلقة بخدمات اورنج الاردن: الخطوط، الانترنت، المحفظة، التجوال، الفواتير، والأكواد القصيرة. هذا السؤال خارج هذا النطاق.",
+      "guardrail_action": "out_of_domain",
+      "correctly_refused": true
+    },
+    {
+      "id": "ar-refuse-013",
+      "language": "ar",
+      "type": "should_refuse",
+      "question": "كيف بغير كلمة سر الايميل تبعي؟",
+      "answer": "هل تقصد تغيير كلمة مرور البريد الإلكتروني الخاص بك من @orange.jo، أم تقصد تغيير رمز PIN لبطاقة Orange Money؟",
+      "guardrail_action": "ambiguous",
+      "correctly_refused": true
+    },
+    {
+      "id": "ar-refuse-014",
+      "language": "ar",
+      "type": "should_refuse",
+      "question": "وين أحسن مطعم بعمان؟",
+      "answer": "أستطيع المساعدة فقط بالأسئلة المتعلقة بخدمات اورنج الاردن: الخطوط، الانترنت، المحفظة، التجوال، الفواتير، والأكواد القصيرة. هذا السؤال خارج هذا النطاق.",
+      "guardrail_action": "out_of_domain",
+      "correctly_refused": true
+    },
+    {
+      "id": "ar-refuse-015",
+      "language": "ar",
+      "type": "should_refuse",
+      "question": "في عندكم باقة عائلية مخفضة للاشتراك الشهري؟",
+      "answer": "ما عندي هاي المعلومة بالتوثيق المتوفر. يرجى المراجعة مع المشرف أو النظام المختص.",
+      "guardrail_action": "answer_normally",
+      "correctly_refused": false
+    },
+    {
+      "id": "ar-refuse-016",
+      "language": "ar",
+      "type": "should_refuse",
+      "question": "بتبيعوا موبايلات مباشرة من المحلات؟",
+      "answer": "أستطيع المساعدة فقط بالأسئلة المتعلقة بخدمات اورنج الاردن: الخطوط، الانترنت، المحفظة، التجوال، الفواتير، والأكواد القصيرة. هذا السؤال خارج هذا النطاق.",
+      "guardrail_action": "out_of_domain",
+      "correctly_refused": true
+    }
+  ]
+}

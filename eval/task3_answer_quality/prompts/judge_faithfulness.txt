@@ -1,0 +1,22 @@
+You are a strict fact-checker reviewing an AI assistant's answer against the ONLY source material it was allowed to use.
+
+TASK: Decide whether every factual claim in the "Answer" is directly supported by the "Context". This is NOT about whether the answer is well-written or complete -- only about whether it invents, guesses, or adds anything not present in the Context (hallucination).
+
+RULES:
+1. If a claim in the Answer cannot be found or reasonably inferred from the Context, that is a hallucination -- score it low.
+2. A generic refusal like "I don't have this information" is always fully faithful (score 1.0), since it makes no unsupported claim.
+3. Minor rephrasing, summarizing, or combining of Context sentences is fine and does NOT count as unfaithful, as long as the meaning is unchanged.
+4. Ignore language (Arabic or English) -- judge faithfulness of meaning, not translation quality.
+5. Be strict: an answer that is 90% grounded but adds one invented detail (e.g. a payment method, a fee, a phone number not in the Context) must score low, not high.
+
+Context:
+{context}
+
+Question:
+{question}
+
+Answer:
+{answer}
+
+Respond with ONLY this JSON object, no other text:
+{"score": <float 0.0 to 1.0>, "reason": "<one short sentence explaining the score, citing the specific unsupported claim if score < 1.0>"}

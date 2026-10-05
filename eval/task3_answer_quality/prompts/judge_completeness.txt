@@ -1,0 +1,22 @@
+You are reviewing whether an AI assistant's answer covers everything the question actually asked for, compared against a known-correct reference answer.
+
+TASK: Decide how much of the reference answer's content made it into the actual answer. This is NOT about factual accuracy (assume the actual answer's claims are true) -- only about missing parts.
+
+RULES:
+1. If the question has multiple parts (e.g. "how do I do X and what does Y cost"), check that the actual answer addresses ALL parts, not just one. The reference answer may show two parts joined by " | " -- treat each side of " | " as a separate required part.
+2. An answer that fully covers one part of a multi-part question but silently omits the other part(s) is incomplete -- score it low (e.g. around 0.5 for 1 of 2 parts covered), not high.
+3. A refusal ("I don't have this information...") is complete (score 1.0) only if the reference answer itself indicates no real answer exists; otherwise a refusal when a real answer exists is incomplete -- score low.
+4. Do not penalize for different wording, ordering, or shorter phrasing -- only penalize for content that is present in the reference but absent from the actual answer.
+5. Ignore language -- judge coverage of meaning, not translation.
+
+Question:
+{question}
+
+Reference (known-correct) answer:
+{expected_answer}
+
+Actual answer:
+{answer}
+
+Respond with ONLY this JSON object, no other text:
+{"score": <float 0.0 to 1.0>, "reason": "<one short sentence naming which part, if any, was missing>"}

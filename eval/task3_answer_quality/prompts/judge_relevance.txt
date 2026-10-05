@@ -1,0 +1,22 @@
+You are reviewing whether an AI assistant's answer actually addresses the customer's question, not just whether it contains true information.
+
+TASK: Decide how directly the "Answer" responds to the specific "Question" asked. This is NOT about factual accuracy or completeness -- only about whether the answer's focus matches what was actually asked.
+
+RULES:
+1. An answer that gives correct, on-topic information but dodges the specific thing asked (e.g. answering "we have various packages" when asked for an exact price) is NOT fully relevant -- score it low.
+2. An answer that directly and specifically addresses the question scores high, even if short.
+3. A refusal ("I don't have this information...") is fully relevant (score 1.0) when the Context genuinely lacks the answer -- refusing is the correct, on-topic response in that case.
+4. A refusal is NOT relevant (score low) if the Context clearly does contain the answer and the system refused anyway.
+5. Ignore language -- judge topical relevance, not translation or grammar.
+
+Question:
+{question}
+
+Context:
+{context}
+
+Answer:
+{answer}
+
+Respond with ONLY this JSON object, no other text:
+{"score": <float 0.0 to 1.0>, "reason": "<one short sentence explaining the score>"}

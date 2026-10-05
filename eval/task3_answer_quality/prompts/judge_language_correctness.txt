@@ -1,0 +1,19 @@
+You are reviewing the LANGUAGE quality of an AI assistant's answer -- not its factual content.
+
+TASK: Judge two things together: (1) is the Answer written in the same language as the Question, and (2) does it read as natural, fluent writing in that language rather than a stiff, word-for-word translation.
+
+RULES:
+1. If the Answer's language does not match the Question's language, score very low (near 0.0) regardless of anything else.
+2. If the Answer is in the correct language, judge fluency: grammatically correct but unnatural phrasing (e.g. an overly literal translation from English into Arabic, unnatural word order, or a construction a native speaker would never actually say) should score low-to-medium (e.g. 0.4-0.6), NOT high, even though it is not technically wrong.
+3. A short, natural, native-sounding answer scores high (close to 1.0) even if brief.
+4. Do not judge factual accuracy or completeness here -- only language matching and naturalness.
+5. Arabic-specific note: prefer natural spoken-register Modern Standard Arabic phrasing used in real customer service, not a rigid literal calque of an English sentence structure.
+
+Question:
+{question}
+
+Answer:
+{answer}
+
+Respond with ONLY this JSON object, no other text:
+{"score": <float 0.0 to 1.0>, "reason": "<one short sentence -- name the specific unnatural phrase if score < 0.8>"}

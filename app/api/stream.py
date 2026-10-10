@@ -11,7 +11,7 @@ import time
 from fastapi.responses import StreamingResponse
 
 from app.api.config import GROQ_MODEL, GENERATION_TEMPERATURE, GENERATION_MAX_TOKENS, load_prompt_template
-from app.api.logs import log_timings, log_groq_error, log_tokens
+from app.api.logs import log_timings, log_groq_error, log_tokens, log_trace
 from app.rag.retrieval import build_context
 
 
@@ -134,6 +134,7 @@ def answer_response(
         timings["total"] = (time.perf_counter() - request_start) * 1000
         log_timings(detected_language, embedding_backend, "answer_normally", timings)
         log_tokens(detected_language, prompt_tokens, completion_tokens)
+        log_trace(question, detected_language, filled_prompt, chunks, completion_text)
 
         sources = sorted(set(c["source_file"] for c in chunks))
         metadata = {

@@ -41,6 +41,21 @@ def log_warmup(success: bool, elapsed_ms: float) -> None:
     logger.info(f"[warmup] status={status} elapsed={elapsed_ms:.0f}ms")
 
 
+def log_trace(question: str, language: str, prompt: str, chunks: list[dict], answer: str) -> None:
+    """
+    Full per-request trace: which chunks were retrieved, the exact prompt
+    sent to Groq (instructions + retrieved context + question), and the
+    answer that came back -- everything the model "saw" before answering,
+    in one block, visible live via logs.bat.
+    """
+    sources = ", ".join(f"{c['chunk_id']}({c['source_file']})" for c in chunks)
+    logger.info(
+        f"[trace] q={question!r} lang={language} chunks=[{sources}]\n"
+        f"--- PROMPT ---\n{prompt}\n"
+        f"--- ANSWER ---\n{answer}"
+    )
+
+
 def log_tokens(language: str, prompt_tokens: int | None, completion_tokens: int | None) -> None:
     """
     Appends one JSON line per answered question to TOKEN_LOG_PATH --

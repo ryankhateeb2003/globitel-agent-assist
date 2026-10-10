@@ -23,19 +23,8 @@ services:
       - qdrant
     restart: unless-stopped
 
-  ollama:
-    image: ollama/ollama:latest
-    container_name: globitel-ollama
-    ports:
-      - "11434:11434"
-    volumes:
-      - ollama_data:/root/.ollama
-    restart: unless-stopped
-
 volumes:
   qdrant_data:
     name: globitel_qdrant_data
   hf_cache:
     name: globitel_hf_cache
-  ollama_data:
-    name: globitel_ollama_data

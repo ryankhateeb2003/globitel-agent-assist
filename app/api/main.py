@@ -23,7 +23,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from groq import Groq
 
-from app.api.config import GROQ_MODEL, MAX_QUESTION_CHARS, STATIC_DIR, EMBEDDING_BACKEND_DEFAULT
+from app.api.config import GROQ_MODEL, MAX_QUESTION_CHARS, STATIC_DIR, EMBEDDING_BACKEND_DEFAULT, DEFAULT_TOP_K
 from app.api.warm import lifespan
 from app.api import stream
 from app.rag.language_detect import detect_language
@@ -55,7 +55,7 @@ def get_groq_client() -> Groq:
 class AskRequest(BaseModel):
     question: str
     language: str | None = None  # optional hint: "ar" or "en"
-    top_k: int | None = 5
+    top_k: int | None = None
     # Task 5: which retrieval mode to use -- "vector" (Task 4, unchanged),
     # "keyword" (BM25), or "hybrid" (vector + keyword, RRF-fused, reranked).
     # Defaults to hybrid; exposed here (not hardcoded) so the 3 modes can
@@ -98,7 +98,7 @@ def ask(request: AskRequest):
         return stream.vague_response(question, VAGUE_CLARIFY_TEXT)
 
     detected_language = request.language or detect_language(question)
-    top_k = request.top_k or 5
+    top_k = request.top_k or DEFAULT_TOP_K
     mode = request.mode or "hybrid"
     embedding_backend = request.embedding_backend or EMBEDDING_BACKEND_DEFAULT
 

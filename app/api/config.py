@@ -17,6 +17,12 @@ GROQ_MODEL = "qwen/qwen3.8-27b"
 # 3.6, it does NOT accept reasoning_effort (a live test showed passing it
 # returns empty content) -- no call in this API passes that parameter.
 
+# Task 4, E4 note: a revised prompt (eval/task4_experiments/prompts_v3/)
+# measured better than this one on the full eval set -- EN hallucination
+# 3.4% -> 0.0%, AR 3.4% -> 3.2%, no language trade-off (see experiments.md
+# section 5). Not applied here yet -- these paths still point at the
+# original production prompts, by deliberate choice, pending a separate
+# decision to adopt v3.
 PROMPT_PATHS = {
     "en": Path("prompts/rag_answer_en.txt"),
     "ar": Path("prompts/rag_answer_ar.txt"),
@@ -25,6 +31,16 @@ PROMPT_PATHS = {
 # Basic input validation limit -- covers the "very long question" API
 # test case required by the task.
 MAX_QUESTION_CHARS = 1000
+
+# Task 4, E2 winner: how many retrieved chunks get sent to the generator.
+# Measured on the full 80-item eval set (eval/task4_experiments/results/,
+# top_k=3 vs 5 vs 10, everything else held at production baseline):
+# hallucination rate drops monotonically as top_k increases and hits 0.0%
+# for BOTH languages at top_k=10 (vs 3.4%/3.4% at the old default of 5).
+# Retrieval metrics (Hit@5/MRR) are computed from the full fused ranking
+# before this cut, so they are unaffected by this value -- only answer
+# faithfulness and token cost are. See experiments.md section 5.
+DEFAULT_TOP_K = 10
 
 
 def load_prompt_template(language: str) -> str:
@@ -51,6 +67,15 @@ TOKEN_LOG_PATH = Path("logs/tokens.jsonl")
 # served from the same origin as the API so the page's fetch() calls
 # need no CORS configuration. See app/static/index.html for the frontend.
 STATIC_DIR = Path("app/static")
+
+# Task 4, E1 note: a larger-chunk corpus split (137 chunks vs this
+# project's 640) measured better retrieval than production on the full
+# eval set -- AR Hit@5 0.969 vs 0.933 (beats production), EN 0.938 vs
+# 1.000 (close), with perfect faithfulness and zero hallucination both
+# languages (see experiments.md section 5). Not applied -- switching to
+# it means re-indexing the whole corpus into a new Qdrant collection,
+# a bigger operational step than a config value, left as a separate
+# deliberate decision rather than bundled in here.
 
 # Globitel's own hosted embedding API (globitelai-bge) -- the production
 # embedding backend for /ask's vector search (app/embeddings/globitel_bge.py).

@@ -1,0 +1,3993 @@
+{
+  "name": "e3_bge_m3",
+  "config": {
+    "chunks": "baseline",
+    "chunks_path": "chunks.jsonl",
+    "collection": "chunks_bge_m3",
+    "top_k": 5,
+    "embedding": "bge_m3",
+    "prompt_dir": null
+  },
+  "complete": true,
+  "generation_model": "qwen/qwen3.8-27b",
+  "summary_by_language": {
+    "en": {
+      "n_items": 40,
+      "hit_at_5": 1.0,
+      "recall_at_5": 1.0,
+      "mrr": 0.9437,
+      "faithfulness": 1.0,
+      "hallucination_rate": 0.0,
+      "answerable_answered": "29/32",
+      "should_refuse_correct": "5/8",
+      "latency_p50_ms": 18375.8,
+      "latency_p95_ms": 26581.9,
+      "stage_mean_ms": {
+        "normalize": 289.2826,
+        "vector": 1087.3998,
+        "keyword": 5.8465,
+        "guardrail": 10778.1011,
+        "ttft": 6330.4087,
+        "generation": 6397.73
+      },
+      "qwen_prompt_tokens_per_query": 2269.6,
+      "qwen_completion_tokens_per_query": 74.825,
+      "context_tokens_per_answer": 400.5517,
+      "cost_per_query_usd": null
+    },
+    "ar": {
+      "n_items": 40,
+      "hit_at_5": 0.9375,
+      "recall_at_5": 0.9062,
+      "mrr": 0.8592,
+      "faithfulness": 0.9516,
+      "hallucination_rate": 0.0645,
+      "answerable_answered": "31/32",
+      "should_refuse_correct": "7/8",
+      "latency_p50_ms": 20643.2,
+      "latency_p95_ms": 36446.7,
+      "stage_mean_ms": {
+        "normalize": 358.5498,
+        "vector": 2367.2445,
+        "keyword": 12.4364,
+        "guardrail": 11309.1743,
+        "ttft": 8690.3075,
+        "generation": 8790.6149
+      },
+      "qwen_prompt_tokens_per_query": 2451.475,
+      "qwen_completion_tokens_per_query": 84.175,
+      "context_tokens_per_answer": 851.4839,
+      "cost_per_query_usd": null
+    }
+  },
+  "items": [
+    {
+      "id": "en-exact-001",
+      "language": "en",
+      "type": "exact_value",
+      "question": "What is Orange Fiber Features?",
+      "action": "answer_normally",
+      "answer": "Orange Fiber features include high-speed internet up to 1GB, unlimited download capacity, a secured internet connection, and a special experience when using all kinds of applications.",
+      "timings_ms": {
+        "normalize": 232.8208540002379,
+        "vector": 13019.887022000148,
+        "keyword": 78.32848999987618,
+        "guardrail": 401.19662799952494,
+        "ttft": 208.81773499968403,
+        "generation": 272.6540419998855,
+        "total": 14008.943068000008
+      },
+      "qwen_tokens": {
+        "prompt": 2222,
+        "completion": 75,
+        "calls": 3
+      },
+      "context_tokens_sent": 199,
+      "retrieved": [
+        {
+          "chunk_id": "642712e093584c6e_008",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_001",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_021",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_006",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_062",
+          "source_file": "corpus/en/orange-money.docx"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the provided sources."
+    },
+    {
+      "id": "en-exact-002",
+      "language": "en",
+      "type": "exact_value",
+      "question": "How I can save while roaming?",
+      "action": "answer_normally",
+      "answer": "To save while roaming, subscribe to a roaming bundle or offer available in your destination country by dialing *777# or visiting https://internationalandroaming.orange.jo/roaming-services/. Additionally, turn off automatic updates on your phone or computer before traveling to prevent unnecessary data consumption.",
+      "timings_ms": {
+        "normalize": 299.3971229998351,
+        "vector": 5590.391841999917,
+        "keyword": 19.94642699992255,
+        "guardrail": 615.748530000019,
+        "ttft": 252.12681100038026,
+        "generation": 379.9629810000624,
+        "total": 6916.826130999652
+      },
+      "qwen_tokens": {
+        "prompt": 2431,
+        "completion": 100,
+        "calls": 3
+      },
+      "context_tokens_sent": 393,
+      "retrieved": [
+        {
+          "chunk_id": "49d8a9e384a6bcb9_017",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_008",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_013",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_018",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_015",
+          "source_file": "corpus/en/international-roaming.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the context."
+    },
+    {
+      "id": "en-exact-003",
+      "language": "en",
+      "type": "exact_value",
+      "question": "Easy steps to check your balance with Orange?",
+      "action": "answer_normally",
+      "answer": "You can check your balance by sending the word \"List\" on WhatsApp to 0777700177, selecting \"Self-Services,\" and then choosing \"Know Your Balance.\" Alternatively, you can check your balance anytime through the Orange Money mobile application and USSD menu.",
+      "timings_ms": {
+        "normalize": 420.03006000049936,
+        "vector": 4135.4732829995555,
+        "keyword": 16.464574000565335,
+        "guardrail": 852.87328800041,
+        "ttft": 345.67595299995446,
+        "generation": 464.09643800052436,
+        "total": 5905.224402000385
+      },
+      "qwen_tokens": {
+        "prompt": 3577,
+        "completion": 106,
+        "calls": 3
+      },
+      "context_tokens_sent": 1439,
+      "retrieved": [
+        {
+          "chunk_id": "c4790bface4196b1_014",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "59b28e214a8b7017_006",
+          "source_file": "corpus/en/mobile-lines.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_014",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "892563201ac794b3_004",
+          "source_file": "corpus/en/mobile-lines.pdf"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_042",
+          "source_file": "corpus/en/international-roaming.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the provided sources."
+    },
+    {
+      "id": "en-exact-004",
+      "language": "en",
+      "type": "exact_value",
+      "question": "what is the minimum amount that you can cash in into your wallet from your bank account?",
+      "action": "answer_normally",
+      "answer": "The minimum amount you can cash in into your wallet from your bank account is 5 JDs.",
+      "timings_ms": {
+        "normalize": 151.30192900051043,
+        "vector": 1392.8669750002882,
+        "keyword": 3.173274999426212,
+        "guardrail": 7515.909939000267,
+        "ttft": 5289.116456000556,
+        "generation": 5322.504957000092,
+        "total": 14391.876104999938
+      },
+      "qwen_tokens": {
+        "prompt": 2187,
+        "completion": 71,
+        "calls": 3
+      },
+      "context_tokens_sent": 167,
+      "retrieved": [
+        {
+          "chunk_id": "c4790bface4196b1_053",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_053",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_007",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_007",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_027",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly matches the stated minimum amount of 5 JDs from the source."
+    },
+    {
+      "id": "en-exact-008",
+      "language": "en",
+      "type": "exact_value",
+      "question": "How do I transfer money from my wallet to another mobile wallet?",
+      "action": "answer_normally",
+      "answer": "You can transfer money through the Orange Money app by logging in, selecting \"Money transfer,\" and entering the recipient's mobile number and amount. Alternatively, Orange mobile customers can use the USSD menu by dialing *999# and following the on-screen steps.",
+      "timings_ms": {
+        "normalize": 1379.503339000621,
+        "vector": 288.71892300048785,
+        "keyword": 0.9628810003050603,
+        "guardrail": 12409.395468000184,
+        "ttft": 7281.202305000079,
+        "generation": 7392.5324559995715,
+        "total": 21475.952421999864
+      },
+      "qwen_tokens": {
+        "prompt": 2529,
+        "completion": 101,
+        "calls": 3
+      },
+      "context_tokens_sent": 472,
+      "retrieved": [
+        {
+          "chunk_id": "9d2740d3e2920616_009",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_009",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_042",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_042",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_043",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the provided context."
+    },
+    {
+      "id": "en-simple-009",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "How long does it take for my bill to be processed?",
+      "action": "answer_normally",
+      "answer": "Your payment will be processed instantly.",
+      "timings_ms": {
+        "normalize": 129.1531599999871,
+        "vector": 277.9996979998032,
+        "keyword": 2.021782000156236,
+        "guardrail": 12408.024521999323,
+        "ttft": 6901.590761999614,
+        "generation": 6919.673051000245,
+        "total": 19751.497717999882
+      },
+      "qwen_tokens": {
+        "prompt": 2258,
+        "completion": 53,
+        "calls": 3
+      },
+      "context_tokens_sent": 235,
+      "retrieved": [
+        {
+          "chunk_id": "a43121861055a8fa_006",
+          "source_file": "corpus/en/bills-payment.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_010",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_010",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_089",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_089",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly quotes the statement from Source 1, so it is fully supported."
+    },
+    {
+      "id": "en-simple-010",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "Can I use a security system alarm with the Digital Voice service?",
+      "action": "answer_normally",
+      "answer": "Yes, it works with a normal auto dialer that requires generating a call with a voice message.",
+      "timings_ms": {
+        "normalize": 180.51656399984495,
+        "vector": 649.3129489999774,
+        "keyword": 2.0060649994775304,
+        "guardrail": 14563.397038000403,
+        "ttft": 1609.9264059994312,
+        "generation": 1647.371701999873,
+        "total": 17048.995047000062
+      },
+      "qwen_tokens": {
+        "prompt": 2086,
+        "completion": 67,
+        "calls": 3
+      },
+      "context_tokens_sent": 122,
+      "retrieved": [
+        {
+          "chunk_id": "642712e093584c6e_019",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_020",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_009",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_012",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_018",
+          "source_file": "corpus/en/fiber-adsl.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly reflects the statement in Source 1, with no added or unsupported claims."
+    },
+    {
+      "id": "en-simple-011",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "How can I use internet while roaming?",
+      "action": "answer_normally",
+      "answer": "Turn on data roaming on your mobile and make sure that the access point name (APN) is: net.orange.jo",
+      "timings_ms": {
+        "normalize": 159.25026799959596,
+        "vector": 375.15801999961695,
+        "keyword": 1.9092580005235504,
+        "guardrail": 15605.127496000023,
+        "ttft": 2291.7273189996195,
+        "generation": 2328.723959999479,
+        "total": 18474.206643999423
+      },
+      "qwen_tokens": {
+        "prompt": 2238,
+        "completion": 68,
+        "calls": 3
+      },
+      "context_tokens_sent": 225,
+      "retrieved": [
+        {
+          "chunk_id": "49d8a9e384a6bcb9_013",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_009",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_017",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_095",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_095",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly quotes the information from Source 1 without adding any unsupported details."
+    },
+    {
+      "id": "en-simple-012",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "Was this page helpful ?",
+      "action": "answer_normally",
+      "answer": "I don't have this information in the documentation. Please check with a supervisor or the relevant system.",
+      "timings_ms": {
+        "normalize": 1211.6983480000272,
+        "vector": 309.52867199994216,
+        "keyword": 1.1444969995864085,
+        "guardrail": 11557.352269000148,
+        "ttft": 5307.50388999968,
+        "generation": 5380.062899999757,
+        "total": 18464.179951000006
+      },
+      "qwen_tokens": {
+        "prompt": 2098,
+        "completion": 59,
+        "calls": 3
+      },
+      "context_tokens_sent": 142,
+      "retrieved": [
+        {
+          "chunk_id": "892563201ac794b3_005",
+          "source_file": "corpus/en/mobile-lines.pdf"
+        },
+        {
+          "chunk_id": "124a480cd7ccc2ee_000",
+          "source_file": "corpus/en/help-center.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_088",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_088",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_083",
+          "source_file": "corpus/en/orange-money.docx"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer is a generic refusal, which is fully faithful to the context."
+    },
+    {
+      "id": "en-simple-013",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "How can I collect the money to my wallet?",
+      "action": "answer_normally",
+      "answer": "To collect money to your wallet, click on \"Receive,\" enter the transaction number provided by the sender, and confirm the details. The transferred amount will then be securely moved to your Orange Money wallet.",
+      "timings_ms": {
+        "normalize": 159.890742999778,
+        "vector": 217.30499800014513,
+        "keyword": 1.9170589994246257,
+        "guardrail": 12444.383254000059,
+        "ttft": 6279.064338000353,
+        "generation": 6365.860679000434,
+        "total": 19192.859244999454
+      },
+      "qwen_tokens": {
+        "prompt": 2301,
+        "completion": 83,
+        "calls": 3
+      },
+      "context_tokens_sent": 243,
+      "retrieved": [
+        {
+          "chunk_id": "c4790bface4196b1_053",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_053",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_084",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_084",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_050",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.2,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly restates the steps provided in the source without adding any unsupported details."
+    },
+    {
+      "id": "en-simple-014",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "What is the minimum amount i can pay?",
+      "action": "ambiguous",
+      "answer": null,
+      "timings_ms": {
+        "normalize": 126.29482699958317,
+        "vector": 308.045009000125,
+        "keyword": 3.108267000243359,
+        "guardrail": 12491.41507999957,
+        "ttft": null,
+        "generation": null,
+        "total": 12929.012495999814
+      },
+      "qwen_tokens": {
+        "prompt": 1572,
+        "completion": 68,
+        "calls": 2
+      },
+      "context_tokens_sent": 0,
+      "retrieved": [
+        {
+          "chunk_id": "a43121861055a8fa_011",
+          "source_file": "corpus/en/bills-payment.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_053",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_053",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_007",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_007",
+          "source_file": "corpus/en/orange-money.docx"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "en-simple-015",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "What type of phone handset I need to use with Digital Voice service?",
+      "action": "answer_normally",
+      "answer": "You can use any normal phone handset, whether wired or wireless, excluding very old rotary types.",
+      "timings_ms": {
+        "normalize": 149.79545299956953,
+        "vector": 508.76589300060004,
+        "keyword": 2.7457279993541306,
+        "guardrail": 12388.388948000284,
+        "ttft": 4250.9553149993735,
+        "generation": 4283.594782999899,
+        "total": 17341.800508999768
+      },
+      "qwen_tokens": {
+        "prompt": 2101,
+        "completion": 68,
+        "calls": 3
+      },
+      "context_tokens_sent": 128,
+      "retrieved": [
+        {
+          "chunk_id": "642712e093584c6e_011",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_020",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_009",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_012",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_019",
+          "source_file": "corpus/en/fiber-adsl.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly reflects the statement in Source 1 without adding any unsupported details."
+    },
+    {
+      "id": "en-simple-016",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "Is the ABS service will reset automatically?",
+      "action": "answer_normally",
+      "answer": "Yes, the ABS service resets automatically. For Pay Monthly customers, it resets on the bill cycle date, while for Pay As You Go customers, it resets at the beginning of each month.",
+      "timings_ms": {
+        "normalize": 382.0240550003291,
+        "vector": 507.8681540007892,
+        "keyword": 1.328475999798684,
+        "guardrail": 11385.913948000052,
+        "ttft": 5258.316086999912,
+        "generation": 5372.766872999819,
+        "total": 17659.86981900005
+      },
+      "qwen_tokens": {
+        "prompt": 2092,
+        "completion": 79,
+        "calls": 3
+      },
+      "context_tokens_sent": 162,
+      "retrieved": [
+        {
+          "chunk_id": "49d8a9e384a6bcb9_007",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_006",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_088",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_088",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_107",
+          "source_file": "corpus/en/orange-money.docx"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by Source 1."
+    },
+    {
+      "id": "en-simple-017",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "What is Data carry over feature?",
+      "action": "answer_normally",
+      "answer": "The data carry over feature allows you to carry over the remaining internet bundle from this month to the next month, provided you renew on time or earlier.",
+      "timings_ms": {
+        "normalize": 132.69159799983754,
+        "vector": 444.65675500032376,
+        "keyword": 1.7126419998021447,
+        "guardrail": 12415.304352999556,
+        "ttft": 5265.745483000501,
+        "generation": 5373.886826000671,
+        "total": 18375.83580199953
+      },
+      "qwen_tokens": {
+        "prompt": 2254,
+        "completion": 72,
+        "calls": 3
+      },
+      "context_tokens_sent": 216,
+      "retrieved": [
+        {
+          "chunk_id": "59b28e214a8b7017_001",
+          "source_file": "corpus/en/mobile-lines.html"
+        },
+        {
+          "chunk_id": "892563201ac794b3_001",
+          "source_file": "corpus/en/mobile-lines.pdf"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_006",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_004",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_001",
+          "source_file": "corpus/en/international-roaming.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly restates the information provided in the context without adding any unsupported details."
+    },
+    {
+      "id": "en-simple-018",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "Is the Card to Wallet Top up service secure?",
+      "action": "answer_normally",
+      "answer": "Yes, the service is secure. Orange Money uses bank-grade encryption and 3D Secure (OTP) verification to protect your transactions and card details, processing them through a licensed payment gateway that complies with international and PCI-DSS security standards.",
+      "timings_ms": {
+        "normalize": 130.19436699960352,
+        "vector": 292.4512859999595,
+        "keyword": 2.365596000345249,
+        "guardrail": 13552.688524000587,
+        "ttft": 6440.45241799995,
+        "generation": 6536.106388000007,
+        "total": 20523.495163000007
+      },
+      "qwen_tokens": {
+        "prompt": 2370,
+        "completion": 99,
+        "calls": 3
+      },
+      "context_tokens_sent": 289,
+      "retrieved": [
+        {
+          "chunk_id": "9d2740d3e2920616_090",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_090",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_082",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_082",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_085",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the provided context."
+    },
+    {
+      "id": "en-simple-019",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "What happens In case of illegal activity such as Fraud and/or Financial Crimes?",
+      "action": "answer_normally",
+      "answer": "The customer has the right to object to fraudulent activities, and if the fraud is proven, the customer will be refunded.",
+      "timings_ms": {
+        "normalize": 168.75238300053752,
+        "vector": 495.117434000349,
+        "keyword": 2.5197069999194355,
+        "guardrail": 12459.440797999378,
+        "ttft": 6324.897524999869,
+        "generation": 6369.94973200035,
+        "total": 19504.79764299962
+      },
+      "qwen_tokens": {
+        "prompt": 2421,
+        "completion": 74,
+        "calls": 3
+      },
+      "context_tokens_sent": 427,
+      "retrieved": [
+        {
+          "chunk_id": "a43121861055a8fa_005",
+          "source_file": "corpus/en/bills-payment.html"
+        },
+        {
+          "chunk_id": "fc4e8ce20cf935f4_005",
+          "source_file": "corpus/ar/bills-payment.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_111",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_047",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_111",
+          "source_file": "corpus/en/orange-money.docx"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer accurately reflects the information in the source without adding any unsupported details."
+    },
+    {
+      "id": "en-simple-020",
+      "language": "en",
+      "type": "simple_factual",
+      "question": "What is the modem type is it wireless or wired?",
+      "action": "answer_normally",
+      "answer": "It's a wireless device and is available with all packages.",
+      "timings_ms": {
+        "normalize": 1218.1302449998839,
+        "vector": 306.1255170005097,
+        "keyword": 1.9424599995545577,
+        "guardrail": 11423.885218999203,
+        "ttft": 5324.973030000365,
+        "generation": 5379.592997000145,
+        "total": 18336.92711599997
+      },
+      "qwen_tokens": {
+        "prompt": 2160,
+        "completion": 57,
+        "calls": 3
+      },
+      "context_tokens_sent": 162,
+      "retrieved": [
+        {
+          "chunk_id": "642712e093584c6e_029",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_006",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_005",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_011",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_022",
+          "source_file": "corpus/en/fiber-adsl.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly quotes the source: 'It's a wireless device and is available with all packages.'"
+    },
+    {
+      "id": "ar-exact-001",
+      "language": "ar",
+      "type": "exact_value",
+      "question": "ما هي خدمه Orange فايبر ؟",
+      "action": "answer_normally",
+      "answer": "خدمة Orange فايبر هي خدمة إنترنت ثابتة وفائقة السرعة، حيث تصل سرعة الاتصال فيها إلى 1000 ميجابت في الثانية، وتتميز بسعة تحميل غير محدودة وتجربة متميزة في استخدام جميع أنواع التطبيقات.",
+      "timings_ms": {
+        "normalize": 152.29687500050204,
+        "vector": 201.32199399995443,
+        "keyword": 1.7001360001813737,
+        "guardrail": 12645.156192000286,
+        "ttft": 7286.5075539993995,
+        "generation": 7384.8704419997375,
+        "total": 20396.434848000354
+      },
+      "qwen_tokens": {
+        "prompt": 2404,
+        "completion": 92,
+        "calls": 3
+      },
+      "context_tokens_sent": 417,
+      "retrieved": [
+        {
+          "chunk_id": "fa74d8c747ecd06e_005",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_001",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_004",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_014",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_001",
+          "source_file": "corpus/en/fiber-adsl.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the provided sources."
+    },
+    {
+      "id": "ar-exact-002",
+      "language": "ar",
+      "type": "exact_value",
+      "question": "كيف يمكنني التحقق من الحد المتبقي من الاستهلاك ومده صلاحيته؟",
+      "action": "answer_normally",
+      "answer": "يمكنك التحقق من الحد المتبقي من الاستهلاك ومدة صلاحيته عبر تطبيق Max it أو بالاتصال على الرمز *979#.",
+      "timings_ms": {
+        "normalize": 222.3635860000286,
+        "vector": 617.3409659995741,
+        "keyword": 1.6362340002160636,
+        "guardrail": 12421.234791000643,
+        "ttft": 8379.761244000292,
+        "generation": 8441.323914999884,
+        "total": 21708.930093000163
+      },
+      "qwen_tokens": {
+        "prompt": 2620,
+        "completion": 85,
+        "calls": 3
+      },
+      "context_tokens_sent": 712,
+      "retrieved": [
+        {
+          "chunk_id": "16af3a779c48f7a1_005",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_037",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_031",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_002",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_003",
+          "source_file": "corpus/ar/international-roaming.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly quotes the supported information from the context."
+    },
+    {
+      "id": "ar-exact-003",
+      "language": "ar",
+      "type": "exact_value",
+      "question": "كيف يمكنني ايقاف الرسائل الدعائيه ؟",
+      "action": "answer_normally",
+      "answer": "اتصل على *112# لوقف الرسائل الدعائية.",
+      "timings_ms": {
+        "normalize": 198.96188700022321,
+        "vector": 316.52846899942233,
+        "keyword": 1.193898000565241,
+        "guardrail": 11402.61835199999,
+        "ttft": 6431.875997000134,
+        "generation": 6462.233798000852,
+        "total": 18386.695697000505
+      },
+      "qwen_tokens": {
+        "prompt": 2215,
+        "completion": 56,
+        "calls": 3
+      },
+      "context_tokens_sent": 264,
+      "retrieved": [
+        {
+          "chunk_id": "998b108075cc4af8_003",
+          "source_file": "corpus/ar/mobile-lines.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_039",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_031",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_036",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "59b28e214a8b7017_005",
+          "source_file": "corpus/en/mobile-lines.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly quotes the instruction from the source to dial *112# to stop advertising messages."
+    },
+    {
+      "id": "ar-exact-004",
+      "language": "ar",
+      "type": "exact_value",
+      "question": "هل بحتاج موبايل ذكي عشان استخدم Orange Money؟",
+      "action": "answer_normally",
+      "answer": "لا، لا تحتاج إلى موبايل ذكي، فجميع أنواع الموبايلات تدعم خدمة Orange Money وكل ما تحتاجه هو رقم خلوي فعال. يمكنك استخدام تطبيق Orange Money على الموبايلات الذكية، أو قائمة USSD *999# على الموبايلات العادية للمشتركين في Orange.",
+      "timings_ms": {
+        "normalize": 178.55033299929346,
+        "vector": 414.50395199990453,
+        "keyword": 2.0150609998381697,
+        "guardrail": 13668.99039800046,
+        "ttft": 7285.759804000008,
+        "generation": 7427.437463999922,
+        "total": 21699.606866000067
+      },
+      "qwen_tokens": {
+        "prompt": 2506,
+        "completion": 109,
+        "calls": 3
+      },
+      "context_tokens_sent": 520,
+      "retrieved": [
+        {
+          "chunk_id": "97c3ba92a38eb494_018",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "fc4e8ce20cf935f4_004",
+          "source_file": "corpus/ar/bills-payment.html"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_018",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_009",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_018",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the provided sources."
+    },
+    {
+      "id": "ar-exact-008",
+      "language": "ar",
+      "type": "exact_value",
+      "question": "كيف بقدر احول مصاري من محفظتي لمحفظه اخرى؟",
+      "action": "answer_normally",
+      "answer": "لتحويل الأموال من محفظتك إلى محفظة أخرى، ادخل على حسابك في تطبيق Orange Money واختر \"تحويل الأموال\". أدخل رقم الموبايل الذي تريد التحويل إليه مع المبلغ المطلوب، ويمكنك إضافة ملاحظات إن أردت. بعد نجاح العملية ستصلك رسالة قصيرة تتضمن تفاصيل التحويل.",
+      "timings_ms": {
+        "normalize": 166.5025690008406,
+        "vector": 260.02263400005177,
+        "keyword": 2.423996000288753,
+        "guardrail": 13428.31443599971,
+        "ttft": 11926.606506999633,
+        "generation": 12234.929145999558,
+        "total": 26099.960810000084
+      },
+      "qwen_tokens": {
+        "prompt": 3033,
+        "completion": 115,
+        "calls": 3
+      },
+      "context_tokens_sent": 1479,
+      "retrieved": [
+        {
+          "chunk_id": "35d0f13e82e9675f_009",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_009",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_040",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_040",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_041",
+          "source_file": "corpus/ar/orange-money.docx"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly restates the instructions from the source without adding any new information."
+    },
+    {
+      "id": "ar-simple-009",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "ما هي الخدمات التي يمكنني سداد فواتيرها؟",
+      "action": "answer_normally",
+      "answer": "يمكنك سداد فواتير عروض الجوال والثابت والإنترنت في كل مكان، بالإضافة إلى خدمات ADSL والألياف، وفواتير بيت العيلة المتقاربة.",
+      "timings_ms": {
+        "normalize": 182.46791799992934,
+        "vector": 532.8410190004433,
+        "keyword": 1.4118099998086109,
+        "guardrail": 10705.001868999716,
+        "ttft": 5319.7041759995045,
+        "generation": 5437.296246000187,
+        "total": 16863.67141899973
+      },
+      "qwen_tokens": {
+        "prompt": 2125,
+        "completion": 82,
+        "calls": 3
+      },
+      "context_tokens_sent": 148,
+      "retrieved": [
+        {
+          "chunk_id": "fc4e8ce20cf935f4_007",
+          "source_file": "corpus/ar/bills-payment.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_085",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_085",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_028",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_088",
+          "source_file": "corpus/en/orange-money.docx"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer accurately restates the services listed in Source 1 without adding any unsupported details."
+    },
+    {
+      "id": "ar-simple-010",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "ما هو الجديد في خدمه الاتصال الصوتي الرقمي مع الفايبر؟",
+      "action": "answer_normally",
+      "answer": "بمجرد تركيب خط الفايبر، سيتم تفعيل خدمة الاتصال الصوتي الرقمي فوراً، حيث يتم توصيل جهاز الهاتف الأرضي على الفايبر بوكس مباشرة دون الحاجة لوجود أي تمديدات أسلاك نحاسية داخلية.",
+      "timings_ms": {
+        "normalize": 188.99288100055855,
+        "vector": 455.3907609997623,
+        "keyword": 2.0967710006516427,
+        "guardrail": 12469.59117699953,
+        "ttft": 7333.472133000214,
+        "generation": 7519.6617720002905,
+        "total": 20643.165168999985
+      },
+      "qwen_tokens": {
+        "prompt": 2459,
+        "completion": 97,
+        "calls": 3
+      },
+      "context_tokens_sent": 520,
+      "retrieved": [
+        {
+          "chunk_id": "fa74d8c747ecd06e_014",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_006",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_011",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_010",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_007",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly reproduces the information from Source 2 without adding any unsupported details."
+    },
+    {
+      "id": "ar-simple-011",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "ما هي ميزه التحكم في فاتوره بيانات التجوال (حمايه من ارتفاع الفواتير)؟",
+      "action": "answer_normally",
+      "answer": "هي خدمة تحميك من ارتفاع فواتير التجوال، وذلك بتحديد حد استهلاك محدد.",
+      "timings_ms": {
+        "normalize": 150.4891360000329,
+        "vector": 799.8007329997563,
+        "keyword": 2.0664680005211267,
+        "guardrail": 13427.27462000039,
+        "ttft": 7360.167772999375,
+        "generation": 7431.09637499947,
+        "total": 21819.30253399969
+      },
+      "qwen_tokens": {
+        "prompt": 2649,
+        "completion": 76,
+        "calls": 3
+      },
+      "context_tokens_sent": 732,
+      "retrieved": [
+        {
+          "chunk_id": "16af3a779c48f7a1_001",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_033",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_004",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_005",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_007",
+          "source_file": "corpus/ar/international-roaming.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly quotes the definition from Source 1 without adding any unsupported details."
+    },
+    {
+      "id": "ar-simple-012",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "ما هي ميزه ترحيل حزم الانترنت؟",
+      "action": "answer_normally",
+      "answer": "ميزة ترحيل حزم الإنترنت تتيح لك نقل المتبقي من حزمة الإنترنت الأساسية للشهر الحالي إلى الشهر التالي، وذلك عند تجديد اشتراكك في موعده أو قبل انتهاء فترة الاشتراك الشهري.",
+      "timings_ms": {
+        "normalize": 159.29213099934714,
+        "vector": 307.1590280005694,
+        "keyword": 1.742341999488417,
+        "guardrail": 13419.934109000678,
+        "ttft": 8284.51482499986,
+        "generation": 8370.59846000011,
+        "total": 22263.275031000376
+      },
+      "qwen_tokens": {
+        "prompt": 2571,
+        "completion": 89,
+        "calls": 3
+      },
+      "context_tokens_sent": 767,
+      "retrieved": [
+        {
+          "chunk_id": "998b108075cc4af8_001",
+          "source_file": "corpus/ar/mobile-lines.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_033",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_032",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "892563201ac794b3_001",
+          "source_file": "corpus/en/mobile-lines.pdf"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_001",
+          "source_file": "corpus/ar/international-roaming.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer accurately reflects the information in the sources about carrying over the remaining internet bundle when renewing on time or earlier."
+    },
+    {
+      "id": "ar-simple-013",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "كم مده صلاحيه القسائم الالكترونيه ؟",
+      "action": "answer_normally",
+      "answer": "مدة صلاحية القسائم الإلكترونية 6 أشهر من وقت الشراء.",
+      "timings_ms": {
+        "normalize": 128.64606400034972,
+        "vector": 356.1233899999934,
+        "keyword": 1.7086380003092927,
+        "guardrail": 12414.688304000265,
+        "ttft": 6272.815702000116,
+        "generation": 6308.861002999947,
+        "total": 19212.14516300006
+      },
+      "qwen_tokens": {
+        "prompt": 2409,
+        "completion": 59,
+        "calls": 3
+      },
+      "context_tokens_sent": 475,
+      "retrieved": [
+        {
+          "chunk_id": "35d0f13e82e9675f_061",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_061",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_052",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_052",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_055",
+          "source_file": "corpus/ar/orange-money.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly repeats the duration stated in the source."
+    },
+    {
+      "id": "ar-simple-014",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "ما الذي یجب علي فعله في حاله حدوث خطا، وکیف یمکنني تقدیم شكوى بشان المدفوعات الالكترونيه؟",
+      "action": "answer_normally",
+      "answer": "يمكنك تقديم الشكوى أو الإبلاغ عن الخطأ عبر الاتصال بمركز خدمة المشتركين على الرقم 1777 أو 077700177، أو من خلال خدمة Orange Live Chat، أو بزيارة أحد معارضنا. أما إذا كان رفض العملية من قبل المصدر، فيجب عليك الاتصال ببنكك مباشرة.",
+      "timings_ms": {
+        "normalize": 1350.2824059996783,
+        "vector": 609.9095940007828,
+        "keyword": 2.093286999297561,
+        "guardrail": 12434.978735000186,
+        "ttft": 8390.861730000324,
+        "generation": 8534.17355000056,
+        "total": 22943.281429999843
+      },
+      "qwen_tokens": {
+        "prompt": 2563,
+        "completion": 131,
+        "calls": 3
+      },
+      "context_tokens_sent": 592,
+      "retrieved": [
+        {
+          "chunk_id": "fc4e8ce20cf935f4_010",
+          "source_file": "corpus/ar/bills-payment.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_031",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_069",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_047",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_069",
+          "source_file": "corpus/ar/orange-money.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the context."
+    },
+    {
+      "id": "ar-simple-015",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "كيف يمكنني الحصول على احد عروض ال ADSL؟",
+      "action": "answer_normally",
+      "answer": "يمكنك الحصول على عروض ADSL من خلال زيارة أحد معارضنا المنتشرة في المملكة، أو الاتصال على الرقم 1214، أو الطلب عبر الموقع الإلكتروني (E-shop).",
+      "timings_ms": {
+        "normalize": 128.35179500052618,
+        "vector": 428.4931140000481,
+        "keyword": 2.6295679999748245,
+        "guardrail": 12469.150093999815,
+        "ttft": 7547.293163999711,
+        "generation": 7625.505058000272,
+        "total": 20662.660074000087
+      },
+      "qwen_tokens": {
+        "prompt": 2476,
+        "completion": 82,
+        "calls": 3
+      },
+      "context_tokens_sent": 456,
+      "retrieved": [
+        {
+          "chunk_id": "fa74d8c747ecd06e_025",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_017",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fc4e8ce20cf935f4_007",
+          "source_file": "corpus/ar/bills-payment.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_031",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_034",
+          "source_file": "corpus/ar/orange-money.docx"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer accurately reflects the information in the source without adding any unsupported claims."
+    },
+    {
+      "id": "ar-simple-016",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "هل يمكنني شراء اكثر من حزمه تجوال انترنت في نفس الوقت؟",
+      "action": "answer_normally",
+      "answer": "نعم، يمكنك تفعيل حزمة جديدة قبل انتهاء صلاحية حزمتك الحالية.",
+      "timings_ms": {
+        "normalize": 212.13644399995246,
+        "vector": 499.78766000003816,
+        "keyword": 2.0125649998590234,
+        "guardrail": 12882.233553000333,
+        "ttft": 16814.197366999906,
+        "generation": 16850.906871000007,
+        "total": 30454.062759000408
+      },
+      "qwen_tokens": {
+        "prompt": 3708,
+        "completion": 68,
+        "calls": 3
+      },
+      "context_tokens_sent": 2496,
+      "retrieved": [
+        {
+          "chunk_id": "16af3a779c48f7a1_032",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_018",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_017",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "998b108075cc4af8_001",
+          "source_file": "corpus/ar/mobile-lines.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_030",
+          "source_file": "corpus/ar/international-roaming.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer accurately reflects the statement in the source that a new package can be activated before the current one expires."
+    },
+    {
+      "id": "ar-simple-017",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "كم مده صلاحيه القسائم الالكترونيه ؟",
+      "action": "answer_normally",
+      "answer": "مدة صلاحية القسائم الإلكترونية 6 أشهر من وقت الشراء.",
+      "timings_ms": {
+        "normalize": 187.53644799926406,
+        "vector": 209.31633000054717,
+        "keyword": 1.1438939991421648,
+        "guardrail": 12459.298963000037,
+        "ttft": 6611.682147000465,
+        "generation": 6656.811734000257,
+        "total": 19520.1191619999
+      },
+      "qwen_tokens": {
+        "prompt": 2409,
+        "completion": 59,
+        "calls": 3
+      },
+      "context_tokens_sent": 475,
+      "retrieved": [
+        {
+          "chunk_id": "35d0f13e82e9675f_061",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_061",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_052",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_052",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_055",
+          "source_file": "corpus/ar/orange-money.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly repeats the duration stated in the source."
+    },
+    {
+      "id": "ar-simple-018",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "ماذا علي ان افعل للوصول الى الفاتوره التفصيليه على الانترنت؟",
+      "action": "answer_normally",
+      "answer": "يمكنك الوصول إلى تفاصيل الفاتورة من خلال تسجيل الدخول إلى خدمة Orange ecare.",
+      "timings_ms": {
+        "normalize": 214.22690500003227,
+        "vector": 423.7043220000487,
+        "keyword": 1.4752200004295446,
+        "guardrail": 12481.362900999557,
+        "ttft": 6650.224159000572,
+        "generation": 6735.908859000119,
+        "total": 19864.304529000037
+      },
+      "qwen_tokens": {
+        "prompt": 2269,
+        "completion": 72,
+        "calls": 3
+      },
+      "context_tokens_sent": 310,
+      "retrieved": [
+        {
+          "chunk_id": "fc4e8ce20cf935f4_009",
+          "source_file": "corpus/ar/bills-payment.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_088",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_018",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_088",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "fc4e8ce20cf935f4_001",
+          "source_file": "corpus/ar/bills-payment.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly restates the information from Source 1 without adding any unsupported details."
+    },
+    {
+      "id": "ar-simple-019",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "ما هو جهاز المودم او الموزع للانترنت هل هو سلكي ام لاسلكي؟",
+      "action": "answer_normally",
+      "answer": "جهاز المودم لاسلكي ومتوفر مع جميع الحزم.",
+      "timings_ms": {
+        "normalize": 182.6118929993754,
+        "vector": 276.5867509997406,
+        "keyword": 1.920853000228817,
+        "guardrail": 14530.366817000868,
+        "ttft": 3312.4662309992345,
+        "generation": 3368.509939999967,
+        "total": 18368.621519000044
+      },
+      "qwen_tokens": {
+        "prompt": 2307,
+        "completion": 73,
+        "calls": 3
+      },
+      "context_tokens_sent": 278,
+      "retrieved": [
+        {
+          "chunk_id": "fa74d8c747ecd06e_023",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_003",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fc4e8ce20cf935f4_002",
+          "source_file": "corpus/ar/bills-payment.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_029",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_008",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly restates the information from the source that the modem is wireless and available with all packages."
+    },
+    {
+      "id": "ar-simple-020",
+      "language": "ar",
+      "type": "simple_factual",
+      "question": "كيف يمكنني التحقق من حاله سقف استهلاك و صلاحيته؟",
+      "action": "answer_normally",
+      "answer": "يمكنك التحقق من الرصيد المتبقي لسقف الاستهلاك وصلاحيته عبر تطبيق Max it أو بالاتصال على *979#.",
+      "timings_ms": {
+        "normalize": 176.1482160000014,
+        "vector": 381.30416900003183,
+        "keyword": 1.5830150005058385,
+        "guardrail": 13461.234694000268,
+        "ttft": 8301.51935199956,
+        "generation": 8358.928106000349,
+        "total": 22386.33883700004
+      },
+      "qwen_tokens": {
+        "prompt": 2645,
+        "completion": 77,
+        "calls": 3
+      },
+      "context_tokens_sent": 755,
+      "retrieved": [
+        {
+          "chunk_id": "16af3a779c48f7a1_037",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_031",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_005",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_035",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_003",
+          "source_file": "corpus/ar/international-roaming.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly matches the information in Source 3, stating the same method to check the remaining quota and validity via the Max it app or *979#."
+    },
+    {
+      "id": "en-multi-001",
+      "language": "en",
+      "type": "multi_chunk",
+      "question": "How I can save while roaming and how I can know about the standard roaming tariff per service and country?",
+      "action": "answer_normally",
+      "answer": "To save while roaming, subscribe to available roaming bundles by dialing *777# or visiting https://internationalandroaming.orange.jo/roaming-services/, and turn off automatic updates on your devices. To check standard roaming tariffs per service and country, you will receive SMS notifications upon arrival at your destination, or you can visit the website for detailed rates.",
+      "timings_ms": {
+        "normalize": 147.0673550002175,
+        "vector": 295.63227300059225,
+        "keyword": 3.72875299945008,
+        "guardrail": 12393.117507999705,
+        "ttft": 7528.334196999822,
+        "generation": 7689.445562000401,
+        "total": 20536.505154000224
+      },
+      "qwen_tokens": {
+        "prompt": 2461,
+        "completion": 130,
+        "calls": 3
+      },
+      "context_tokens_sent": 346,
+      "retrieved": [
+        {
+          "chunk_id": "49d8a9e384a6bcb9_018",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_017",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_014",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_016",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_011",
+          "source_file": "corpus/en/international-roaming.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the provided sources."
+    },
+    {
+      "id": "en-multi-002",
+      "language": "en",
+      "type": "multi_chunk",
+      "question": "Who can get it and how long does it take to set up?",
+      "action": "ambiguous",
+      "answer": null,
+      "timings_ms": {
+        "normalize": 535.2749940002468,
+        "vector": 339.9560840007325,
+        "keyword": 3.385129999514902,
+        "guardrail": 11608.832729999449,
+        "ttft": null,
+        "generation": null,
+        "total": 12490.805563000322
+      },
+      "qwen_tokens": {
+        "prompt": 1532,
+        "completion": 68,
+        "calls": 2
+      },
+      "context_tokens_sent": 0,
+      "retrieved": [
+        {
+          "chunk_id": "642712e093584c6e_004",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_083",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_083",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_029",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "642712e093584c6e_003",
+          "source_file": "corpus/en/fiber-adsl.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "en-multi-003",
+      "language": "en",
+      "type": "multi_chunk",
+      "question": "What is the difference between denomination and price and what are the unique features of Orange Money Electronic Vouchers?",
+      "action": "answer_normally",
+      "answer": "The denomination is the value credited to your account upon redemption, while the price is the cost of the voucher in Jordanian Dinars. Orange Money Electronic Vouchers are available 24/7, feature a simple and secure purchase process, and are delivered instantly after purchase.",
+      "timings_ms": {
+        "normalize": 158.58687600029953,
+        "vector": 363.29092500000115,
+        "keyword": 4.666510999413731,
+        "guardrail": 12487.391516999196,
+        "ttft": 7765.41499599989,
+        "generation": 7884.701741000754,
+        "total": 20902.28794399991
+      },
+      "qwen_tokens": {
+        "prompt": 2472,
+        "completion": 111,
+        "calls": 3
+      },
+      "context_tokens_sent": 394,
+      "retrieved": [
+        {
+          "chunk_id": "9d2740d3e2920616_061",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_061",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_062",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_062",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_056",
+          "source_file": "corpus/en/orange-money.docx"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All statements are directly supported by the provided sources."
+    },
+    {
+      "id": "en-multi-004",
+      "language": "en",
+      "type": "multi_chunk",
+      "question": "To Which countries can I send and receive money and how much money can I Send and Receive?",
+      "action": "answer_normally",
+      "answer": "You can send and receive money internationally to more than 200 countries. The maximum monthly limit for the total value of outgoing and incoming international transfers is 5,000 Jordanian Dinars.",
+      "timings_ms": {
+        "normalize": 186.38761500005785,
+        "vector": 338.7642030002098,
+        "keyword": 6.624929999816231,
+        "guardrail": 12431.280994999724,
+        "ttft": 7281.450184999812,
+        "generation": 7363.547509999989,
+        "total": 20333.848940999815
+      },
+      "qwen_tokens": {
+        "prompt": 2483,
+        "completion": 100,
+        "calls": 3
+      },
+      "context_tokens_sent": 440,
+      "retrieved": [
+        {
+          "chunk_id": "9d2740d3e2920616_044",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_044",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_043",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_045",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_043",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the provided sources."
+    },
+    {
+      "id": "en-multi-005",
+      "language": "en",
+      "type": "multi_chunk",
+      "question": "How to use QR and where Can I use QR?",
+      "action": "answer_normally",
+      "answer": "To use QR payment, go to the cashier, have your purchases calculated, and then open the Orange Money app on your mobile. Press “Transactions by QR code” and scan the QR code on the cashier’s device; the amount will appear on your phone for you to approve and complete the purchase. You can use this payment method at all Orange shops.",
+      "timings_ms": {
+        "normalize": 143.11012500002107,
+        "vector": 225.12345200084383,
+        "keyword": 2.506967000044824,
+        "guardrail": 13410.209599999689,
+        "ttft": 5319.129451000663,
+        "generation": 5458.550976000879,
+        "total": 19247.372234000068
+      },
+      "qwen_tokens": {
+        "prompt": 2287,
+        "completion": 120,
+        "calls": 3
+      },
+      "context_tokens_sent": 260,
+      "retrieved": [
+        {
+          "chunk_id": "9d2740d3e2920616_033",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_033",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_032",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_034",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_032",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the provided sources."
+    },
+    {
+      "id": "en-multi-006",
+      "language": "en",
+      "type": "multi_chunk",
+      "question": "1) How can I subscribe to Turkey Passenger Bundles and 1) How can I subscribe to Palestine Passenger Bundles?",
+      "action": "answer_normally",
+      "answer": "To subscribe to Turkey Passenger Bundles, dial *090#. To subscribe to Palestine Passenger Bundles, dial *970#.",
+      "timings_ms": {
+        "normalize": 141.2435350002852,
+        "vector": 403.2467480001287,
+        "keyword": 3.543507000358659,
+        "guardrail": 13420.501493999836,
+        "ttft": 6285.233800999777,
+        "generation": 6337.064444000134,
+        "total": 20313.035662999937
+      },
+      "qwen_tokens": {
+        "prompt": 2413,
+        "completion": 77,
+        "calls": 3
+      },
+      "context_tokens_sent": 289,
+      "retrieved": [
+        {
+          "chunk_id": "49d8a9e384a6bcb9_031",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_032",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_030",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_027",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_036",
+          "source_file": "corpus/en/international-roaming.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer correctly states the dialing codes for Turkey (*090#) and Palestine (*970#) as provided in the source."
+    },
+    {
+      "id": "en-multi-007",
+      "language": "en",
+      "type": "multi_chunk",
+      "question": "How can I send an SMS while roaming and how can I use internet while roaming?",
+      "action": "answer_normally",
+      "answer": "To send an SMS while roaming, insert the mobile number in the international format (e.g., 0096277XXXXXX or +96277XXXXXX) in the “To” field. To use the internet, turn on data roaming and ensure the access point name (APN) is set to net.orange.jo.",
+      "timings_ms": {
+        "normalize": 264.2545879998579,
+        "vector": 221.15902999939863,
+        "keyword": 2.3637660005988437,
+        "guardrail": 13412.29966300034,
+        "ttft": 5308.43830699996,
+        "generation": 5454.040354999961,
+        "total": 19358.414485999674
+      },
+      "qwen_tokens": {
+        "prompt": 2334,
+        "completion": 120,
+        "calls": 3
+      },
+      "context_tokens_sent": 255,
+      "retrieved": [
+        {
+          "chunk_id": "49d8a9e384a6bcb9_012",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_013",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_009",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_018",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_017",
+          "source_file": "corpus/en/international-roaming.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the provided context."
+    },
+    {
+      "id": "en-multi-008",
+      "language": "en",
+      "type": "multi_chunk",
+      "question": "Will I be notified if a payment authorization fails and can I use Orange Money Visa card to top up my wallet ?",
+      "action": "answer_normally",
+      "answer": "Yes, you will receive a notification if a payment authorization fails, for example due to insufficient balance. However, you cannot use an Orange Money Visa card to top up your wallet.",
+      "timings_ms": {
+        "normalize": 156.55321800022648,
+        "vector": 337.59665100023994,
+        "keyword": 4.110239000510774,
+        "guardrail": 12491.21588700018,
+        "ttft": 5251.988523000364,
+        "generation": 5324.966516999666,
+        "total": 18321.84883299942
+      },
+      "qwen_tokens": {
+        "prompt": 2217,
+        "completion": 95,
+        "calls": 3
+      },
+      "context_tokens_sent": 182,
+      "retrieved": [
+        {
+          "chunk_id": "c4790bface4196b1_096",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_096",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_097",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_097",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_090",
+          "source_file": "corpus/en/orange-money.docx"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the context."
+    },
+    {
+      "id": "ar-multi-009",
+      "language": "ar",
+      "type": "multi_chunk",
+      "question": "كيف استطيع استخدام الانترنت اثناء تواجدي خارج الاردن (التجوال) وكيف يمكنني معرفه حزم التجوال المتاحه لكل دوله؟",
+      "action": "answer_normally",
+      "answer": "للاستخدام الإنترنت أثناء التجوال، قم بتشغيل تجوال البيانات على هاتفك وتأكد من أن نقطة الوصول (APN) هي net.orange.jo. أما لمعرفة حزم التجوال المتاحة، فستصلك رسائل نصية عند وصولك للوجهة، أو يمكنك زيارة الرابط https://oran.ge/2r7cAjq.",
+      "timings_ms": {
+        "normalize": 184.47162399934314,
+        "vector": 842.637936999381,
+        "keyword": 2.5608820005800226,
+        "guardrail": 13435.050544999285,
+        "ttft": 7303.589899999679,
+        "generation": 7442.080585999975,
+        "total": 21913.699478000126
+      },
+      "qwen_tokens": {
+        "prompt": 2603,
+        "completion": 136,
+        "calls": 3
+      },
+      "context_tokens_sent": 566,
+      "retrieved": [
+        {
+          "chunk_id": "16af3a779c48f7a1_012",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_010",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_013",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_092",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_008",
+          "source_file": "corpus/ar/international-roaming.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the provided sources."
+    },
+    {
+      "id": "ar-multi-010",
+      "language": "ar",
+      "type": "multi_chunk",
+      "question": "كيف بقدر اشوف كل القسائم الالكترونيه اللي اشتريتها من تطبيق Orange Money وكيف بقدر اشوف تفاصيل القسائم الالكترونيه اللي اشتريتها من تطبيق Orange Money؟",
+      "action": "answer_normally",
+      "answer": "تقدر تشوف كل القسائم الإلكترونية التي اشتريتها في خانة \"قسائمي\" داخل تطبيق Orange Money. ولعرض تفاصيل أي قسيمة، اضغط على خيار \"عرض التفاصيل\" بجانبها.",
+      "timings_ms": {
+        "normalize": 179.88535600034083,
+        "vector": 661.4271970001937,
+        "keyword": 3.7687089998144074,
+        "guardrail": 12417.752964999636,
+        "ttft": 9531.008898000437,
+        "generation": 9627.931660000286,
+        "total": 22896.034314000644
+      },
+      "qwen_tokens": {
+        "prompt": 2816,
+        "completion": 110,
+        "calls": 3
+      },
+      "context_tokens_sent": 1116,
+      "retrieved": [
+        {
+          "chunk_id": "97c3ba92a38eb494_055",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_056",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_055",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_056",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_054",
+          "source_file": "corpus/ar/orange-money.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer accurately reflects the information in the sources without adding any unsupported details."
+    },
+    {
+      "id": "ar-multi-011",
+      "language": "ar",
+      "type": "multi_chunk",
+      "question": "هل منطقتي مغطاه بخدمه الاتصال الصوتي الرقمي وما هو نوع الهاتف الذي احتاجه لاستخدام خدمه الاتصال الصوتي الرقمي ؟",
+      "action": "answer_normally",
+      "answer": "نعم، الخدمة متوفرة لمشتركي خدمة الفايبر الجدد الذين لا يملكون خطاً أرضياً في منازلهم. يمكنك استخدام أي هاتف عادي سلكي أو لاسلكي، باستثناء الهواتف الدوارة القديمة.",
+      "timings_ms": {
+        "normalize": 223.55944300034025,
+        "vector": 1241.8484549998539,
+        "keyword": 2.147186000001966,
+        "guardrail": 11624.589199999718,
+        "ttft": 6401.853688999836,
+        "generation": 6518.147014999158,
+        "total": 19618.75239999972
+      },
+      "qwen_tokens": {
+        "prompt": 2354,
+        "completion": 108,
+        "calls": 3
+      },
+      "context_tokens_sent": 361,
+      "retrieved": [
+        {
+          "chunk_id": "fa74d8c747ecd06e_008",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_009",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_014",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_007",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_012",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the provided sources."
+    },
+    {
+      "id": "ar-multi-012",
+      "language": "ar",
+      "type": "multi_chunk",
+      "question": "ما هو الجديد في خدمه الاتصال الصوتي الرقمي مع الفايبر وهل منطقتي مغطاه بخدمه الاتصال الصوتي الرقمي ؟",
+      "action": "answer_normally",
+      "answer": "بمجرد تركيب خط الفايبر، يتم تفعيل خدمة الاتصال الصوتي الرقمي فوراً عبر توصيل الهاتف الأرضي مباشرة على الفايبر بوكس دون الحاجة لتمديدات أسلاك نحاسية داخلية. الخدمة متوفرة للمشتركين الجدد في خدمة الفايبر الذين لا يملكون خطاً أرضياً في منازلهم.",
+      "timings_ms": {
+        "normalize": 348.6926569994466,
+        "vector": 236.71379999996134,
+        "keyword": 2.167534999898635,
+        "guardrail": 13463.62236799996,
+        "ttft": 7386.748103000173,
+        "generation": 7540.200141000241,
+        "total": 21599.640801999158
+      },
+      "qwen_tokens": {
+        "prompt": 2504,
+        "completion": 127,
+        "calls": 3
+      },
+      "context_tokens_sent": 520,
+      "retrieved": [
+        {
+          "chunk_id": "fa74d8c747ecd06e_006",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_014",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_007",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_011",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_010",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the provided sources."
+    },
+    {
+      "id": "ar-multi-013",
+      "language": "ar",
+      "type": "multi_chunk",
+      "question": "ماذا يجب ان افعل عند وصولي لوجهه السفر وكيف استطيع معرفه اسعار خدمات التجوال التفصيليه خارج الحزمه لكل بلد؟",
+      "action": "answer_normally",
+      "answer": "عند وصولك لوجهة السفر، شغّل هاتفك ليتصل بالشبكة تلقائيًا، وستصلك رسالة نصية تتضمن أسعار التجوال في الشبكة المسجل عليها وأفضل العروض المتاحة. للاطلاع على الأسعار التفصيلية خارج الحزم، يمكنك زيارة الموقع الإلكتروني المخصص لذلك.",
+      "timings_ms": {
+        "normalize": 286.0215259997858,
+        "vector": 643.6423690001902,
+        "keyword": 2.962819000458694,
+        "guardrail": 12670.599636000588,
+        "ttft": 18512.308263000705,
+        "generation": 18643.195646000095,
+        "total": 32257.011336000687
+      },
+      "qwen_tokens": {
+        "prompt": 3986,
+        "completion": 125,
+        "calls": 3
+      },
+      "context_tokens_sent": 2827,
+      "retrieved": [
+        {
+          "chunk_id": "16af3a779c48f7a1_013",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_016",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_017",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_026",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_015",
+          "source_file": "corpus/ar/international-roaming.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.5,
+      "faithfulness": 0.5,
+      "faithfulness_reason": "The answer claims you can visit a specific website for detailed roaming prices, but the context only mentions a generic “visit” without providing a URL, so that claim is not directly supported."
+    },
+    {
+      "id": "ar-multi-014",
+      "language": "ar",
+      "type": "multi_chunk",
+      "question": "كيف بقدر اشوف تفاصيل القسائم الالكترونيه اللي اشتريتها من تطبيق Orange Money وشو بعمل اذا اشتريت قسيمه الكترونيه وما ظهرت عندي على التطبيق؟",
+      "action": "answer_normally",
+      "answer": "لعرض تفاصيل القسائم الإلكترونية، ادخل إلى خانة \"قسائمي\" في تطبيق Orange Money واضغط على \"عرض التفاصيل\". أما إذا اشتريت قسيمة ولم تظهر لك، فليس لديّ معلومات في التوثيق المتوفر حول خطوات معالجة هذه المشكلة، لذا يرجى المراجعة مع المشرف أو النظام المختص.",
+      "timings_ms": {
+        "normalize": 215.69674300008046,
+        "vector": 400.15384900016215,
+        "keyword": 3.619987000092806,
+        "guardrail": 10547.101540000767,
+        "ttft": 26401.953224999488,
+        "generation": 26589.11603100023,
+        "total": 37764.793638999436
+      },
+      "qwen_tokens": {
+        "prompt": 2814,
+        "completion": 147,
+        "calls": 3
+      },
+      "context_tokens_sent": 1116,
+      "retrieved": [
+        {
+          "chunk_id": "97c3ba92a38eb494_056",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_056",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_055",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_055",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_054",
+          "source_file": "corpus/ar/orange-money.docx"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 0.5,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 0.0,
+      "faithfulness_reason": "The answer claims there is no information on what to do if a purchased voucher does not appear, but the context provides no such statement."
+    },
+    {
+      "id": "ar-multi-015",
+      "language": "ar",
+      "type": "multi_chunk",
+      "question": "ما هي Google Pay وهل يمكنني اضافه بطاقه Orange Money Visa الى Google Pay؟",
+      "action": "answer_normally",
+      "answer": "نعم، يمكنك إضافة بطاقة Orange Money Visa إلى Google Pay إذا كان جهازك يدعمه. Google Pay هي خدمة تتيح لك الدفع باستخدام هاتفك عبر تطبيق Google Wallet.",
+      "timings_ms": {
+        "normalize": 412.9051990000221,
+        "vector": 40650.880351000014,
+        "keyword": 264.1693269999905,
+        "guardrail": 535.1601429999846,
+        "ttft": 250.15016900005094,
+        "generation": 314.5908330000111,
+        "total": 42188.31587599999
+      },
+      "qwen_tokens": {
+        "prompt": 2768,
+        "completion": 86,
+        "calls": 3
+      },
+      "context_tokens_sent": 977,
+      "retrieved": [
+        {
+          "chunk_id": "97c3ba92a38eb494_065",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_065",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_066",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_066",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_072",
+          "source_file": "corpus/ar/orange-money.docx"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 0.5,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All claims are directly supported by the context."
+    },
+    {
+      "id": "ar-multi-016",
+      "language": "ar",
+      "type": "multi_chunk",
+      "question": "كيف يمكنني الوصول الى خدمه اداره الرقم السري وكيف يمكنني اظهار الرقم السري للبطاقه ؟",
+      "action": "answer_normally",
+      "answer": "للوصول إلى خدمة إدارة الرقم السري، سجّل الدخول إلى تطبيق محفظة Orange Money، ثم اختر \"بطاقاتي\" وحدد البطاقة التي ترغب بإدارتها، واضغط على \"إدارة الرقم السري\".\nلإظهار الرقم السري، اختر \"إظهار الرقم السري للبطاقة\"، وأدخل رمز التحقق (OTP) الذي سيصلك على هاتفك، ليظهر لك الرقم السري الخاص ببطاقتك.",
+      "timings_ms": {
+        "normalize": 366.1590189999515,
+        "vector": 7420.109843999967,
+        "keyword": 15.99231300002657,
+        "guardrail": 412.31289799998194,
+        "ttft": 338.53816499998857,
+        "generation": 539.083316000017,
+        "total": 8766.893500000038
+      },
+      "qwen_tokens": {
+        "prompt": 2639,
+        "completion": 151,
+        "calls": 3
+      },
+      "context_tokens_sent": 657,
+      "retrieved": [
+        {
+          "chunk_id": "35d0f13e82e9675f_100",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_099",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_100",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_099",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_098",
+          "source_file": "corpus/ar/orange-money.docx"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "All steps described are directly supported by the source material."
+    },
+    {
+      "id": "en-refuse-001",
+      "language": "en",
+      "type": "should_refuse",
+      "question": "What's the weather like in Amman today?",
+      "action": "out_of_domain",
+      "answer": null,
+      "timings_ms": {
+        "normalize": 153.45053099997585,
+        "vector": 2165.321290999998,
+        "keyword": 8.164763000024777,
+        "guardrail": 370.28607100000954,
+        "ttft": null,
+        "generation": null,
+        "total": 2697.427346999973
+      },
+      "qwen_tokens": {
+        "prompt": 1536,
+        "completion": 43,
+        "calls": 2
+      },
+      "context_tokens_sent": 0,
+      "retrieved": [
+        {
+          "chunk_id": "c4790bface4196b1_064",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_064",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_006",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_006",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_038",
+          "source_file": "corpus/en/international-roaming.html"
+        }
+      ],
+      "correctly_refused": true
+    },
+    {
+      "id": "en-refuse-002",
+      "language": "en",
+      "type": "should_refuse",
+      "question": "What is the capital of Jordan?",
+      "action": "out_of_domain",
+      "answer": null,
+      "timings_ms": {
+        "normalize": 174.10245899998245,
+        "vector": 392.4589090000268,
+        "keyword": 1.7280000000141627,
+        "guardrail": 329.98174000005065,
+        "ttft": null,
+        "generation": null,
+        "total": 898.4239499999944
+      },
+      "qwen_tokens": {
+        "prompt": 1510,
+        "completion": 40,
+        "calls": 2
+      },
+      "context_tokens_sent": 0,
+      "retrieved": [
+        {
+          "chunk_id": "c4790bface4196b1_064",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_015",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_064",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_015",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_045",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "correctly_refused": true
+    },
+    {
+      "id": "en-refuse-003",
+      "language": "en",
+      "type": "should_refuse",
+      "question": "Can you help me write a Python script?",
+      "action": "out_of_domain",
+      "answer": null,
+      "timings_ms": {
+        "normalize": 137.1952750000105,
+        "vector": 1384.2288179999969,
+        "keyword": 4.050851999977567,
+        "guardrail": 9617.515818000014,
+        "ttft": null,
+        "generation": null,
+        "total": 11143.195946999982
+      },
+      "qwen_tokens": {
+        "prompt": 1510,
+        "completion": 43,
+        "calls": 2
+      },
+      "context_tokens_sent": 0,
+      "retrieved": [
+        {
+          "chunk_id": "16af3a779c48f7a1_031",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_002",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_088",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_016",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_088",
+          "source_file": "corpus/en/orange-money.docx"
+        }
+      ],
+      "correctly_refused": true
+    },
+    {
+      "id": "en-refuse-004",
+      "language": "en",
+      "type": "should_refuse",
+      "question": "What is Orange's current stock price?",
+      "action": "out_of_domain",
+      "answer": null,
+      "timings_ms": {
+        "normalize": 187.8933049999887,
+        "vector": 1226.8894750000072,
+        "keyword": 9.796929000003729,
+        "guardrail": 12526.09355200002,
+        "ttft": null,
+        "generation": null,
+        "total": 13950.90207100003
+      },
+      "qwen_tokens": {
+        "prompt": 1523,
+        "completion": 55,
+        "calls": 2
+      },
+      "context_tokens_sent": 0,
+      "retrieved": [
+        {
+          "chunk_id": "fc4e8ce20cf935f4_004",
+          "source_file": "corpus/ar/bills-payment.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_061",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "642712e093584c6e_033",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_061",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_004",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "correctly_refused": true
+    },
+    {
+      "id": "en-refuse-005",
+      "language": "en",
+      "type": "should_refuse",
+      "question": "How do I reset my email password?",
+      "action": "answer_normally",
+      "answer": "I don't have this information in the documentation. Please check with a supervisor or the relevant system.",
+      "timings_ms": {
+        "normalize": 148.1692020000196,
+        "vector": 1242.064873000004,
+        "keyword": 7.44773499997109,
+        "guardrail": 11503.924412000004,
+        "ttft": 13650.959268999997,
+        "generation": 13671.594545999995,
+        "total": 26581.865634999987
+      },
+      "qwen_tokens": {
+        "prompt": 2840,
+        "completion": 62,
+        "calls": 3
+      },
+      "context_tokens_sent": 1304,
+      "retrieved": [
+        {
+          "chunk_id": "642712e093584c6e_028",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_107",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_107",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_101",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_101",
+          "source_file": "corpus/ar/orange-money.docx"
+        }
+      ],
+      "correctly_refused": false
+    },
+    {
+      "id": "en-refuse-006",
+      "language": "en",
+      "type": "should_refuse",
+      "question": "What's the best restaurant in Amman?",
+      "action": "out_of_domain",
+      "answer": null,
+      "timings_ms": {
+        "normalize": 244.4948140000065,
+        "vector": 367.5098629999525,
+        "keyword": 1.9464970000058202,
+        "guardrail": 10538.518796000006,
+        "ttft": null,
+        "generation": null,
+        "total": 11152.755689999993
+      },
+      "qwen_tokens": {
+        "prompt": 1572,
+        "completion": 42,
+        "calls": 2
+      },
+      "context_tokens_sent": 0,
+      "retrieved": [
+        {
+          "chunk_id": "9d2740d3e2920616_006",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_006",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_064",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_064",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_008",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "correctly_refused": true
+    },
+    {
+      "id": "en-refuse-007",
+      "language": "en",
+      "type": "should_refuse",
+      "question": "Can I get a discounted family postpaid bundle?",
+      "action": "answer_normally",
+      "answer": "I don't have this information in the documentation. Please check with a supervisor or the relevant system.",
+      "timings_ms": {
+        "normalize": 785.2889590000132,
+        "vector": 775.9594940000056,
+        "keyword": 1.6018960000110383,
+        "guardrail": 11513.590952000015,
+        "ttft": 4673.070811999992,
+        "generation": 4718.6552580000125,
+        "total": 17808.95018299998
+      },
+      "qwen_tokens": {
+        "prompt": 2194,
+        "completion": 63,
+        "calls": 3
+      },
+      "context_tokens_sent": 178,
+      "retrieved": [
+        {
+          "chunk_id": "49d8a9e384a6bcb9_035",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_025",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "59b28e214a8b7017_000",
+          "source_file": "corpus/en/mobile-lines.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_041",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_036",
+          "source_file": "corpus/en/international-roaming.html"
+        }
+      ],
+      "correctly_refused": false
+    },
+    {
+      "id": "en-refuse-008",
+      "language": "en",
+      "type": "should_refuse",
+      "question": "Do you sell smartphones directly in your stores?",
+      "action": "answer_normally",
+      "answer": "I don't have this information in the documentation. Please check with a supervisor or the relevant system.",
+      "timings_ms": {
+        "normalize": 136.4913799999954,
+        "vector": 445.26706900001045,
+        "keyword": 1.4632840000103897,
+        "guardrail": 12547.774664999963,
+        "ttft": 6579.33711100003,
+        "generation": 6584.545997000021,
+        "total": 19741.96298800001
+      },
+      "qwen_tokens": {
+        "prompt": 2303,
+        "completion": 63,
+        "calls": 3
+      },
+      "context_tokens_sent": 309,
+      "retrieved": [
+        {
+          "chunk_id": "c4790bface4196b1_066",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_066",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_000",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_071",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_071",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "correctly_refused": false
+    },
+    {
+      "id": "ar-refuse-009",
+      "language": "ar",
+      "type": "should_refuse",
+      "question": "شو الطقس بعمان اليوم؟",
+      "action": "out_of_domain",
+      "answer": null,
+      "timings_ms": {
+        "normalize": 312.5012609999658,
+        "vector": 497.9089839999915,
+        "keyword": 2.6203909999935604,
+        "guardrail": 11640.635830999998,
+        "ttft": null,
+        "generation": null,
+        "total": 12453.79504699997
+      },
+      "qwen_tokens": {
+        "prompt": 1525,
+        "completion": 40,
+        "calls": 2
+      },
+      "context_tokens_sent": 0,
+      "retrieved": [
+        {
+          "chunk_id": "49d8a9e384a6bcb9_038",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_023",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_088",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_024",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_088",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "correctly_refused": true
+    },
+    {
+      "id": "ar-refuse-010",
+      "language": "ar",
+      "type": "should_refuse",
+      "question": "شو عاصمة الاردن؟",
+      "action": "out_of_domain",
+      "answer": null,
+      "timings_ms": {
+        "normalize": 1401.6146490000096,
+        "vector": 371.66569700002583,
+        "keyword": 1.2880809999842313,
+        "guardrail": 11507.035544000018,
+        "ttft": null,
+        "generation": null,
+        "total": 13282.692146000045
+      },
+      "qwen_tokens": {
+        "prompt": 1552,
+        "completion": 39,
+        "calls": 2
+      },
+      "context_tokens_sent": 0,
+      "retrieved": [
+        {
+          "chunk_id": "97c3ba92a38eb494_092",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_092",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_010",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_028",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_038",
+          "source_file": "corpus/en/international-roaming.html"
+        }
+      ],
+      "correctly_refused": true
+    },
+    {
+      "id": "ar-refuse-011",
+      "language": "ar",
+      "type": "should_refuse",
+      "question": "ممكن تكتبلي كود بايثون؟",
+      "action": "out_of_domain",
+      "answer": null,
+      "timings_ms": {
+        "normalize": 1320.2011430000198,
+        "vector": 761.671242000034,
+        "keyword": 1.9053789999929904,
+        "guardrail": 11616.564282000014,
+        "ttft": null,
+        "generation": null,
+        "total": 13700.50553599998
+      },
+      "qwen_tokens": {
+        "prompt": 1616,
+        "completion": 45,
+        "calls": 2
+      },
+      "context_tokens_sent": 0,
+      "retrieved": [
+        {
+          "chunk_id": "16af3a779c48f7a1_031",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_018",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "9044d8dde9894bc6_000",
+          "source_file": "corpus/en/short-codes.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_089",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "60409545ab124892_000",
+          "source_file": "corpus/ar/short-codes.html"
+        }
+      ],
+      "correctly_refused": true
+    },
+    {
+      "id": "ar-refuse-012",
+      "language": "ar",
+      "type": "should_refuse",
+      "question": "شو سعر سهم اورنج حاليا؟",
+      "action": "out_of_domain",
+      "answer": null,
+      "timings_ms": {
+        "normalize": 1325.0405539999974,
+        "vector": 302.5693390000015,
+        "keyword": 1.7276230000220494,
+        "guardrail": 12713.250915999994,
+        "ttft": null,
+        "generation": null,
+        "total": 14342.693075999989
+      },
+      "qwen_tokens": {
+        "prompt": 1567,
+        "completion": 43,
+        "calls": 2
+      },
+      "context_tokens_sent": 0,
+      "retrieved": [
+        {
+          "chunk_id": "9d2740d3e2920616_004",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_023",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_004",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_035",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_017",
+          "source_file": "corpus/ar/international-roaming.html"
+        }
+      ],
+      "correctly_refused": true
+    },
+    {
+      "id": "ar-refuse-013",
+      "language": "ar",
+      "type": "should_refuse",
+      "question": "كيف بغير كلمة سر الايميل تبعي؟",
+      "action": "ambiguous",
+      "answer": null,
+      "timings_ms": {
+        "normalize": 191.02508700001408,
+        "vector": 6329.233602999977,
+        "keyword": 2.353208000045015,
+        "guardrail": 9876.933409999992,
+        "ttft": null,
+        "generation": null,
+        "total": 16399.723149999998
+      },
+      "qwen_tokens": {
+        "prompt": 1767,
+        "completion": 73,
+        "calls": 2
+      },
+      "context_tokens_sent": 0,
+      "retrieved": [
+        {
+          "chunk_id": "fa74d8c747ecd06e_022",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_100",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_100",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_025",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_025",
+          "source_file": "corpus/ar/orange-money.html"
+        }
+      ],
+      "correctly_refused": true
+    },
+    {
+      "id": "ar-refuse-014",
+      "language": "ar",
+      "type": "should_refuse",
+      "question": "وين أحسن مطعم بعمان؟",
+      "action": "out_of_domain",
+      "answer": null,
+      "timings_ms": {
+        "normalize": 246.00173599998243,
+        "vector": 2229.6975700000417,
+        "keyword": 35.47046299996737,
+        "guardrail": 10032.550429000024,
+        "ttft": null,
+        "generation": null,
+        "total": 12543.888281999954
+      },
+      "qwen_tokens": {
+        "prompt": 1543,
+        "completion": 42,
+        "calls": 2
+      },
+      "context_tokens_sent": 0,
+      "retrieved": [
+        {
+          "chunk_id": "fc4e8ce20cf935f4_002",
+          "source_file": "corpus/ar/bills-payment.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_038",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_023",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_088",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_024",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        }
+      ],
+      "correctly_refused": true
+    },
+    {
+      "id": "ar-refuse-015",
+      "language": "ar",
+      "type": "should_refuse",
+      "question": "في عندكم باقة عائلية مخفضة للاشتراك الشهري؟",
+      "action": "answer_normally",
+      "answer": "ما عندي هاي المعلومة بالتوثيق المتوفر. يرجى المراجعة مع المشرف أو النظام المختص.",
+      "timings_ms": {
+        "normalize": 263.4282920000146,
+        "vector": 3750.2912479999964,
+        "keyword": 7.0407499999873835,
+        "guardrail": 7466.938357999936,
+        "ttft": 6437.106884000059,
+        "generation": 6485.601391000046,
+        "total": 17990.24736200005
+      },
+      "qwen_tokens": {
+        "prompt": 2273,
+        "completion": 74,
+        "calls": 3
+      },
+      "context_tokens_sent": 339,
+      "retrieved": [
+        {
+          "chunk_id": "97c3ba92a38eb494_029",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_029",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_028",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_005",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_031",
+          "source_file": "corpus/ar/international-roaming.html"
+        }
+      ],
+      "correctly_refused": false
+    },
+    {
+      "id": "ar-refuse-016",
+      "language": "ar",
+      "type": "should_refuse",
+      "question": "بتبيعوا موبايلات مباشرة من المحلات؟",
+      "action": "out_of_domain",
+      "answer": null,
+      "timings_ms": {
+        "normalize": 1341.9562779999978,
+        "vector": 3685.4312489999757,
+        "keyword": 17.22546999997121,
+        "guardrail": 8942.732202999992,
+        "ttft": null,
+        "generation": null,
+        "total": 13987.919678000026
+      },
+      "qwen_tokens": {
+        "prompt": 1588,
+        "completion": 45,
+        "calls": 2
+      },
+      "context_tokens_sent": 0,
+      "retrieved": [
+        {
+          "chunk_id": "97c3ba92a38eb494_053",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_053",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_038",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_031",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_100",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "correctly_refused": true
+    },
+    {
+      "id": "ar-dialect-001",
+      "language": "ar",
+      "type": "dialect_arabizi",
+      "question": "kif ba2dar atchek 3ala el package w shu ba2i minha?",
+      "action": "ambiguous",
+      "answer": null,
+      "timings_ms": {
+        "normalize": 208.2803049999029,
+        "vector": 5116.700251999987,
+        "keyword": 58.62299900002199,
+        "guardrail": 9073.10394700005,
+        "ttft": null,
+        "generation": null,
+        "total": 14461.09280099995
+      },
+      "qwen_tokens": {
+        "prompt": 1652,
+        "completion": 103,
+        "calls": 2
+      },
+      "context_tokens_sent": 0,
+      "retrieved": [
+        {
+          "chunk_id": "49d8a9e384a6bcb9_005",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_044",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_044",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_024",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_014",
+          "source_file": "corpus/en/orange-money.docx"
+        }
+      ],
+      "hit_at_5": false,
+      "recall_at_5": 0.0,
+      "reciprocal_rank": 0.05
+    },
+    {
+      "id": "ar-dialect-002",
+      "language": "ar",
+      "type": "dialect_arabizi",
+      "question": "ما هي الخدمات التي يمكنني سداد فواتيرها?",
+      "action": "answer_normally",
+      "answer": "يمكنك سداد فواتير عروض الجوال والثابت والانترنت في كل مكان، وخدمات ADSL والألياف، وبيت العيلة المتقاربة.",
+      "timings_ms": {
+        "normalize": 139.03758600008587,
+        "vector": 2092.1559339999476,
+        "keyword": 13.812978000032672,
+        "guardrail": 10099.16681499999,
+        "ttft": 6490.950364000014,
+        "generation": 6626.381939000112,
+        "total": 19135.546543000033
+      },
+      "qwen_tokens": {
+        "prompt": 2124,
+        "completion": 79,
+        "calls": 3
+      },
+      "context_tokens_sent": 148,
+      "retrieved": [
+        {
+          "chunk_id": "fc4e8ce20cf935f4_007",
+          "source_file": "corpus/ar/bills-payment.html"
+        },
+        {
+          "chunk_id": "35d0f13e82e9675f_085",
+          "source_file": "corpus/ar/orange-money.html"
+        },
+        {
+          "chunk_id": "97c3ba92a38eb494_085",
+          "source_file": "corpus/ar/orange-money.docx"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_028",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_088",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer accurately restates the services listed in the source without adding any new information."
+    },
+    {
+      "id": "ar-dialect-003",
+      "language": "ar",
+      "type": "dialect_arabizi",
+      "question": "ما هو الجديد في خدمه الاتصال الصوتي الرقمي مع الفايبر?",
+      "action": "answer_normally",
+      "answer": "بمجرد تركيب خط الفايبر، يتم تفعيل خدمة الاتصال الصوتي الرقمي فوراً، حيث يتم توصيل جهاز الهاتف الأرضي مباشرة على الفايبر بوكس دون الحاجة لأي تمديدات أسلاك نحاسية داخلية.",
+      "timings_ms": {
+        "normalize": 398.19671399993695,
+        "vector": 6408.337675999974,
+        "keyword": 13.157823000028657,
+        "guardrail": 6277.246705000039,
+        "ttft": 5406.682832000001,
+        "generation": 5574.318473999938,
+        "total": 18857.708042000013
+      },
+      "qwen_tokens": {
+        "prompt": 2459,
+        "completion": 95,
+        "calls": 3
+      },
+      "context_tokens_sent": 520,
+      "retrieved": [
+        {
+          "chunk_id": "fa74d8c747ecd06e_014",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_006",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_011",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_010",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_007",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly quotes the information from Source 2 without adding any unsupported details."
+    },
+    {
+      "id": "ar-dialect-004",
+      "language": "ar",
+      "type": "dialect_arabizi",
+      "question": "ما هي ميزه التحكم في فاتوره بيانات التجوال (حمايه من ارتفاع الفواتير)?",
+      "action": "answer_normally",
+      "answer": "هي خدمة تحميك من ارتفاع فواتير التجوال، وذلك بتحديد حد استهلاك محدد.",
+      "timings_ms": {
+        "normalize": 172.12317300004543,
+        "vector": 1591.6193940000767,
+        "keyword": 4.657723999912378,
+        "guardrail": 12591.711322999912,
+        "ttft": 8437.10360199998,
+        "generation": 8479.742568000005,
+        "total": 22849.28543600006
+      },
+      "qwen_tokens": {
+        "prompt": 2646,
+        "completion": 76,
+        "calls": 3
+      },
+      "context_tokens_sent": 732,
+      "retrieved": [
+        {
+          "chunk_id": "16af3a779c48f7a1_001",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_033",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_004",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_005",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_007",
+          "source_file": "corpus/ar/international-roaming.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly quotes the source and contains no unsupported claims."
+    },
+    {
+      "id": "en-dialect-005",
+      "language": "en",
+      "type": "informal",
+      "question": "so like, how long does it take for my bill to be processed or what",
+      "action": "ambiguous",
+      "answer": null,
+      "timings_ms": {
+        "normalize": 146.27352000002247,
+        "vector": 479.2959229999951,
+        "keyword": 4.893256999935147,
+        "guardrail": 11805.347073999998,
+        "ttft": null,
+        "generation": null,
+        "total": 12435.937321999972
+      },
+      "qwen_tokens": {
+        "prompt": 1590,
+        "completion": 65,
+        "calls": 2
+      },
+      "context_tokens_sent": 0,
+      "retrieved": [
+        {
+          "chunk_id": "a43121861055a8fa_006",
+          "source_file": "corpus/en/bills-payment.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_089",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_089",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_010",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_010",
+          "source_file": "corpus/en/orange-money.docx"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "en-dialect-006",
+      "language": "en",
+      "type": "informal",
+      "question": "so like, can i use a security system alarm with the digital voice service or what",
+      "action": "answer_normally",
+      "answer": "Yes, it works with a normal auto dialer that requires generating a call with a voice message.",
+      "timings_ms": {
+        "normalize": 167.65844199994717,
+        "vector": 466.8889439999475,
+        "keyword": 4.768857000044591,
+        "guardrail": 12994.601590999991,
+        "ttft": 4565.15755800001,
+        "generation": 4613.433705000034,
+        "total": 18252.92508100006
+      },
+      "qwen_tokens": {
+        "prompt": 2098,
+        "completion": 67,
+        "calls": 3
+      },
+      "context_tokens_sent": 122,
+      "retrieved": [
+        {
+          "chunk_id": "642712e093584c6e_019",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_020",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_009",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_012",
+          "source_file": "corpus/en/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "642712e093584c6e_018",
+          "source_file": "corpus/en/fiber-adsl.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly reflects the statement in Source 1, with no added or unsupported claims."
+    },
+    {
+      "id": "en-dialect-007",
+      "language": "en",
+      "type": "informal",
+      "question": "so like, how can i use internet while roaming or what",
+      "action": "answer_normally",
+      "answer": "To use the internet while roaming, turn on data roaming on your mobile and ensure the access point name (APN) is set to net.orange.jo.",
+      "timings_ms": {
+        "normalize": 181.49960799996734,
+        "vector": 499.41209999997227,
+        "keyword": 1.9696269999940341,
+        "guardrail": 11492.063716000075,
+        "ttft": 6553.759559000014,
+        "generation": 6569.068107000021,
+        "total": 18754.37556999998
+      },
+      "qwen_tokens": {
+        "prompt": 2250,
+        "completion": 75,
+        "calls": 3
+      },
+      "context_tokens_sent": 225,
+      "retrieved": [
+        {
+          "chunk_id": "49d8a9e384a6bcb9_013",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_009",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_017",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_095",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_095",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer accurately reflects the information in the source: turn on data roaming and set APN to net.orange.jo."
+    },
+    {
+      "id": "en-dialect-008",
+      "language": "en",
+      "type": "informal",
+      "question": "so like, was this page helpful  or what",
+      "action": "answer_normally",
+      "answer": "I don't have this information in the documentation. Please check with a supervisor or the relevant system.",
+      "timings_ms": {
+        "normalize": 175.00990400003502,
+        "vector": 311.72844200000327,
+        "keyword": 1.1125780000611485,
+        "guardrail": 11610.66016899997,
+        "ttft": 5036.623342999974,
+        "generation": 5047.152862999951,
+        "total": 17158.075521999992
+      },
+      "qwen_tokens": {
+        "prompt": 2113,
+        "completion": 59,
+        "calls": 3
+      },
+      "context_tokens_sent": 142,
+      "retrieved": [
+        {
+          "chunk_id": "892563201ac794b3_005",
+          "source_file": "corpus/en/mobile-lines.pdf"
+        },
+        {
+          "chunk_id": "124a480cd7ccc2ee_000",
+          "source_file": "corpus/en/help-center.html"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_088",
+          "source_file": "corpus/en/orange-money.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_088",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_083",
+          "source_file": "corpus/en/orange-money.docx"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer is a generic refusal, which is fully faithful to the context."
+    },
+    {
+      "id": "en-shortcode-001",
+      "language": "en",
+      "type": "exact_value",
+      "question": "What code do I dial for SOS (emergency) credit?",
+      "action": "answer_normally",
+      "answer": "Dial *606# to access the SOS (emergency) credit service.",
+      "timings_ms": {
+        "normalize": 245.84350999998605,
+        "vector": 634.8563809999632,
+        "keyword": 3.2157220000499365,
+        "guardrail": 12873.994984999968,
+        "ttft": 23078.845737999927,
+        "generation": 23085.861794999913,
+        "total": 36856.35411100009
+      },
+      "qwen_tokens": {
+        "prompt": 4346,
+        "completion": 65,
+        "calls": 3
+      },
+      "context_tokens_sent": 2048,
+      "retrieved": [
+        {
+          "chunk_id": "9044d8dde9894bc6_000",
+          "source_file": "corpus/en/short-codes.html"
+        },
+        {
+          "chunk_id": "892563201ac794b3_003",
+          "source_file": "corpus/en/mobile-lines.pdf"
+        },
+        {
+          "chunk_id": "59b28e214a8b7017_004",
+          "source_file": "corpus/en/mobile-lines.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_042",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "59b28e214a8b7017_003",
+          "source_file": "corpus/en/mobile-lines.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer correctly states that *606# is the code for SOS (emergency) credit, which is directly supported by the source."
+    },
+    {
+      "id": "en-shortcode-002",
+      "language": "en",
+      "type": "exact_value",
+      "question": "How do I activate Missed Call Alert (MCA)?",
+      "action": "answer_normally",
+      "answer": "To activate the Missed Call Alert (MCA) service, press *130#.",
+      "timings_ms": {
+        "normalize": 149.93361999995614,
+        "vector": 971.4799700000185,
+        "keyword": 2.9591879999770754,
+        "guardrail": 12740.866271000072,
+        "ttft": 15554.327061999971,
+        "generation": 15594.045213000072,
+        "total": 29472.437299000034
+      },
+      "qwen_tokens": {
+        "prompt": 3544,
+        "completion": 68,
+        "calls": 3
+      },
+      "context_tokens_sent": 1265,
+      "retrieved": [
+        {
+          "chunk_id": "9044d8dde9894bc6_000",
+          "source_file": "corpus/en/short-codes.html"
+        },
+        {
+          "chunk_id": "59b28e214a8b7017_004",
+          "source_file": "corpus/en/mobile-lines.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_024",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "892563201ac794b3_003",
+          "source_file": "corpus/en/mobile-lines.pdf"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_024",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer correctly states that pressing *130# activates Missed Call Alert, which is directly supported by the source."
+    },
+    {
+      "id": "en-shortcode-003",
+      "language": "en",
+      "type": "exact_value",
+      "question": "What short code do I use to check my balance and remaining bundles?",
+      "action": "answer_normally",
+      "answer": "Press *155# to check your balance and remaining bundles.",
+      "timings_ms": {
+        "normalize": 174.0770489999477,
+        "vector": 488.1888900000604,
+        "keyword": 4.215445999989242,
+        "guardrail": 12513.529629999994,
+        "ttft": 9508.916589000022,
+        "generation": 9541.34356999998,
+        "total": 22736.499995999908
+      },
+      "qwen_tokens": {
+        "prompt": 2759,
+        "completion": 62,
+        "calls": 3
+      },
+      "context_tokens_sent": 627,
+      "retrieved": [
+        {
+          "chunk_id": "59b28e214a8b7017_004",
+          "source_file": "corpus/en/mobile-lines.html"
+        },
+        {
+          "chunk_id": "9044d8dde9894bc6_000",
+          "source_file": "corpus/en/short-codes.html"
+        },
+        {
+          "chunk_id": "49d8a9e384a6bcb9_040",
+          "source_file": "corpus/en/international-roaming.html"
+        },
+        {
+          "chunk_id": "c4790bface4196b1_014",
+          "source_file": "corpus/en/orange-money.docx"
+        },
+        {
+          "chunk_id": "9d2740d3e2920616_014",
+          "source_file": "corpus/en/orange-money.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.5,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer directly cites *155# as the short code for checking balance and remaining bundles, which is explicitly stated in the provided sources."
+    },
+    {
+      "id": "ar-shortcode-001",
+      "language": "ar",
+      "type": "exact_value",
+      "question": "شو الكود يلي بضغطه لرصيد الطوارئ؟",
+      "action": "answer_normally",
+      "answer": "الكود الخاص بخدمه الرصيد الطارئ هو *606#.",
+      "timings_ms": {
+        "normalize": 177.9155049999872,
+        "vector": 965.1401089998899,
+        "keyword": 3.8734220000833375,
+        "guardrail": 11994.645307999917,
+        "ttft": 9618.821727999944,
+        "generation": 9630.963964999977,
+        "total": 22785.49130800002
+      },
+      "qwen_tokens": {
+        "prompt": 2638,
+        "completion": 63,
+        "calls": 3
+      },
+      "context_tokens_sent": 523,
+      "retrieved": [
+        {
+          "chunk_id": "9044d8dde9894bc6_000",
+          "source_file": "corpus/en/short-codes.html"
+        },
+        {
+          "chunk_id": "fc4e8ce20cf935f4_002",
+          "source_file": "corpus/ar/bills-payment.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_031",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_008",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "9044d8dde9894bc6_001",
+          "source_file": "corpus/en/short-codes.html"
+        }
+      ],
+      "hit_at_5": false,
+      "recall_at_5": 0.0,
+      "reciprocal_rank": 0.1111111111111111,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer correctly states that *606# is the code for the emergency credit service, which is directly supported by the context."
+    },
+    {
+      "id": "ar-shortcode-002",
+      "language": "ar",
+      "type": "exact_value",
+      "question": "كيف بفعّل ميزة تنبيه المكالمات الفائتة؟",
+      "action": "answer_normally",
+      "answer": "لتفعيل ميزة تنبيه المكالمات الفائتة، اضغط على الرمز المختصر *130#.",
+      "timings_ms": {
+        "normalize": 173.4449630000654,
+        "vector": 684.7596329999988,
+        "keyword": 3.1112170000824335,
+        "guardrail": 14008.935541000028,
+        "ttft": 21521.507200000087,
+        "generation": 21565.35054400001,
+        "total": 36446.65305499996
+      },
+      "qwen_tokens": {
+        "prompt": 4345,
+        "completion": 71,
+        "calls": 3
+      },
+      "context_tokens_sent": 3747,
+      "retrieved": [
+        {
+          "chunk_id": "16af3a779c48f7a1_039",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "998b108075cc4af8_002",
+          "source_file": "corpus/ar/mobile-lines.html"
+        },
+        {
+          "chunk_id": "60409545ab124892_000",
+          "source_file": "corpus/ar/short-codes.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_016",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        },
+        {
+          "chunk_id": "998b108075cc4af8_004",
+          "source_file": "corpus/ar/mobile-lines.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer correctly states that to activate missed call alerts, press *130#, which is directly supported by the context."
+    },
+    {
+      "id": "ar-shortcode-003",
+      "language": "ar",
+      "type": "exact_value",
+      "question": "شو الكود يلي بعرفني على رصيدي والحزم المتبقية؟",
+      "action": "answer_normally",
+      "answer": "اضغط على *155# لمعرفة رصيدك والحزم المتبقية.",
+      "timings_ms": {
+        "normalize": 273.97709299998496,
+        "vector": 715.0487270000667,
+        "keyword": 2.3439639999196515,
+        "guardrail": 12697.901343000012,
+        "ttft": 10542.086685999948,
+        "generation": 10573.91949099997,
+        "total": 24271.292015000086
+      },
+      "qwen_tokens": {
+        "prompt": 2912,
+        "completion": 67,
+        "calls": 3
+      },
+      "context_tokens_sent": 1190,
+      "retrieved": [
+        {
+          "chunk_id": "60409545ab124892_000",
+          "source_file": "corpus/ar/short-codes.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_031",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "fc4e8ce20cf935f4_002",
+          "source_file": "corpus/ar/bills-payment.html"
+        },
+        {
+          "chunk_id": "16af3a779c48f7a1_037",
+          "source_file": "corpus/ar/international-roaming.html"
+        },
+        {
+          "chunk_id": "fa74d8c747ecd06e_008",
+          "source_file": "corpus/ar/fiber-adsl.html"
+        }
+      ],
+      "hit_at_5": true,
+      "recall_at_5": 1.0,
+      "reciprocal_rank": 1.0,
+      "faithfulness": 1.0,
+      "faithfulness_reason": "The answer correctly cites *155# as the code to check balance and remaining packages, which is directly stated in the source."
+    }
+  ]
+}

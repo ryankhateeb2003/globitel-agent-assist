@@ -17,12 +17,13 @@ GROQ_MODEL = "qwen/qwen3.8-27b"
 # 3.6, it does NOT accept reasoning_effort (a live test showed passing it
 # returns empty content) -- no call in this API passes that parameter.
 
-# Task 4, E4 note: a revised prompt (eval/task4_experiments/prompts_v3/)
-# measured better than this one on the full eval set -- EN hallucination
-# 3.4% -> 0.0%, AR 3.4% -> 3.2%, no language trade-off (see experiments.md
-# section 5). Not applied here yet -- these paths still point at the
-# original production prompts, by deliberate choice, pending a separate
-# decision to adopt v3.
+# Task 4, E4 winner: rule 9 (don't invent unsupported details, don't
+# default to a generic deflection when the context already has the
+# answer) is now baked into these two files directly -- measured EN
+# hallucination 3.4% -> 0.0%, AR 3.4% -> 3.2%, no language trade-off
+# (see experiments.md section 5; the pre-change versions are preserved
+# as eval/task4_experiments/prompts_v2/ and v1's behavior is just
+# these files without rule 9).
 PROMPT_PATHS = {
     "en": Path("prompts/rag_answer_en.txt"),
     "ar": Path("prompts/rag_answer_ar.txt"),
@@ -67,15 +68,6 @@ TOKEN_LOG_PATH = Path("logs/tokens.jsonl")
 # served from the same origin as the API so the page's fetch() calls
 # need no CORS configuration. See app/static/index.html for the frontend.
 STATIC_DIR = Path("app/static")
-
-# Task 4, E1 note: a larger-chunk corpus split (137 chunks vs this
-# project's 640) measured better retrieval than production on the full
-# eval set -- AR Hit@5 0.969 vs 0.933 (beats production), EN 0.938 vs
-# 1.000 (close), with perfect faithfulness and zero hallucination both
-# languages (see experiments.md section 5). Not applied -- switching to
-# it means re-indexing the whole corpus into a new Qdrant collection,
-# a bigger operational step than a config value, left as a separate
-# deliberate decision rather than bundled in here.
 
 # Globitel's own hosted embedding API (globitelai-bge) -- the production
 # embedding backend for /ask's vector search (app/embeddings/globitel_bge.py).

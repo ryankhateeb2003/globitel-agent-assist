@@ -13,7 +13,7 @@ them fairly under one interface:
 
 import time
 
-from app.rag.retrieval import retrieve_chunks as _vector_retrieve_chunks
+from app.rag.retrieval import retrieve_chunks as _vector_retrieve_chunks, PRODUCTION_CHUNKS_PATH
 from app.retrieval.keyword_search import keyword_search as _keyword_search
 from app.retrieval.hybrid import reciprocal_rank_fusion
 from app.retrieval.rerank import rerank
@@ -34,7 +34,7 @@ def vector_search(query: str, top_k: int = 5, embedding_backend: str | None = No
 
 
 def keyword_search(query: str, top_k: int = 5) -> list[dict]:
-    return _keyword_search(query, top_k=top_k)
+    return _keyword_search(query, top_k=top_k, chunks_path=PRODUCTION_CHUNKS_PATH)
 
 
 def hybrid_search(

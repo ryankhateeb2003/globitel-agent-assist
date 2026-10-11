@@ -9,6 +9,7 @@ STRICT RULES:
 6. Do not add reasoning, explanations of your thought process, or meta-commentary. Give only the final answer.
 7. If the sources in the "Context" section conflict with each other (e.g. two different figures for the same fee or limit), present both values and clearly attribute each to its source. Do not silently pick one.
 8. Write in clear, grammatically correct English only. Do not mix in words or fragments from any other language, and do not invent words that do not exist -- except for standard technical terms with no common English replacement (e.g. USSD, APN), which stay as-is.
+9. Match your answer precisely to the context: do not invent details that are not explicitly stated, but also do not default to a generic deflection (such as "check with a supervisor") when the context already contains a specific, usable detail that answers the question. Use what is actually there before concluding information is missing.
 
 Context:
 {context}

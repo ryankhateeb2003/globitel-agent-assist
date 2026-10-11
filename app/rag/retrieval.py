@@ -18,6 +18,7 @@ this, only which one gets queried.
 """
 
 import os
+from pathlib import Path
 
 from app.embeddings.embed_store import get_model, collection_name, client
 
@@ -26,6 +27,20 @@ from app.embeddings.embed_store import get_model, collection_name, client
 # model is the production choice; the local BGE-M3 is only loaded if a
 # caller explicitly asks for "bge_m3".
 EMBEDDING_BACKEND = os.environ.get("EMBEDDING_BACKEND", "globitelai_bge")
+
+# Task 4, E1 winner: large chunks (137 vs this corpus's old 640-chunk
+# split) measured better than production on the full eval set -- AR
+# Hit@5 0.969 vs 0.933 (beats the old default), EN 0.938 vs 1.000
+# (close), with perfect faithfulness and zero hallucination both
+# languages (see eval/task4_experiments/experiments.md section 5).
+# Already indexed for the E1 experiment (not re-done here) -- these two
+# just point /ask's retrieval at that existing collection/file instead
+# of the old 640-chunk default. Only used for the "globitelai_bge"
+# backend's vector search and for keyword search; "bge_m3" keeps using
+# its own collection (collection_name("bge_m3")) since E1 was only
+# indexed with globitelai_bge.
+PRODUCTION_COLLECTION = "chunks_e1_large"
+PRODUCTION_CHUNKS_PATH = Path("eval/task4_experiments/chunks/e1_large.jsonl")
 
 
 def _embed_query(question: str, embedding_backend: str) -> list[float]:
@@ -39,7 +54,7 @@ def _embed_query(question: str, embedding_backend: str) -> list[float]:
 
 def _active_collection_name(embedding_backend: str) -> str:
     if embedding_backend == "globitelai_bge":
-        return "chunks_globitelai_bge"
+        return PRODUCTION_COLLECTION
     return collection_name("bge_m3")
 
 

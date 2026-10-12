@@ -36,6 +36,28 @@ def log_groq_error(stage: str, error: Exception) -> None:
     logger.error(f"[groq_error] stage={stage} type={type(error).__name__} msg={error}")
 
 
+def log_cache(hit: bool, match_type: str | None = None, similarity: float | None = None) -> None:
+    """
+    One line per request's cache check -- hit=True means the whole
+    retrieval+guardrail+generation pipeline was skipped. match_type is
+    "identical" or "near_identical" (see app/task5/cache.py); similarity
+    is the cosine score for a near_identical hit, None for identical/miss.
+    """
+    if hit:
+        sim = f" similarity={similarity:.4f}" if similarity is not None else ""
+        logger.info(f"[cache] HIT match={match_type}{sim}")
+    else:
+        logger.info("[cache] MISS")
+
+
+def log_model_route(model: str, main_model: str) -> None:
+    """Task 5: which model actually generated this answer -- "small" when
+    model_router.py routed an easy (high-confidence) question to the
+    smaller model, "main" otherwise."""
+    tag = "small" if model != main_model else "main"
+    logger.info(f"[model_route] used={model} ({tag})")
+
+
 def log_warmup(success: bool, elapsed_ms: float) -> None:
     status = "ok" if success else "FAILED"
     logger.info(f"[warmup] status={status} elapsed={elapsed_ms:.0f}ms")

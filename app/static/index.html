@@ -168,6 +168,12 @@
   }
   .footer-info span { display: inline-flex; align-items: center; gap: 3px; }
   .footer-info .slowest { color: var(--accent-dark); font-weight: 600; }
+  .model-line {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .model-line.small-model { color: var(--green); font-weight: 600; }
 
   details.sources {
     margin-top: 6px;
@@ -398,7 +404,7 @@ function renderMetadata(refs, meta, answerText) {
   refs.badge.className = 'badge ' + action;
   refs.badge.style.display = 'inline-block';
 
-  refs.footer.innerHTML = renderTimings(meta);
+  refs.footer.innerHTML = renderModelLine(meta) + renderTimings(meta);
 
   const chunks = meta.retrieved_chunks || [];
   if (chunks.length) {
@@ -424,6 +430,20 @@ const TIMING_STAGES = [
   ['ttft', 'First token'],
   ['generation', 'Generation'],
 ];
+
+// Task 5: shows which model actually answered -- the small/fast model
+// for a confidently-matched question, the main model otherwise, or a
+// cache hit (no model call at all this time).
+function renderModelLine(meta) {
+  if (meta.cache_hit) {
+    const kind = meta.cache_match_type === 'identical' ? 'Cached' : 'Cached (similar question)';
+    return `<div class="model-line">⚡ ${kind}</div>`;
+  }
+  if (!meta.generation_model) return '';
+  const isSmall = meta.model_tier === 'small';
+  const label = isSmall ? '⚡ Small model' : '🤖 Main model';
+  return `<div class="model-line ${isSmall ? 'small-model' : ''}">${label} -- ${escapeHtml(meta.generation_model)}</div>`;
+}
 
 function formatMs(ms) {
   return ms < 1000 ? `${Math.round(ms)} ms` : `${(ms / 1000).toFixed(1)} s`;

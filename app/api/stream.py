@@ -11,8 +11,9 @@ import time
 from fastapi.responses import StreamingResponse
 
 from app.api.config import GROQ_MODEL, GENERATION_TEMPERATURE, GENERATION_MAX_TOKENS, load_prompt_template
-from app.api.logs import log_timings, log_groq_error, log_tokens, log_trace
+from app.api.logs import log_timings, log_groq_error, log_tokens, log_trace, log_model_route
 from app.rag.retrieval import build_context
+from app.task5 import cache as qa_cache
 
 
 def empty_question_response() -> StreamingResponse:
@@ -84,9 +85,42 @@ def guardrail_response(
     return StreamingResponse(gen(), media_type="text/plain")
 
 
+def cached_response(
+    answer: str, detected_language: str, sources: list[str],
+    match_type: str, similarity: float, request_start: float,
+) -> StreamingResponse:
+    """
+    Task 5: a cache hit -- same shape of response as answer_response(),
+    minus anything that implies a real generation call happened (no
+    retrieved_chunks, no token_usage, no guardrail_action beyond this
+    marker), plus cache_match/cache_similarity so the UI/caller can tell
+    this didn't re-run the pipeline.
+    """
+    def gen():
+        yield answer
+        metadata = {
+            "language": detected_language,
+            "retrieval_mode": None,
+            "embedding_backend": None,
+            "retrieval_latency_ms": 0,
+            "timings_ms": {"total": (time.perf_counter() - request_start) * 1000},
+            "guardrail_action": "answer_normally",
+            "sources": sources,
+            "retrieved_chunks": [],
+            "token_usage": {"prompt_tokens": None, "completion_tokens": None, "total_tokens": None},
+            "cache_hit": True,
+            "cache_match_type": match_type,
+            "cache_similarity": similarity,
+        }
+        yield "\n\n---METADATA---\n"
+        yield json.dumps(metadata, ensure_ascii=False)
+    return StreamingResponse(gen(), media_type="text/plain")
+
+
 def answer_response(
     client, question: str, detected_language: str, mode: str, embedding_backend: str,
     retrieval_outcome: dict, chunks: list[dict], timings: dict, request_start: float,
+    question_embedding: list[float] | None = None, generation_model: str = GROQ_MODEL,
 ) -> StreamingResponse:
     context = build_context(chunks)
     template = load_prompt_template(detected_language)
@@ -96,7 +130,7 @@ def answer_response(
         generation_start = time.perf_counter()
         try:
             stream = client.chat.completions.create(
-                model=GROQ_MODEL,
+                model=generation_model,
                 messages=[{"role": "user", "content": filled_prompt}],
                 # qwen3.8-27b has no reasoning_effort param (see config.py's
                 # GROQ_MODEL note) -- rule 8's explicit language-purity
@@ -135,8 +169,15 @@ def answer_response(
         log_timings(detected_language, embedding_backend, "answer_normally", timings)
         log_tokens(detected_language, prompt_tokens, completion_tokens)
         log_trace(question, detected_language, filled_prompt, chunks, completion_text)
+        log_model_route(generation_model, GROQ_MODEL)
 
         sources = sorted(set(c["source_file"] for c in chunks))
+
+        # Task 5: store this Q&A so an identical or near-identical repeat
+        # skips the pipeline entirely next time. Only caches a real,
+        # non-empty answer -- never called on the guardrail/refusal paths.
+        if question_embedding is not None:
+            qa_cache.store(question, question_embedding, completion_text, detected_language, sources)
         metadata = {
             "language": detected_language,
             "retrieval_mode": mode,
@@ -144,6 +185,8 @@ def answer_response(
             "retrieval_latency_ms": retrieval_outcome["elapsed_ms"],
             "timings_ms": timings,
             "guardrail_action": "answer_normally",
+            "generation_model": generation_model,
+            "model_tier": "small" if generation_model != GROQ_MODEL else "main",
             "sources": sources,
             "retrieved_chunks": chunks,
             "token_usage": {

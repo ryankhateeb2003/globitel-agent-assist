@@ -24,9 +24,13 @@ from pydantic import BaseModel
 from groq import Groq
 
 from app.api.config import GROQ_MODEL, MAX_QUESTION_CHARS, STATIC_DIR, EMBEDDING_BACKEND_DEFAULT, DEFAULT_TOP_K
+from app.api.logs import log_cache
 from app.api.warm import lifespan
 from app.api import stream
+from app.task5 import cache as qa_cache
+from app.task5.model_router import choose_generation_model
 from app.rag.language_detect import detect_language
+from app.rag.retrieval import _embed_query
 from app.retrieval.retrieval import search as retrieval_search
 from app.guardrails.guardrails import (
     is_arabizi,
@@ -101,6 +105,21 @@ def ask(request: AskRequest):
     top_k = request.top_k or DEFAULT_TOP_K
     mode = request.mode or "hybrid"
     embedding_backend = request.embedding_backend or EMBEDDING_BACKEND_DEFAULT
+
+    # Task 5: cache check -- an identical or near-identical repeat of a
+    # question already answered skips retrieval, the guardrail
+    # classifier, and generation entirely. Computing this embedding is
+    # the only cost paid on a cache hit; everything downstream of it
+    # (3 Groq calls on a normal request) is skipped.
+    question_embedding = _embed_query(question, embedding_backend)
+    cache_hit = qa_cache.check(question, question_embedding)
+    if cache_hit:
+        log_cache(hit=True, match_type=cache_hit["match_type"], similarity=cache_hit["similarity"])
+        return stream.cached_response(
+            cache_hit["answer"], detected_language, cache_hit["sources"],
+            cache_hit["match_type"], cache_hit["similarity"], request_start,
+        )
+    log_cache(hit=False)
 
     client = get_groq_client()
 
@@ -237,9 +256,11 @@ def ask(request: AskRequest):
             retrieval_outcome, chunks, timings, request_start, refusal_text,
         )
 
+    generation_model = choose_generation_model(confidence_score, GROQ_MODEL)
     return stream.answer_response(
         client, question, detected_language, mode, embedding_backend,
         retrieval_outcome, chunks, timings, request_start,
+        question_embedding=question_embedding, generation_model=generation_model,
     )
 
 

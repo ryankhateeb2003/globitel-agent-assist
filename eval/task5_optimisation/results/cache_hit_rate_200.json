@@ -1,0 +1,1410 @@
+{
+  "n": 200,
+  "hits": 170,
+  "hit_rate": 0.85,
+  "match_types": {
+    "identical": 170
+  },
+  "items": [
+    {
+      "id": "en-multi-003",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 1720.4775029999837
+    },
+    {
+      "id": "en-multi-003",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 945.5771150001056
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 1081.384909999997
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 181.17800000027273
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 179.4299799998953
+    },
+    {
+      "id": "ar-multi-013",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 192.66378599968448
+    },
+    {
+      "id": "ar-refuse-012",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 1316.293887000029
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 687.7307679997102
+    },
+    {
+      "id": "ar-simple-011",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 464.97942299993156
+    },
+    {
+      "id": "ar-simple-018",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 479.3868090000615
+    },
+    {
+      "id": "en-simple-010",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 534.5856869998897
+    },
+    {
+      "id": "en-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 556.0405549999814
+    },
+    {
+      "id": "en-simple-011",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 638.7721179999062
+    },
+    {
+      "id": "ar-exact-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 461.64408000004187
+    },
+    {
+      "id": "en-multi-008",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 593.1754260000162
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 462.94249799984755
+    },
+    {
+      "id": "en-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 449.24854500004585
+    },
+    {
+      "id": "ar-simple-018",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 419.2542979999416
+    },
+    {
+      "id": "ar-refuse-013",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 3700.6854270002805
+    },
+    {
+      "id": "ar-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 1322.3682089997055
+    },
+    {
+      "id": "ar-shortcode-003",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 1064.8070219999681
+    },
+    {
+      "id": "en-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 214.03433599971322
+    },
+    {
+      "id": "en-simple-010",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 208.09189600004174
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 217.2669289998339
+    },
+    {
+      "id": "en-refuse-007",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 1335.9279100000094
+    },
+    {
+      "id": "ar-exact-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 480.4033239997807
+    },
+    {
+      "id": "en-shortcode-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 586.9473980001203
+    },
+    {
+      "id": "en-multi-005",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 498.0006210003012
+    },
+    {
+      "id": "en-refuse-006",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 1484.8424320002778
+    },
+    {
+      "id": "en-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 416.17199099982827
+    },
+    {
+      "id": "ar-multi-013",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 456.70917200004624
+    },
+    {
+      "id": "ar-exact-004",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 489.8305789997721
+    },
+    {
+      "id": "ar-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 507.5402879997455
+    },
+    {
+      "id": "ar-shortcode-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 463.4340239999801
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 591.1859240000013
+    },
+    {
+      "id": "en-refuse-005",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 3850.601770999674
+    },
+    {
+      "id": "ar-shortcode-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 955.0286170001527
+    },
+    {
+      "id": "en-refuse-002",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 1639.072939000016
+    },
+    {
+      "id": "en-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 312.7140370002053
+    },
+    {
+      "id": "ar-exact-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 448.00593800027855
+    },
+    {
+      "id": "ar-refuse-011",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 13137.064580999777
+    },
+    {
+      "id": "ar-multi-015",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 572.5184759999138
+    },
+    {
+      "id": "ar-exact-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 549.7037039999668
+    },
+    {
+      "id": "en-refuse-008",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 12903.1491679998
+    },
+    {
+      "id": "en-multi-001",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 566.5829699996721
+    },
+    {
+      "id": "en-multi-008",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 437.9667339999287
+    },
+    {
+      "id": "ar-exact-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 430.7859240002472
+    },
+    {
+      "id": "ar-multi-010",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 428.04709099982574
+    },
+    {
+      "id": "ar-exact-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 447.48884499995256
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 401.83086200022444
+    },
+    {
+      "id": "ar-shortcode-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 376.5087100000528
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 450.40129200015144
+    },
+    {
+      "id": "ar-shortcode-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 432.0802340002956
+    },
+    {
+      "id": "ar-simple-015",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 453.35964300011256
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 438.205790000211
+    },
+    {
+      "id": "ar-simple-014",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 599.136911000187
+    },
+    {
+      "id": "ar-shortcode-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 457.7484779997576
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 488.66551900027844
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 436.68220999961704
+    },
+    {
+      "id": "ar-simple-015",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 448.87629100003323
+    },
+    {
+      "id": "en-shortcode-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 429.2917560001115
+    },
+    {
+      "id": "en-shortcode-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 2349.952515000041
+    },
+    {
+      "id": "ar-exact-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 1541.5707540000767
+    },
+    {
+      "id": "ar-simple-015",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 842.1493360001477
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 761.2608070003262
+    },
+    {
+      "id": "ar-exact-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 178.73250799993912
+    },
+    {
+      "id": "en-simple-010",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 186.23698400006106
+    },
+    {
+      "id": "ar-simple-013",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 187.5597039997956
+    },
+    {
+      "id": "ar-shortcode-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 174.21240000021498
+    },
+    {
+      "id": "en-refuse-001",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 1204.3667409998307
+    },
+    {
+      "id": "ar-simple-018",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 440.4059909998068
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 572.8306250002788
+    },
+    {
+      "id": "en-multi-008",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 453.0707320000147
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 491.18886799988104
+    },
+    {
+      "id": "ar-refuse-015",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 10671.446928000023
+    },
+    {
+      "id": "ar-refuse-012",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 14954.65642499994
+    },
+    {
+      "id": "ar-multi-010",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 8009.384453999701
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 8049.515897999754
+    },
+    {
+      "id": "ar-multi-011",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 5885.35754600025
+    },
+    {
+      "id": "en-multi-008",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 4218.945861000066
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 1674.6941020001032
+    },
+    {
+      "id": "en-multi-005",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 536.0375119998935
+    },
+    {
+      "id": "en-shortcode-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 242.1182480002244
+    },
+    {
+      "id": "en-multi-008",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 227.52801900014674
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 321.0912389999976
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 344.40006200020434
+    },
+    {
+      "id": "en-refuse-004",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 3272.744024000076
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 571.3726750000205
+    },
+    {
+      "id": "ar-simple-014",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 509.7980010000356
+    },
+    {
+      "id": "en-multi-005",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 542.4024620001546
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 431.9617319997633
+    },
+    {
+      "id": "en-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 487.71769499990114
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 1210.5012410002018
+    },
+    {
+      "id": "ar-refuse-012",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 4587.000148000243
+    },
+    {
+      "id": "en-multi-005",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 469.03127299992775
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 502.5904750000336
+    },
+    {
+      "id": "ar-exact-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 480.78012399992076
+    },
+    {
+      "id": "en-multi-004",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 462.06854999991265
+    },
+    {
+      "id": "en-simple-010",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 497.8209490000154
+    },
+    {
+      "id": "en-refuse-001",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 2545.2757699999893
+    },
+    {
+      "id": "en-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 439.4160219999321
+    },
+    {
+      "id": "ar-simple-014",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 458.9179680001507
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 476.8566729999293
+    },
+    {
+      "id": "en-shortcode-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 489.66131899987886
+    },
+    {
+      "id": "en-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 454.6631870002784
+    },
+    {
+      "id": "ar-shortcode-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 458.0627079999431
+    },
+    {
+      "id": "ar-exact-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 288.5945749999337
+    },
+    {
+      "id": "en-refuse-003",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 8245.734702999926
+    },
+    {
+      "id": "ar-exact-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 474.89023699972677
+    },
+    {
+      "id": "en-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 476.38357200003156
+    },
+    {
+      "id": "en-exact-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 459.6390579999934
+    },
+    {
+      "id": "en-shortcode-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 570.4902800002856
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 160.0239680001323
+    },
+    {
+      "id": "ar-exact-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 243.1716860000961
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 413.9477270000498
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 434.8661180001727
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 397.61524999994435
+    },
+    {
+      "id": "en-simple-010",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 420.9572609997849
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 564.7066579999773
+    },
+    {
+      "id": "ar-exact-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 400.7492329997149
+    },
+    {
+      "id": "ar-multi-010",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 615.3020319998177
+    },
+    {
+      "id": "ar-multi-011",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 552.4285480000799
+    },
+    {
+      "id": "en-multi-004",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 1991.8107039998176
+    },
+    {
+      "id": "en-shortcode-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 1778.613637000035
+    },
+    {
+      "id": "en-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 1829.6518519996425
+    },
+    {
+      "id": "ar-refuse-013",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 2220.185667000351
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 495.0794690003022
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 437.0650230002866
+    },
+    {
+      "id": "en-refuse-008",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 1894.2535880000833
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 283.9440059997287
+    },
+    {
+      "id": "ar-simple-014",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 236.07672299976912
+    },
+    {
+      "id": "en-multi-005",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 97.51842600007876
+    },
+    {
+      "id": "en-multi-005",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 109.0517570000884
+    },
+    {
+      "id": "ar-simple-009",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 109.52079900016543
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 113.51245600008042
+    },
+    {
+      "id": "ar-simple-014",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 93.21224099994652
+    },
+    {
+      "id": "ar-refuse-015",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 2111.0898309998447
+    },
+    {
+      "id": "ar-simple-018",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 417.15246599960665
+    },
+    {
+      "id": "ar-simple-018",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 256.7314049997549
+    },
+    {
+      "id": "en-multi-005",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 110.44292500037045
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 110.31561399977363
+    },
+    {
+      "id": "ar-refuse-015",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 689.9663310000506
+    },
+    {
+      "id": "en-multi-003",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 94.34386400016592
+    },
+    {
+      "id": "en-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 100.05918300021222
+    },
+    {
+      "id": "ar-multi-013",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 95.63318100026663
+    },
+    {
+      "id": "en-refuse-008",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 794.8924550000811
+    },
+    {
+      "id": "en-multi-006",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 104.44108000001506
+    },
+    {
+      "id": "en-simple-015",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 148.87601400005224
+    },
+    {
+      "id": "en-multi-007",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 87.43783699992491
+    },
+    {
+      "id": "en-refuse-004",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 675.42423399982
+    },
+    {
+      "id": "en-multi-001",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 96.14169199994649
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 93.0384079997566
+    },
+    {
+      "id": "ar-refuse-014",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 9217.273750999993
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 236.0311009997531
+    },
+    {
+      "id": "ar-simple-017",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 165.96546999971906
+    },
+    {
+      "id": "en-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 213.9189389999956
+    },
+    {
+      "id": "ar-simple-014",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 149.4677320001756
+    },
+    {
+      "id": "ar-exact-004",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 356.28250900026615
+    },
+    {
+      "id": "en-refuse-007",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 12123.075110000173
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 218.65814300008424
+    },
+    {
+      "id": "en-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 552.6137299998481
+    },
+    {
+      "id": "en-shortcode-003",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 207.23992500006716
+    },
+    {
+      "id": "ar-refuse-011",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 13939.203762000034
+    },
+    {
+      "id": "en-simple-018",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 343.11053200008246
+    },
+    {
+      "id": "ar-simple-017",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 204.40337600030034
+    },
+    {
+      "id": "ar-multi-009",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 189.94346299996323
+    },
+    {
+      "id": "en-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 348.0775170000925
+    },
+    {
+      "id": "en-exact-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 270.7990640001299
+    },
+    {
+      "id": "ar-exact-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 161.9712290003008
+    },
+    {
+      "id": "ar-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 108.57041000008394
+    },
+    {
+      "id": "ar-refuse-013",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 13143.252393999774
+    },
+    {
+      "id": "ar-refuse-009",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 15150.773061000109
+    },
+    {
+      "id": "ar-simple-017",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 95.30551699981515
+    },
+    {
+      "id": "ar-shortcode-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 90.81757400008428
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 80.66647100031332
+    },
+    {
+      "id": "ar-exact-004",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 77.51065899992682
+    },
+    {
+      "id": "ar-shortcode-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 101.12539299962009
+    },
+    {
+      "id": "ar-multi-013",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 1094.165516999965
+    },
+    {
+      "id": "en-multi-007",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 100.05428600015875
+    },
+    {
+      "id": "en-multi-008",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 140.28216199994858
+    },
+    {
+      "id": "en-refuse-001",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 12009.404203000031
+    },
+    {
+      "id": "en-shortcode-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 110.89063100007479
+    },
+    {
+      "id": "ar-simple-015",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 82.16427299976203
+    },
+    {
+      "id": "en-refuse-004",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 14194.089170000098
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 115.28234300021722
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 87.6068640000085
+    },
+    {
+      "id": "en-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 94.89744299980885
+    },
+    {
+      "id": "en-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 92.09978299986687
+    },
+    {
+      "id": "en-exact-008",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 96.37788100008038
+    },
+    {
+      "id": "en-shortcode-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 90.88126899996496
+    },
+    {
+      "id": "en-refuse-001",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 12976.350033000017
+    },
+    {
+      "id": "en-refuse-001",
+      "type": "should_refuse",
+      "cache_hit": false,
+      "match_type": null,
+      "total_ms": 14391.100364000067
+    },
+    {
+      "id": "en-shortcode-003",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 98.75284500003545
+    },
+    {
+      "id": "en-multi-007",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 81.80965900010051
+    },
+    {
+      "id": "en-shortcode-002",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 78.69526699960261
+    },
+    {
+      "id": "en-multi-005",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 90.29335300010644
+    },
+    {
+      "id": "ar-simple-014",
+      "type": "simple_factual",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 117.85643400025947
+    },
+    {
+      "id": "ar-multi-013",
+      "type": "multi_chunk",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 108.80438599997433
+    },
+    {
+      "id": "en-shortcode-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 3220.3265940001984
+    },
+    {
+      "id": "ar-exact-001",
+      "type": "exact_value",
+      "cache_hit": true,
+      "match_type": "identical",
+      "total_ms": 3128.252317999795
+    }
+  ]
+}
